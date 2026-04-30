@@ -74,7 +74,7 @@
         }
         .hero p { font-size:1.25rem; max-width:600px; margin:1.5rem auto 2rem; }
         .logo.png {
-            width:30px; height:30px; margin:0 auto 1.5rem; border-radius:50%;
+            width:25px; height:25px; margin:0 auto 1.5rem; border-radius:50%;
             border:2px solid var(--gold); overflow:hidden; display:flex; align-items:center;
             justify-content:center; background:rgba(13,22,37,0.8);
         }
@@ -103,8 +103,8 @@
             padding:1.5rem 2rem; margin:2rem 0; font-style:italic;
         }
         .quote-block p { font-size:1.2rem; color:var(--gold-pale); }
-        .founder-img-container { width:200px; height:200px; border:2px solid var(--gold); overflow:hidden; margin:0 auto 1rem; }
-        .founder-img-container img { width:100%; height:100%; object-fit:cover; }
+        .author-img-container { width:200px; height:200px; border:2px solid var(--gold); overflow:hidden; margin:0 auto 1rem; }
+        .auther-img-container img { width:100%; height:100%; object-fit:cover; }
         .site-footer {
             background:var(--navy-deep); border-top:1px solid rgba(198,160,86,0.3);
             padding:3rem 0 2rem; text-align:center;
@@ -163,8 +163,8 @@
         <!-- Hero -->
         <section class="hero" id="home">
             <div class="hero-content">
-                <div class="hawk-crest">
-                    <img src="logo.png" alt="Ethic Hawks Crest" class=logo-img onerror="this.style.display='none';this.parentElement.innerHTML='EH';">
+                <div class="logo.png">
+                    <img src="logo.png" alt="Ethic Hawks Crest" class=logo-img onerror="this.parentElement.innerHTML='EH';">
                 </div>
                 <p class="eyebrow">Forensic Governance &amp; Risk Architecture</p>
                 <h1>The Wilbur <span class="gold-text">Method™</span></h1>
@@ -344,8 +344,9 @@
                         <p>I founded <strong class="gold-text">EthicHawks</strong> because tracing systemic failure is my exact capability — and I make this expertise available to organisations that need governance frameworks that actually work, and to individuals and whistleblowers who need someone who understands the clinical, legal, and psychosocial dimensions of institutional accountability.</p>
                     </div>
                     <div style="display:flex;flex-direction:column;align-items:center;">
-                        <div class="founder-img-container">
-                            <img src="author.jpg" alt="Wilbur Matthee SRN" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:3rem;color:var(--gold);\'>WM</div>';">
+                        <div class="author-img-container">
+                            <img src="author.jpg" alt="Wilbur Matthee SRN" onerror=this.parentElement.innerHTML='<div 
+                                                                                                                     style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:3rem;color:var(--gold);\'>WM</div>';">
                         </div>
                         <div class="service-card" style="width:100%;">
                             <h3>Core Competencies</h3>
