@@ -131,7 +131,7 @@
             }
             nav.mobile-open a { margin:0.7rem 0; }
             .hero { padding:4rem 0 3rem; }
-        }
+        
     </style>
 </head>
 <body>
@@ -403,7 +403,6 @@
             localStorage.setItem('ethichawks_consent','true');
         }
         if(localStorage.getItem('ethichawks_consent')==='true') {
-            document.getElementById('consentBanner').style.display='none';
         }
 
         document.querySelectorAll('nav a').forEach(link => {
