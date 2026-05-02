@@ -25,4 +25,9 @@
     secretsCollection: # optional
     # Optional. Variables corresponding to the test. You must enter the variables in the format: name_of_the_variable=value_of_the_variable
     variables: # optional
+          - name: Build
+        run: npm run build # or whatever build command you use
+        env:
+          VITE_GEMINI_API_KEY: ${{ secrets.VITE_GEMINI_API_KEY }}
+
           
