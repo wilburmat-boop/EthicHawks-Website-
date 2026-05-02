@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Ethic Hawks – Forensic Governance &amp; The Wilbur Method™</title>
     <meta name="description" content="The Wilbur Method™ — forensic architecture and the science of institutional integrity. We diagnose and excise Institutional Sepsis through the Closed Loop of Truth.">
-    <style>
-        * { margin:0; padding:0; box-sizing:border-box; }
+    <style> ="* 
+        margin:0; padding:0; box-sizing:border-box
         :root {
             --navy: #172744; --navy-deep: #0D1625; --navy-mid: #1A2D4A;
             --gold: #C6A056; --gold-light: #DFC07A; --gold-pale: #F2E0B8;
@@ -121,9 +121,8 @@
             flex-wrap:wrap; gap:1rem; color:var(--white); font-family:var(--font-mono); font-size:0.85rem;
         }
         .consent-banner .btn-sm { padding:0.5rem 1rem; font-size:0.75rem; }
-        @media (max-width:768px) {
-            .grid-2 { grid-template-columns:1fr; }
-            nav { display:none; }
+        @media (max-width:768px) {}  .grid-2 { grid-template-columns:1fr; }
+                         nav { display:none; }
             .menu-toggle { display:block; }
             nav.mobile-open {
                 display:flex; flex-direction:column; position:absolute; top:100%; left:0; right:0;
@@ -164,7 +163,7 @@
         <section class="hero" id="home">
             <div class="hero-content">
                 <div class="logo-container">
-                    <img src="assets/logo.png" alt="Ethic Hawks Crest" class=logo-img onerror="this.parentElement.innerHTML='EH';">
+                    <img src="assets/logo.png" alt="logo.png" class=logo-img onerror="this.parentElement.innerHTML='EH';">
                 </div>
                 <p class="eyebrow">Forensic Governance &amp; Risk Architecture</p>
                 <h1>The Wilbur <span class="gold-text">Method™</span></h1>
@@ -402,9 +401,8 @@
             document.getElementById('consentBanner').style.display='none';
             localStorage.setItem('ethichawks_consent','true');
         }
-        if(localStorage.getItem('ethichawks_consent')==='true') {
-        }
-
+        if (localStorage.getItem('ethichawks_consent')==='true'
+        )
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click',() => nav.classList.remove('mobile-open'));
         });

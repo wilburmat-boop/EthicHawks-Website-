@@ -9,7 +9,7 @@ Built around the proprietary **Wilbur Method™** – a forensic architecture th
 - `terms.html` – Terms of Service (legal agreement for site use).
 - `privacy-policy.html` – Privacy Policy (POPIA‑compliant, essential‑only cookies, no tracking).
 - `paia-manual.html` – PAIA Manual (Promotion of Access to Information Act guide).
-- `images/` – Folder for your hawk crest logo (`hawk-crest.png`) and founder photo (`founder-photo.jpg`).
+- `images/` – Folder for your hawk crest logo (`logo.png`) and founder photo (`author.png`).
 
 ## How to deploy
 
