@@ -1,13 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Ethic Hawks – Forensic Governance &amp; The Wilbur Method™</title>
+    <title>Ethic Hawks – Forensic Governance & The Wilbur Method™</title>
     <meta name="description" content="The Wilbur Method™ — forensic architecture and the science of institutional integrity. We diagnose and excise Institutional Sepsis through the Closed Loop of Truth.">
-    <style> ="* 
-        margin:0; padding:0; box-sizing:border-box
+    <style>
+        /* CSS RESET & CORE */
+        * { margin:0; padding:0; box-sizing:border-box; }
+        
         :root {
             --navy: #172744; --navy-deep: #0D1625; --navy-mid: #1A2D4A;
             --gold: #C6A056; --gold-light: #DFC07A; --gold-pale: #F2E0B8;
@@ -16,487 +17,215 @@
             --rule: rgba(198,160,86,0.35);
             --grad-gold: linear-gradient(135deg, #8B6B2A 0%, #C6A056 40%, #DFC07A 60%, #C6A056 80%, #8B6B2A 100%);
             --grad-hero: linear-gradient(170deg, #0D1625 0%, #172744 35%, #1A2D4A 65%, #0D1625 100%);
-            --grad-purple: linear-gradient(135deg, #4A1060 0%, #8B1A3A 40%, #C0390A 70%, #D4620A 100%);
             --font-heading: 'Cinzel','Times New Roman',serif;
             --font-body: 'Cormorant Garamond','Georgia',serif;
             --font-mono: 'Montserrat','Helvetica Neue',sans-serif;
         }
+
         html { scroll-behavior:smooth; }
         body {
             font-family:var(--font-body); background:var(--navy-deep);
             color:var(--white); line-height:1.6; -webkit-font-smoothing:antialiased;
         }
+
         .container { max-width:1200px; margin:0 auto; padding:0 1.5rem; }
         h1,h2,h3,h4,h5,h6 { font-family:var(--font-heading); font-weight:700; letter-spacing:0.02em; }
         h1 { font-size:clamp(2.2rem,6vw,3.5rem); line-height:1.1; color:var(--white); }
         h2 { font-size:clamp(1.8rem,4vw,2.4rem); color:var(--gold); margin-bottom:1rem; }
-        h3 { font-family:var(--font-mono); font-size:0.95rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold-light); }
-        p, li { font-size:1.1rem; line-height:1.7; color:rgba(255,255,255,0.85); }
+        
+        /* REVEAL PANEL STYLES */
+        .reveal-wrapper {
+            margin-bottom: 1rem;
+            border: 1px solid rgba(198, 160, 86, 0.3);
+            background: rgba(23, 39, 68, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .reveal-header {
+            padding: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-heading);
+            color: var(--gold-light);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .reveal-header:hover { background: rgba(198, 160, 86, 0.1); }
+
+        .reveal-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0 1.2rem;
+        }
+
+        .reveal-wrapper.active .reveal-body {
+            max-height: 500px;
+            padding: 1rem 1.2rem;
+            border-top: 1px solid rgba(198, 160, 86, 0.1);
+        }
+
+        .reveal-icon { font-size: 1.2rem; transition: transform 0.3s; }
+        .reveal-wrapper.active .reveal-icon { transform: rotate(45deg); color: var(--gold); }
+
+        /* CHAT INTERFACE */
+        #chat-wrapper {
+            position: fixed; bottom: 80px; right: 20px; width: 350px; height: 450px;
+            background: var(--navy-deep); border: 1px solid var(--gold);
+            display: flex; flex-direction: column; z-index: 2000; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        #chat-header { background: var(--grad-gold); color: var(--navy-deep); padding: 10px; display: flex; justify-content: space-between; font-family: var(--font-mono); font-weight: bold; }
+        #chat-container { flex: 1; overflow-y: auto; padding: 15px; display: flex; flex-direction: column; gap: 10px; }
+        .message { padding: 8px 12px; border-radius: 4px; max-width: 85%; font-size: 0.9rem; }
+        .user-message { align-self: flex-end; background: var(--navy-mid); color: var(--gold-light); border: 1px solid var(--gold-dark); }
+        .gemini-message { align-self: flex-start; background: rgba(198,160,86,0.1); color: var(--white); border-left: 3px solid var(--gold); }
+        #chat-input-area { display: flex; padding: 10px; border-top: 1px solid var(--rule); }
+        #user-input { flex: 1; background: transparent; border: none; color: var(--white); outline: none; }
+        #chat-toggle-btn { position: fixed; bottom: 20px; right: 20px; background: var(--grad-gold); border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; z-index: 2001; font-size: 1.5rem; }
+        .hidden { display: none !important; }
+
+        /* HERO & NAV */
+        .site-header { background:rgba(13,22,37,0.97); backdrop-filter:blur(12px); border-bottom:1px solid rgba(198,160,86,0.2); position:sticky; top:0; z-index:100; padding:0.8rem 0; }
+        .header-inner { display:flex; justify-content:space-between; align-items:center; }
+        .logo { font-family:var(--font-heading); font-size:1.6rem; color:var(--white); text-decoration:none; }
+        .logo span { color:var(--gold); }
+        .hero { background:var(--grad-hero); padding:6rem 0 5rem; text-align:center; }
         .gold-text { color:var(--gold); }
         .gold-border { border-bottom:2px solid var(--gold); padding-bottom:0.5rem; margin-bottom:1.5rem; }
-        .btn {
-            display:inline-block; background:var(--grad-gold); color:var(--navy-deep);
-            font-family:var(--font-mono); font-weight:700; font-size:0.85rem;
-            letter-spacing:0.1em; text-transform:uppercase; padding:0.8rem 1.8rem;
-            border:none; cursor:pointer; text-decoration:none; transition:all 0.3s ease;
-        }
-        .btn:hover { opacity:0.9; transform:translateY(-2px); box-shadow:0 4px 15px rgba(198,160,86,0.4); }
-        .btn-outline { background:transparent; border:1px solid var(--gold); color:var(--gold); }
-        .site-header {
-            background:rgba(13,22,37,0.97); backdrop-filter:blur(12px);
-            border-bottom:1px solid rgba(198,160,86,0.2); position:sticky; top:0; z-index:100; padding:0.8rem 0;
-        }
-        .header-inner { display:flex; justify-content:space-between; align-items:center; }
-        .logo {
-            font-family:var(--font-heading); font-size:1.6rem; font-weight:900;
-            color:var(--white); text-decoration:none; letter-spacing:0.1em;
-        }
-        .logo span { color:var(--gold); }
-        nav a {
-            color:rgba(255,255,255,0.7); text-decoration:none; margin-left:2rem;
-            font-family:var(--font-mono); font-size:0.8rem; font-weight:600;
-            letter-spacing:0.05em; text-transform:uppercase; transition:color 0.3s;
-        }
-        nav a:hover, nav a.active { color:var(--gold); }
-        .menu-toggle { display:none; background:none; border:none; color:var(--white); font-size:1.8rem; cursor:pointer; }
-        .hero {
-            background:var(--grad-hero); padding:6rem 0 5rem; text-align:center;
-            position:relative; overflow:hidden;
-        }
-        .hero::before {
-            content:''; position:absolute; inset:0;
-            background:radial-gradient(circle at 30% 40%, rgba(198,160,86,0.08), transparent 60%);
-        }
-        .hero-content { position:relative; max-width:800px; margin:0 auto; }
-        .hero .eyebrow {
-            font-family:var(--font-mono); font-size:0.95rem; letter-spacing:0.3em;
-            text-transform:uppercase; color:var(--gold); margin-bottom:1rem;
-        }
-        .hero p { font-size:1.25rem; max-width:600px; margin:1.5rem auto 2rem; }
-        .logo.png {
-            width:25px; height:25px; margin:0 auto 1.5rem; border-radius:50%;
-            border:2px solid var(--gold); overflow:hidden; display:flex; align-items:center;
-            justify-content:center; background:rgba(13,22,37,0.8);
-        }
-        .logo.png { width:100%; height:100%; object-fit:cover; }
-        section { padding:4.5rem 0; }
-        .section-dark { background:var(--navy-deep); }
-        .section-light { background:var(--navy-mid); }
+        .btn { display:inline-block; background:var(--grad-gold); color:var(--navy-deep); padding:0.8rem 1.8rem; border:none; cursor:pointer; text-decoration:none; }
+        .section-dark { background:var(--navy-deep); padding: 4.5rem 0; }
         .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
-        .grid-3 { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:2rem; }
-        .service-card {
-            background:rgba(23,39,68,0.6); border:1px solid rgba(198,160,86,0.2);
-            padding:2rem 1.8rem; transition:transform 0.3s, box-shadow 0.3s;
-            height:100%; display:flex; flex-direction:column;
-        }
-        .service-card:hover { transform:translateY(-6px); box-shadow:0 12px 25px rgba(198,160,86,0.15); }
-        .service-card h3 { font-size:1rem; margin-bottom:0.8rem; }
-        .service-card p { font-size:0.95rem; flex:1; }
-        .pill-badge {
-            display:inline-block; background:rgba(198,160,86,0.15);
-            border:1px solid rgba(198,160,86,0.35); color:var(--gold-light);
-            font-family:var(--font-mono); font-size:0.7rem; font-weight:700;
-            letter-spacing:0.08em; text-transform:uppercase; padding:0.3rem 0.9rem; margin:0.2rem;
-        }
-        .quote-block {
-            border-left:3px solid var(--gold); background:rgba(198,160,86,0.06);
-            padding:1.5rem 2rem; margin:2rem 0; font-style:italic;
-        }
-        .quote-block p { font-size:1.2rem; color:var(--gold-pale); }
-        .author-img-container { width:200px; height:200px; border:2px solid var(--gold); overflow:hidden; margin:0 auto 1rem; }
-        .auther-img-container img { width:100%; height:100%; object-fit:cover; }
-        .site-footer {
-            background:var(--navy-deep); border-top:1px solid rgba(198,160,86,0.3);
-            padding:3rem 0 2rem; text-align:center;
-        }
-        .footer-links a {
-            color:var(--gold-light); text-decoration:none; margin:0 0.8rem;
-            font-family:var(--font-mono); font-size:0.8rem;
-        }
-        .footer-copy { font-family:var(--font-body); font-size:0.9rem; color:rgba(255,255,255,0.5); margin-top:1.5rem; }
-        .consent-banner {
-            position:fixed; bottom:0; left:0; right:0; background:rgba(10,15,25,0.98);
-            backdrop-filter:blur(20px); border-top:2px solid var(--gold); padding:1rem 2rem;
-            display:flex; justify-content:space-between; align-items:center; z-index:1000;
-            flex-wrap:wrap; gap:1rem; color:var(--white); font-family:var(--font-mono); font-size:0.85rem;
-        }
-        .consent-banner .btn-sm { padding:0.5rem 1rem; font-size:0.75rem; }
-        @media (max-width:768px) {}  .grid-2 { grid-template-columns:1fr; }
-                         nav { display:none; }
-            .menu-toggle { display:block; }
-            nav.mobile-open {
-                display:flex; flex-direction:column; position:absolute; top:100%; left:0; right:0;
-                background:rgba(13,22,37,0.99); padding:1rem;
-            }
-            nav.mobile-open a { margin:0.7rem 0; }
-            .hero { padding:4rem 0 3rem; }
-        
+        @media (max-width:768px) { .grid-2 { grid-template-columns:1fr; } }
     </style>
 </head>
 <body>
-    <!-- Consent Banner -->
-    <div class="consent-banner" id="consentBanner">
-        <span>We use only essential cookies to secure your session. No tracking, no third‑party sharing. We align our integrity with your privacy.</span>
-        <div>
-            <button class="btn btn-sm" onclick="acceptConsent()">I ACCEPT</button>
-            <button class="btn btn-sm btn-outline" style="margin-left:0.5rem;" onclick="acceptConsent()">ESSENTIAL ONLY</button>
+
+    <button id="chat-toggle-btn">🦅</button>
+
+    <div id="chat-wrapper" class="hidden">
+        <div id="chat-header">
+            <span>ETHIC HAWKS AI</span>
+            <span id="close-chat" style="cursor:pointer">×</span>
+        </div>
+        <div id="chat-container"></div>
+        <div id="chat-input-area">
+            <input type="text" id="user-input" placeholder="Initiate diagnostic query...">
+            <button id="send-btn" style="background:none; border:none; color:var(--gold); cursor:pointer">➔</button>
         </div>
     </div>
 
-    <!-- Header -->
     <header class="site-header">
         <div class="container header-inner">
             <a href="#home" class="logo">ETHIC <span>HAWKS</span></a>
-            <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
-            <nav id="mainNav">
-                <a href="#home" class="active">Home</a>
-                <a href="#method">The Method</a>
-                <a href="#services">Services</a>
-                <a href="#about">About</a>
-                <a href="#contact">Engage</a>
-            </nav>
         </div>
     </header>
 
     <main>
-        <!-- Hero -->
         <section class="hero" id="home">
-            <div class="hero-content">
-                <div class="logo-container">
-                    <img src="assets/logo.png" alt="logo.png" class=logo-img onerror="this.parentElement.innerHTML='EH';">
-                </div>
-                <p class="eyebrow">Forensic Governance &amp; Risk Architecture</p>
+            <div class="container">
                 <h1>The Wilbur <span class="gold-text">Method™</span></h1>
-                <p>Forensic Architecture and the Science of Institutional Integrity. We do not treat symptoms. We excise the root cause.</p>
-                <a href="#contact" class="btn">Secure an Initial Consultation</a>
+                <p>Forensic Architecture and the Science of Institutional Integrity.</p>
+                <a href="#contact" class="btn" style="margin-top:2rem;">Secure a Consultation</a>
             </div>
         </section>
 
-        <!-- The Closed Loop of Truth -->
         <section class="section-dark" id="method">
             <div class="container">
                 <h2 class="gold-border">The Closed Loop of Truth</h2>
                 <div class="grid-2">
                     <div>
-                        <p>Institutional failure rarely begins as a catastrophe. It starts quietly — an unauthorised deduction, a board resolution passed without risk assessment, a whistleblower silenced. These micro‑breaches accumulate like plaque in an artery until the institution suffers a governance cardiac arrest everyone claims was "unforeseeable."</p>
-                        <p>The <strong>Wilbur Method™</strong> treats governance failure not as a moral shortcoming but as a structural pathology to be surgically removed.</p>
-                        <div class="quote-block">
-                            <p>"Just as a clinician reads vital signs, runs diagnostic scans, identifies the pathogen, and applies targeted treatment — the Wilbur Method™ audits the paper trail, identifies the exact coordinates of statutory breach, traces the root cause to its structural origin, and applies the statutory remedy with surgical precision."</p>
+                        <p>Institutional failure starts quietly. The <strong>Wilbur Method™</strong> treats governance failure as a pathology to be surgically removed.</p>
+                    </div>
+                    <div>
+                        <h3>Diagnostic Coordinates</h3>
+                        
+                        <div class="reveal-wrapper">
+                            <div class="reveal-header" onclick="this.parentElement.classList.toggle('active')">
+                                <span>01. The Proclaimed Policy</span>
+                                <span class="reveal-icon">+</span>
+                            </div>
+                            <div class="reveal-body">
+                                <p>What the entity says it does — its constitution and board resolutions.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <h3>Three Points of Alignment</h3>
-                        <div class="service-card" style="margin-bottom:1rem;">
-                            <h3>01. The Proclaimed Policy</h3>
-                            <p>What the entity says it does — its constitution, board resolutions, and public commitments.</p>
+
+                        <div class="reveal-wrapper">
+                            <div class="reveal-header" onclick="this.parentElement.classList.toggle('active')">
+                                <span>02. The Paper Trail</span>
+                                <span class="reveal-icon">+</span>
+                            </div>
+                            <div class="reveal-body">
+                                <p>What the data proves it actually did — verifiable and irrefutable.</p>
+                            </div>
                         </div>
-                        <div class="service-card" style="margin-bottom:1rem;">
-                            <h3>02. The Paper Trail</h3>
-                            <p>What the data proves it actually did — time‑stamped, verifiable, and irrefutable.</p>
-                        </div>
-                        <div class="service-card">
-                            <h3>03. The Statutory Obligation</h3>
-                            <p>What the law mandates must be done — Companies Act, PFMA, Protected Disclosures Act, and sector‑specific legislation.</p>
-                        </div>
-                        <p style="margin-top:1rem;">Any divergence between these three points opens the loop. An open loop is the diagnostic signature of <strong class="gold-text">Institutional Sepsis</strong>.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Six Pillars -->
-        <section class="section-light" id="pillars">
-            <div class="container">
-                <h2 class="gold-border">The Six Pillars of Institutional Integrity</h2>
-                <p style="margin-bottom:2rem;">These are not aspirational values — they are binding operational standards to which every Ethic Hawk is unconditionally accountable.</p>
-                <div class="grid-3">
-                    <div class="service-card">
-                        <h3>I. Statutory Obligation</h3>
-                        <p>Governance is not a suggestion. No administrative oversight accepted as excuse for statutory fraud. Every deduction, policy shift, and communication must form a closed loop of truth.</p>
-                        <span class="pill-badge">The Law</span>
-                    </div>
-                    <div class="service-card">
-                        <h3>II. Specialist Duty</h3>
-                        <p>Duty to the system and its beneficiaries, not to corporate ego. We apply the same forensic rigour to a balance sheet as to a clinical diagnosis.</p>
-                        <span class="pill-badge">The System</span>
-                    </div>
-                    <div class="service-card">
-                        <h3>III. Protection of the Voice</h3>
-                        <p>A system that punishes the whistleblower has accepted its own decay. Occupational detriment is a clinical emergency requiring immediate triage.</p>
-                        <span class="pill-badge">The Sensor</span>
-                    </div>
-                    <div class="service-card">
-                        <h3>IV. Procedural Mastery</h3>
-                        <p>Victory through the War of Attrition played with technical perfection. We master time‑stamps and use the institution's own rules to lock accountability.</p>
-                        <span class="pill-badge">The Execution</span>
-                    </div>
-                    <div class="service-card">
-                        <h3>V. Radical Transparency</h3>
-                        <p>No entity is too big to comply. Corporate arrogance is a blind spot awaiting a forensic audit. The paper trail speaks for itself.</p>
-                        <span class="pill-badge">The Mirror</span>
-                    </div>
-                    <div class="service-card">
-                        <h3>VI. Sovereign Accountability</h3>
-                        <p>The Governor is subject to the same standards as the Governed, including personal liability. The corporate veil does not shield personal failure.</p>
-                        <span class="pill-badge">The Governor</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Core Services -->
-        <section class="section-dark" id="services">
-            <div class="container">
-                <h2 class="gold-border">Core Services</h2>
-                <div class="grid-2">
-                    <div>
-                        <h3>Forensic Integrity Audits</h3>
-                        <p>In an era of increased regulatory scrutiny, a standard audit is not enough. Our Forensic Integrity Audits go beyond the numbers, providing a deep‑dive diagnostic into the ethical and operational health of your organisation.</p>
-                        <ul style="list-style:none;padding-left:0;">
-                            <li>◆ Fraud Risk Assessment &amp; Detection — proactive stress tests on internal controls.</li>
-                            <li>◆ Compliance with PRECCA and FICA.</li>
-                            <li>◆ Closed Loop Audit Protocol — the ten‑step operational spine of the Wilbur Method™.</li>
-                            <li>◆ Root Cause Excision Protocol — identifying the exact structural origin of every statutory breach.</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>Governance &amp; Psychosocial Risk Architecture</h3>
-                        <p>Our framework bridges the gap between traditional compliance and modern psychological safety. We transform psychosocial risk management from a "wellness" initiative into a robust governance pillar, meeting obligations under OHSA and the Employment Equity Act.</p>
-                        <ul style="list-style:none;padding-left:0;">
-                            <li>◆ OHSA &amp; SANS Alignment — integrating psychosocial hazards into mandatory HIRA processes.</li>
-                            <li>◆ Executive Stewardship — clear Board and Exec accountability for Duty of Care under King IV.</li>
-                            <li>◆ Preventative Risk Mapping — data‑driven insights to identify systemic stressors before they lead to Section 17 interventions.</li>
-                            <li>◆ Systemic Resilience Architecture — building sustainable psychological safety.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div style="text-align:center;margin-top:3rem;">
-                    <a href="#contact" class="btn">Secure an Initial Consultation</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Voice Protection & Triage -->
-        <section class="section-light">
-            <div class="container">
-                <h2 class="gold-border">Voice Protection &amp; Triage System</h2>
-                <div class="grid-2">
-                    <div>
-                        <p>A whistleblower is the institution's diagnostic sensor — its nervous system. When the institution attacks its own sensor, it enters an <strong class="gold-text">autoimmune disorder</strong>: the most dangerous stage of institutional decay.</p>
-                        <h3 style="margin-top:1.5rem;">Trigger Events</h3>
-                        <ul style="list-style:none;padding-left:0;">
-                            <li>◆ Suspension, dismissal, or adverse review following a protected disclosure</li>
-                            <li>◆ Exclusion from meetings, communications, or information flows</li>
-                            <li>◆ Threats, harassment, or intimidation by any institutional actor</li>
-                            <li>◆ Any action whose timing creates a temporal link to a protected disclosure</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>Six‑Step Triage Protocol</h3>
-                        <div class="service-card" style="margin-bottom:0.8rem;"><h3>T+0 (24h)</h3><p>Emergency Evidence Preservation — lock the evidence chain before the institution recognises the audit has commenced.</p></div>
-                        <div class="service-card" style="margin-bottom:0.8rem;"><h3>T+1 (48h)</h3><p>Temporal Link Analysis — map every adverse action against the timeline of protected disclosures.</p></div>
-                        <div class="service-card" style="margin-bottom:0.8rem;"><h3>T+2 (72h)</h3><p>Burden Reversal Notice — the institution must now prove every adverse action was pre‑planned and operationally justified.</p></div>
-                        <div class="service-card"><h3>T+3 → T+5</h3><p>Regulatory Notification, Strategic Positioning, and Litigation Architecture — escalation without negotiation.</p></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Statutory Remedy Matrix -->
-        <section class="section-dark">
-            <div class="container">
-                <h2 class="gold-border">The Statutory Remedy Matrix</h2>
-                <p style="margin-bottom:2rem;">Every breach mapped to its binding statutory remedy. The Ethic Hawk never improvises a legal remedy.</p>
-                <div class="grid-3">
-                    <div class="service-card">
-                        <h3>Category A: Corporate Governance</h3>
-                        <p>Director breach of good faith → s.76(3) Companies Act → Personal liability, removal s.162, disqualification s.69 → High Court</p>
-                        <p>Irregular expenditure approval → PFMA s.38 → Personal surcharge, delinquency → Auditor‑General</p>
-                    </div>
-                    <div class="service-card">
-                        <h3>Category B: Labour &amp; Whistleblower</h3>
-                        <p>Unlawful deduction &gt;25% BCEA cap → BCEA s.34(1) → Repayment order, damages → Labour Court</p>
-                        <p>Occupational detriment post‑disclosure → PDA s.3 / LRA s.185 → Reinstatement, compensation, burden reversal → CCMA / Labour Court</p>
-                    </div>
-                    <div class="service-card">
-                        <h3>Category C: Clinical Governance</h3>
-                        <p>Failure to report patient safety incident → NHA s.79 / OHSC → HPCSA referral, Health Ombud</p>
-                        <p>Suppression of adverse event data → HP Act s.41 → Professional sanction, criminal referral → NPA</p>
-                    </div>
-                </div>
-                <div class="quote-block" style="margin-top:2rem;">
-                    <p>No entity is "Too Big to Comply." The Wilbur Method™ does not invent new liabilities — it activates those that already exist in law, using the Forensic Audit Report as the evidentiary foundation.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- About the Founder -->
-        <section class="section-light" id="about">
-            <div class="container">
-                <h2 class="gold-border">About the Founder</h2>
-                <div class="grid-2">
-                    <div>
-                        <h3>Wilbur Matthee <span style="color:var(--gold);">SRN</span></h3>
-                        <p style="font-family:var(--font-mono);font-size:0.8rem;color:var(--gold-light);">NQF Level 8 · Specialist Registered Nurse · Forensic Governance Specialist</p>
-                        <p>Sixteen years of clinical practice taught me a critical truth: the most important skill is knowing when a system is failing the people it is supposed to protect, documenting that failure with forensic precision, and holding the architecture accountable.</p>
-                        <p>My governance identity was forged in the trenches of public and private sector compliance. After identifying and formally disclosing a systemic safety failure, I experienced first‑hand how institutions weaponise bureaucracy. Enduring nine months of documented occupational detriment, I mapped the exact mechanisms of institutional gaslighting across executive leadership, board structures, and eight independent regulatory bodies.</p>
-                        <p>I founded <strong class="gold-text">EthicHawks</strong> because tracing systemic failure is my exact capability — and I make this expertise available to organisations that need governance frameworks that actually work, and to individuals and whistleblowers who need someone who understands the clinical, legal, and psychosocial dimensions of institutional accountability.</p>
-                    </div>
-                    <div style="display:flex;flex-direction:column;align-items:center;">
-                        <div class="author-img-container">
-                            <img src="assets/author.png" alt="Wilbur Matthee SRN" onerror=this.parentElement.innerHTML='<div 
-                                                                                                                     style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:3rem;color:var(--gold);\'>WM</div>
-                        </div>
-                        <div class="service-card" style="width:100%;">
-                            <h3>Core Competencies</h3>
-                            <p>◆ Specialist Registered Nurse (SRN) — NQF Level 8</p>
-                            <p>◆ Postgrad. Diploma Health Services Management</p>
-                            <p>◆ Root Cause Analysis &amp; Incident Reporting</p>
-                            <p>◆ GCP‑Compliant Clinical Trial Coordination</p>
-                            <p>◆ Pharmaceutical Regulatory Compliance</p>
-                            <p>◆ Multi‑forum Litigation Strategy</p>
+                        <div class="reveal-wrapper">
+                            <div class="reveal-header" onclick="this.parentElement.classList.toggle('active')">
+                                <span>03. Statutory Obligation</span>
+                                <span class="reveal-icon">+</span>
+                            </div>
+                            <div class="reveal-body">
+                                <p>What the law mandates must be done — Companies Act and PFMA.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="quote-block" style="margin-top:2rem;">
-                    <p>True accountability is not occasional; it is structural. The gap between what institutions promise and what they deliver is a measurable, diagnosable, and excisable fault in the architecture. My work closes that gap.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Engage / Contact -->
-        <section class="section-dark" id="contact">
-            <div class="container" style="text-align:center;max-width:600px;">
-                <h2 class="gold-border">Engage Ethic Hawks</h2>
-                <p style="margin-bottom:2rem;">Organisations engage us to conduct independent forensic audits or to design governance frameworks that meet the Closed Loop standard. Individuals and whistleblowers engage for strategic forensic architecture and navigation of institutional accountability processes.</p>
-                <p style="font-family:var(--font-mono);font-size:1rem;">info@ethichawks.co.za</p>
-                <p style="font-family:var(--font-mono);font-size:1rem;margin-bottom:2rem;">www.ethichawks.co.za</p>
-                <p style="font-family:var(--font-mono);font-size:0.85rem;color:rgba(255,255,255,0.6);">Cape Town · South Africa</p>
-                <a href="mailto:info@ethichawks.co.za" class="btn" style="margin-top:1.5rem;">Secure an Initial Consultation</a>
             </div>
         </section>
     </main>
 
-    <footer class="site-footer">
-        <div class="container">
-            <div style="font-family:var(--font-heading);font-size:1.4rem;font-weight:700;letter-spacing:0.15em;">ETHIC HAWKS</div>
-            <p style="font-family:var(--font-body);font-style:italic;font-size:0.9rem;color:var(--gold-light);margin-bottom:1rem;">Forensic Governance &amp; Risk Architecture</p>
-            <div class="footer-links">
-                <a href="#home">Home</a>
-                <a href="#method">The Method</a>
-                <a href="#services">Services</a>
-                <a href="#about">About</a>
-                <a href="#contact">Engage</a>
-            </div>
-            <p class="footer-copy">© Ethic Hawks. All rights reserved. The Wilbur Method™ is a proprietary forensic framework. Version 1.0 · 2026</p>
-        </div>
-    </footer>
-
-    <script>
-        const toggle = document.getElementById('menuToggle');
-        const nav = document.getElementById('mainNav');
-        toggle.addEventListener('click',() => nav.classList.toggle('mobile-open'));
-
-        function acceptConsent() {
-            document.getElementById('consentBanner').style.display='none';
-            localStorage.setItem('ethichawks_consent','true');
-        }
-        if (localStorage.getItem('ethichawks_consent')==='true'
-        )
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click',() => nav.classList.remove('mobile-open'));
-        });
-            </script>
     <script type="module">
-  //import { GoogleGenerativeAI } from "@google/generative-ai";
+        import { GoogleGenerativeAI } from "https://esm.run/@google/generative-ai";
 
-// 1. SECURE HANDSHAKE: Accessing the key from your GitHub/StackBlitz environment
-const API_KEY = import.meta.env.VITE_GEMINI_API_KEY; 
-const genAI = new GoogleGenerativeAI(API_KEY);
-consg github = import.metta.env.${YOUR_GITHUB_TOKEN}`
+        // VITE_ environment variable logic for StackBlitz/GitHub
+        const API_KEY = import.meta.env.VITE_GEMINI_API_KEY; 
+        const genAI = new GoogleGenerativeAI(API_KEY);
 
-// 2. SPECIALIZED PERSONALITY: Defining the "Wilbur Method" persona
-const model = genAI.getGenerativeModel({ 
-    model: "gemini-pro",
-    systemInstruction: {
-        role: "system",
-        parts: [{ text: `You are the Ethic Hawks Forensic Assistant. 
-        Expertise: The Wilbur Method™, SA Companies Act, PFMA, and BCEA.
-        Tone: Clinical, authoritative, and precise. 
-        Task: Diagnose institutional failure by identifying gaps between Policy, Paper Trail, and Statute.
-        Constraint: Provide forensic guidance, not legal advice.` }]
-    }
-});
+        const model = genAI.getGenerativeModel({ 
+            model: "gemini-pro",
+            systemInstruction: "You are the Ethic Hawks Forensic Assistant. Tone: clinical and authoritative."
+        });
 
-// 3. UI CONTROLS: Linking the code to your HTML elements
-const chatToggle = document.getElementById('chat-toggle-btn');
-const chatWrapper = document.getElementById('chat-wrapper');
-const closeChat = document.getElementById('close-chat');
-const chatContainer = document.getElementById('chat-container');
-const userInput = document.getElementById('user-input');
-const sendBtn = document.getElementById('send-btn');
+        const chatToggle = document.getElementById('chat-toggle-btn');
+        const chatWrapper = document.getElementById('chat-wrapper');
+        const chatContainer = document.getElementById('chat-container');
+        const userInput = document.getElementById('user-input');
+        const sendBtn = document.getElementById('send-btn');
 
-// 4. INTERACTIVITY: Opening and Closing the chat
-chatToggle.addEventListener('click', () => {
-    chatWrapper.classList.toggle('hidden');
-    if (!chatWrapper.classList.contains('hidden') && chatContainer.children.length === 0) {
-        appendMsg("Welcome. I am the Ethic Hawks Assistant. Which coordinate of the Closed Loop shall we audit today?", "gemini");
-    }
-});
+        chatToggle.onclick = () => {
+            chatWrapper.classList.toggle('hidden');
+            if(chatContainer.children.length === 0) appendMsg("Diagnostic channel open. Audit requested.", "gemini");
+        };
 
-closeChat.addEventListener('click', () => chatWrapper.classList.add('hidden'));
+        document.getElementById('close-chat').onclick = () => chatWrapper.classList.add('hidden');
 
-// 5. THE CLOSED LOOP: Sending and Receiving messages
-async function sendMessage() {
-    const text = userInput.value.trim();
-    if (!text) return;
+        async function sendMessage() {
+            const text = userInput.value.trim();
+            if (!text) return;
+            appendMsg(text, "user");
+            userInput.value = "";
+            try {
+                const result = await model.generateContent(text);
+                appendMsg(result.response.text(), "gemini");
+            } catch (err) {
+                appendMsg("Diagnostic Error: Verify API configuration.", "gemini");
+            }
+        }
 
-    appendMsg(text, "user");
-    userInput.value = "";
+        sendBtn.onclick = sendMessage;
+        userInput.onkeypress = (e) => { if(e.key === 'Enter') sendMessage(); };
 
-    try {
-        const result = await model.generateContent(text);
-        const response = await result.response;
-        appendMsg(response.text(), "gemini");
-    } catch (err) {
-        appendMsg("System connection error. Please verify your secure API configuration.", "gemini");
-        console.error("Forensic Error:", err);
-    }
-}
-
-// 6. EVENT LISTENERS: Making the buttons and Enter key work
-sendBtn.addEventListener('click', sendMessage);
-userInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') sendMessage(); });
-
-// 7. RENDERING: Adding bubbles to the screen
-function appendMsg(text, sender) {
-    const msgDiv = document.createElement('div');
-    msgDiv.className = `message ${sender}-message`;
-    msgDiv.innerText = text;
-    chatContainer.appendChild(msgDiv);
-    chatContainer.scrollTop = chatContainer.scrollHeight;
-}
-function toggleReveal(element) {
-    element.parentElement.classList.toggle('active');
-}
-        async function notifyGitHub() {
-    // This sends a 'ping' to your GitHub to let you know a chat started
-    // Requires a Personal Access Token (PAT)
-    fetch('https://github.com/wilburmat-boop/EthicHawks-Website-/settings/secrets/actions', {
-        method: 'POST',
-        headers: {
-            'Authorization': `token ${YOUR_GITHUB_TOKEN}`,
-            'Accept': 'application/vnd.github.v3+json'
-        },
-        body: JSON.stringify({
-            title: "New Chat Session Initiated",
-            body: "A user has started a diagnostic session on EthicHawks.co.za",
-            labels: ["interaction"]
-        })
-    });
-}
-
-
-</script>
+        function appendMsg(text, sender) {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `message ${sender}-message`;
+            msgDiv.innerText = text;
+            chatContainer.appendChild(msgDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+    </script>
 </body>
 </html>
