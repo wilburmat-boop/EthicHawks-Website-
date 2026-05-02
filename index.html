@@ -408,7 +408,77 @@
         });
             </script>
     <script type="module">
-  // Your code goes here
+  //import { GoogleGenerativeAI } from "@google/generative-ai";
+
+// 1. SECURE HANDSHAKE: Accessing the key from your GitHub/StackBlitz environment
+const API_KEY = import.meta.env.VITE_GEMINI_API_KEY; 
+const genAI = new GoogleGenerativeAI(API_KEY);
+
+// 2. SPECIALIZED PERSONALITY: Defining the "Wilbur Method" persona
+const model = genAI.getGenerativeModel({ 
+    model: "gemini-pro",
+    systemInstruction: {
+        role: "system",
+        parts: [{ text: `You are the Ethic Hawks Forensic Assistant. 
+        Expertise: The Wilbur Method™, SA Companies Act, PFMA, and BCEA.
+        Tone: Clinical, authoritative, and precise. 
+        Task: Diagnose institutional failure by identifying gaps between Policy, Paper Trail, and Statute.
+        Constraint: Provide forensic guidance, not legal advice.` }]
+    }
+});
+
+// 3. UI CONTROLS: Linking the code to your HTML elements
+const chatToggle = document.getElementById('chat-toggle-btn');
+const chatWrapper = document.getElementById('chat-wrapper');
+const closeChat = document.getElementById('close-chat');
+const chatContainer = document.getElementById('chat-container');
+const userInput = document.getElementById('user-input');
+const sendBtn = document.getElementById('send-btn');
+
+// 4. INTERACTIVITY: Opening and Closing the chat
+chatToggle.addEventListener('click', () => {
+    chatWrapper.classList.toggle('hidden');
+    if (!chatWrapper.classList.contains('hidden') && chatContainer.children.length === 0) {
+        appendMsg("Welcome. I am the Ethic Hawks Assistant. Which coordinate of the Closed Loop shall we audit today?", "gemini");
+    }
+});
+
+closeChat.addEventListener('click', () => chatWrapper.classList.add('hidden'));
+
+// 5. THE CLOSED LOOP: Sending and Receiving messages
+async function sendMessage() {
+    const text = userInput.value.trim();
+    if (!text) return;
+
+    appendMsg(text, "user");
+    userInput.value = "";
+
+    try {
+        const result = await model.generateContent(text);
+        const response = await result.response;
+        appendMsg(response.text(), "gemini");
+    } catch (err) {
+        appendMsg("System connection error. Please verify your secure API configuration.", "gemini");
+        console.error("Forensic Error:", err);
+    }
+}
+
+// 6. EVENT LISTENERS: Making the buttons and Enter key work
+sendBtn.addEventListener('click', sendMessage);
+userInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') sendMessage(); });
+
+// 7. RENDERING: Adding bubbles to the screen
+function appendMsg(text, sender) {
+    const msgDiv = document.createElement('div');
+    msgDiv.className = `message ${sender}-message`;
+    msgDiv.innerText = text;
+    chatContainer.appendChild(msgDiv);
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+}
+function toggleReveal(element) {
+    element.parentElement.classList.toggle('active');
+}
+
 </script>
 </body>
 </html>
