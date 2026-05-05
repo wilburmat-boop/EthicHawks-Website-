@@ -270,8 +270,8 @@
         import { GoogleGenerativeAI } from "@google/generative-ai";
 
         // CONFIGURATION: Ensure VITE_GEMINI_API_KEY is available in your environment
-        const API_KEY = ""; 
-
+        // API_KEY_INJECTION_POINT
+const API_KEY = "PLACEHOLDER_API_KEY"; 
         const genAI = new GoogleGenerativeAI(API_KEY);
         const model = genAI.getGenerativeModel({ 
             model: "gemini-1.5-flash",
