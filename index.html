@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Ethic Hawks – Forensic Governance &amp; The Wilbur Method™</title>
+    <meta name="description" content="The Wilbur Method™ — forensic architecture and the science of institutional integrity. We diagnose and excise Institutional Sepsis through the Closed Loop of Truth.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS FIX: Removed the invalid =" from the universal selector */
+        * { margin:0; padding:0; box-sizing:border-box; }
+
+        :root {
+            --navy: #172744; --navy-deep: #0D1625; --navy-mid: #1A2D4A;
+            --gold: #C6A056; --gold-light: #DFC07A; --gold-pale: #F2E0B8;
+            --gold-dark: #8B6B2A; --white: #FFFFFF; --off-white: #F5F0E8;
+            --rule: rgba(198,160,86,0.35);
+            --grad-gold: linear-gradient(135deg, #8B6B2A 0%, #C6A056 40%, #DFC07A 60%, #C6A056 80%, #8B6B2A 100%);
+            --grad-hero: linear-gradient(170deg, #0D1625 0%, #172744 35%, #1A2D4A 65%, #0D1625 100%);
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'Cormorant Garamond', serif;
+            --font-mono: 'Montserrat', sans-serif;
+        }
+
+        html { scroll-behavior:smooth; }
+        body {
+            font-family:var(--font-body); background:var(--navy-deep);
+            color:var(--white); line-height:1.6; -webkit-font-smoothing:antialiased;
+        }
+
+        .container { max-width:1200px; margin:0 auto; padding:0 1.5rem; }
+        h1,h2,h3,h4 { font-family:var(--font-heading); font-weight:700; }
+        h1 { font-size:clamp(2.2rem,6vw,3.5rem); line-height:1.1; color:var(--white); }
+        h2 { font-size:clamp(1.8rem,4vw,2.4rem); color:var(--gold); margin-bottom:1rem; }
+        h3 { font-family:var(--font-mono); font-size:0.95rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold-light); margin-bottom: 0.5rem;}
+        
+        .gold-text { color:var(--gold); }
+        .gold-border { border-bottom:2px solid var(--gold); padding-bottom:0.5rem; margin-bottom:1.5rem; }
+        
+        .btn {
+            display:inline-block; background:var(--grad-gold); color:var(--navy-deep);
+            font-family:var(--font-mono); font-weight:700; font-size:0.85rem;
+            letter-spacing:0.1em; text-transform:uppercase; padding:0.8rem 1.8rem;
+            border:none; cursor:pointer; text-decoration:none; transition:all 0.3s ease;
+        }
+
+        .site-header {
+            background:rgba(13,22,37,0.97); backdrop-filter:blur(12px);
+            border-bottom:1px solid rgba(198,160,86,0.2); position:sticky; top:0; z-index:100; padding:1rem 0;
+        }
+
+        .header-inner { display:flex; justify-content:space-between; align-items:center; }
+        .logo { font-family:var(--font-heading); font-size:1.6rem; color:var(--white); text-decoration:none; font-weight:900; }
+        .logo span { color:var(--gold); }
+
+        nav a { color:rgba(255,255,255,0.7); text-decoration:none; margin-left:2rem; font-family:var(--font-mono); font-size:0.8rem; text-transform:uppercase; transition: 0.3s; }
+        nav a:hover { color:var(--gold); }
+
+        .hero { background:var(--grad-hero); padding:6rem 0 5rem; text-align:center; }
+        section { padding:4.5rem 0; }
+        .section-dark { background:var(--navy-deep); }
+        .section-light { background:var(--navy-mid); }
+
+        .grid-2 { display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:3rem; }
+        .grid-3 { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:2rem; }
+        
+        .service-card {
+            background:rgba(23,39,68,0.6); border:1px solid rgba(198,160,86,0.2);
+            padding:2rem; transition:0.3s; height:100%; display:flex; flex-direction:column;
+        }
+        .service-card:hover { transform:translateY(-5px); box-shadow:0 10px 20px rgba(0,0,0,0.3); }
+
+        .pill-badge {
+            display:inline-block; background:rgba(198,160,86,0.15); border:1px solid rgba(198,160,86,0.35);
+            color:var(--gold-light); font-family:var(--font-mono); font-size:0.7rem; padding:0.3rem 0.9rem; margin-top: auto;
+        }
+
+        .quote-block { border-left:3px solid var(--gold); background:rgba(198,160,86,0.06); padding:1.5rem 2rem; margin:2rem 0; }
+        .quote-block p { font-style:italic; font-size:1.2rem; color:var(--gold-pale); }
+
+        /* --- Chat Assistant Interface --- */
+        #chat-wrapper {
+            position: fixed; bottom: 90px; right: 20px; width: 380px; height: 500px;
+            background: var(--navy-mid); border: 1px solid var(--gold); border-radius: 8px;
+            display: flex; flex-direction: column; z-index: 1001; overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+        }
+        #chat-wrapper.hidden { display: none; }
+        #chat-header { background: var(--navy-deep); padding: 12px 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--gold); }
+        #chat-container { flex: 1; overflow-y: auto; padding: 15px; display: flex; flex-direction: column; gap: 12px; background: rgba(13,22,37,0.5); }
+        .message { padding: 10px 14px; border-radius: 6px; max-width: 85%; font-size: 0.95rem; line-height: 1.4; }
+        .user-message { align-self: flex-end; background: var(--gold-dark); color: white; }
+        .gemini-message { align-self: flex-start; background: var(--navy-deep); border-left: 3px solid var(--gold); color: var(--off-white); }
+        .chat-input-area { display: flex; padding: 12px; background: var(--navy-deep); gap: 8px; }
+        #user-input { flex: 1; background: rgba(255,255,255,0.05); border: 1px solid var(--gold-dark); color: white; padding: 8px 12px; border-radius: 4px; outline: none; }
+        #chat-toggle-btn { position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px; border-radius: 50%; z-index: 1001; font-size: 1.2rem; border: 2px solid var(--gold); }
+
+        @media (max-width:768px) {
+            nav { display:none; }
+            #chat-wrapper { width: 95%; right: 2.5%; bottom: 85px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="#home" class="logo">
+    <img src="images/logo.png" alt="Ethic Hawks Logo" style="height: 40px; vertical-align: middle;">
+    <img src="images/author.png" alt="Wilbur Matthee SRN" style="max-width: 200px; border: 2px solid var(--gold); margin: 1rem 0;">
+</a>
+            <nav id="mainNav">
+                <a href="#home">Home</a>
+                <a href="#method">The Method</a>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#contact">Engage</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="container">
+                <p style="font-family:var(--font-mono); letter-spacing:0.3em; color:var(--gold); text-transform:uppercase;">Forensic Governance &amp; Risk Architecture</p>
+                <h1>The Wilbur <span class="gold-text">Method™</span></h1>
+                <p style="max-width:700px; margin:1.5rem auto; font-size:1.25rem;">Forensic Architecture and the Science of Institutional Integrity. We do not treat symptoms. We excise the root cause.</p>
+                <a href="#contact" class="btn">Secure an Initial Consultation</a>
+            </div>
+        </section>
+
+        <section class="section-dark" id="method">
+            <div class="container">
+                <h2 class="gold-border">The Closed Loop of Truth</h2>
+                <div class="grid-2">
+                    <div>
+                        <p>Institutional failure rarely begins as a catastrophe. It starts quietly — an unauthorised deduction, a board resolution passed without risk assessment, a whistleblower silenced. The **Wilbur Method™** treats governance failure as a structural pathology to be surgically removed.</p>
+                        <div class="quote-block">
+                            <p>"Just as a clinician reads vital signs, identifying the pathogen—the Wilbur Method™ audits the paper trail and applies the statutory remedy with surgical precision."</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Three Points of Alignment</h3>
+                        <div class="service-card" style="margin-bottom:1rem;">
+                            <h4>01. The Proclaimed Policy</h4>
+                            <p>The entity's constitution, board resolutions, and public commitments.</p>
+                        </div>
+                        <div class="service-card">
+                            <h4>02. The Statutory Obligation</h4>
+                            <p>Mandates under the Companies Act, PFMA, and Protected Disclosures Act.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-light">
+            <div class="container">
+                <h2 class="gold-border">The Six Pillars of Institutional Integrity</h2>
+                <div class="grid-3">
+                    <div class="service-card">
+                        <h4>I. Statutory Obligation</h4>
+                        <p>No administrative oversight accepted as excuse for statutory fraud. Every shift must form a closed loop of truth.</p>
+                        <span class="pill-badge">The Law</span>
+                    </div>
+                    <div class="service-card">
+                        <h4>II. Specialist Duty</h4>
+                        <p>Duty to the system and its beneficiaries, not to corporate ego. We apply forensic rigour to every balance sheet.</p>
+                        <span class="pill-badge">The System</span>
+                    </div>
+                    <div class="service-card">
+                        <h4>III. Protection of the Voice</h4>
+                        <p>A system that punishes the whistleblower has accepted its own decay. Occupational detriment is a clinical emergency.</p>
+                        <span class="pill-badge">The Sensor</span>
+                    </div>
+                    <div class="service-card">
+                        <h4>IV. Procedural Mastery</h4>
+                        <p>Victory through technical perfection. We master time‑stamps to lock accountability.</p>
+                        <span class="pill-badge">The Execution</span>
+                    </div>
+                    <div class="service-card">
+                        <h4>V. Radical Transparency</h4>
+                        <p>No entity is too big to comply. The corporate arrogance is a blind spot awaiting a forensic audit.</p>
+                        <span class="pill-badge">The Mirror</span>
+                    </div>
+                    <div class="service-card">
+                        <h4>VI. Sovereign Accountability</h4>
+                        <p>The Governor is subject to the same standards as the Governed. The corporate veil does not shield personal failure.</p>
+                        <span class="pill-badge">The Governor</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-dark">
+            <div class="container">
+                <h2 class="gold-border">The Statutory Remedy Matrix</h2>
+                <div class="grid-3">
+                    <div class="service-card">
+                        <h4>Corporate Governance</h4>
+                        <p>Director breach of good faith → s.76(3) Companies Act → Personal liability, removal s.162.</p>
+                    </div>
+                    <div class="service-card">
+                        <h4>Labour &amp; Whistleblower</h4>
+                        <p>Occupational detriment → PDA s.3 / LRA s.185 → Compensation and burden reversal.</p>
+                    </div>
+                    <div class="service-card">
+                        <h4>Clinical Governance</h4>
+                        <p>Suppression of adverse event data → HP Act s.41 → Professional sanction, criminal referral.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-light" id="about">
+            <div class="container">
+                <h2 class="gold-border">About the Founder</h2>
+                <div class="grid-2">
+                    <div>
+                        <h3>Wilbur Matthee <span class="gold-text">SRN</span></h3>
+                        <p style="margin-bottom:1rem; font-family:var(--font-mono); font-size:0.85rem; color:var(--gold-light);">NQF Level 8 · Specialist Registered Nurse · Forensic Governance Specialist</p>
+                        <p>Sixteen years of clinical practice taught me that the most important skill is knowing when a system is failing the people it is supposed to protect, and holding the architecture accountable.</p>
+                        <p>I founded **EthicHawks** because tracing systemic failure is my exact capability—making this expertise available to those who need governance frameworks that actually work.</p>
+                    </div>
+                    <div class="service-card">
+                        <h4>Core Competencies</h4>
+                        <p>◆ Specialist Registered Nurse (SRN) — NQF Level 8</p>
+                        <p>◆ Postgrad. Diploma Health Services Management</p>
+                        <p>◆ Multi‑forum Litigation Strategy</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-dark" id="contact" style="text-align:center;">
+            <div class="container">
+                <h2 class="gold-border">Engage Ethic Hawks</h2>
+                <p style="margin-bottom:2rem;">Secure strategic forensic architecture and navigation of institutional accountability.</p>
+                <p style="font-family:var(--font-mono);">info@ethichawks.co.za</p>
+                <a href="mailto:info@ethichawks.co.za" class="btn" style="margin-top:1.5rem;">Secure a Consultation</a>
+            </div>
+        </section>
+    </main>
+
+    <footer style="padding:3rem 0; text-align:center; border-top:1px solid var(--rule);">
+        <p>© Ethic Hawks. The Wilbur Method™ Version 1.0 · 2026</p>
+    </footer>
+
+    <button id="chat-toggle-btn" class="btn">EH Assistant</button>
+    
+    <div id="chat-wrapper" class="hidden">
+        <div id="chat-header">
+            <span style="font-family:var(--font-heading); color:var(--gold); font-size:0.8rem;">Forensic Diagnostic Terminal</span>
+            <button id="close-chat" style="background:none; border:none; color:white; cursor:pointer; font-size:1.2rem;">✕</button>
+        </div>
+        <div id="chat-container"></div>
+        <div class="chat-input-area">
+            <input type="text" id="user-input" placeholder="Enter coordinate for audit...">
+            <button id="send-btn" class="btn" style="padding:5px 15px;">→</button>
+        </div>
+    </div>
+
+    <script type="importmap">
+        { "imports": { "@google/generative-ai": "https://esm.run/@google/generative-ai" } }
+    </script>
+    
+    <script type="module">
+        import { GoogleGenerativeAI } from "@google/generative-ai";
+
+        // CONFIGURATION: Ensure VITE_GEMINI_API_KEY is available in your environment
+        const API_KEY = ""; 
+
+        const genAI = new GoogleGenerativeAI(API_KEY);
+        const model = genAI.getGenerativeModel({ 
+            model: "gemini-1.5-flash",
+            systemInstruction: "You are the Ethic Hawks Forensic Assistant. Expertise: The Wilbur Method™, SA Companies Act, PFMA. Tone: Clinical, authoritative, precise. Focus on diagnostic integrity."
+        });
+
+        const chatToggle = document.getElementById('chat-toggle-btn');
+        const chatWrapper = document.getElementById('chat-wrapper');
+        const closeChat = document.getElementById('close-chat');
+        const chatContainer = document.getElementById('chat-container');
+        const userInput = document.getElementById('user-input');
+        const sendBtn = document.getElementById('send-btn');
+
+        chatToggle.addEventListener('click', () => {
+            chatWrapper.classList.toggle('hidden');
+            if (!chatWrapper.classList.contains('hidden') && chatContainer.children.length === 0) {
+                appendMsg("System Online. Which coordinate of the Closed Loop shall we audit today?", "gemini");
+            }
+        });
+
+        closeChat.addEventListener('click', () => chatWrapper.classList.add('hidden'));
+
+        async function sendMessage() {
+            const text = userInput.value.trim();
+            if (!text) return;
+            if (!API_KEY) {
+                appendMsg("Error: API Key not detected in environment.", "gemini");
+                return;
+            }
+
+            appendMsg(text, "user");
+            userInput.value = "";
+
+            try {
+                const result = await model.generateContent(text);
+                const response = await result.response;
+                appendMsg(response.text(), "gemini");
+            } catch (err) {
+                appendMsg("Diagnostic Interrupted: Forensic link failed.", "gemini");
+            }
+        }
+
+        function appendMsg(text, sender) {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `message ${sender}-message`;
+            msgDiv.innerText = text;
+            chatContainer.appendChild(msgDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        sendBtn.addEventListener('click', sendMessage);
+        userInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') sendMessage(); });
+    </script>
+</body>
+</html>
