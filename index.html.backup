@@ -133,9 +133,6 @@
 </head>
 <body>
 
-    <div style="background: linear-gradient(90deg, var(--navy-deep), var(--navy-mid)); border-bottom: 1px solid var(--gold); padding: 0.5rem; text-align: center; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.05em;">
-        📋 NEW PREPRINT: <a href="#announcement" style="color: var(--gold); text-decoration: underline;">Forensic Governance Architecture for NHI Implementation</a> — medRxiv MS ID#: MEDRXIV/2026/352535
-    </div>
     <header class="site-header">
         <div class="container header-inner">
             <a href="#home" class="logo">
@@ -147,7 +144,6 @@
                 <a href="#method">The Method</a>
                 <a href="#services">Services</a>
                 <a href="#about">About</a>
-                <a href="#announcement" style="color: var(--gold) !important;">📋 Preprint</a>
                 <a href="#contact">Engage</a>
             </nav>
         </div>
@@ -163,25 +159,6 @@
             </div>
         </section>
 
-    <!-- PREPRINT ANNOUNCEMENT -->
-    <section class="section-dark" id="announcement" style="border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold);">
-        <div class="container" style="text-align: center;">
-            <p style="font-family: var(--font-mono); letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; font-size: 0.8rem;">
-                Preprint Announcement</p>
-            <h2 style="color: var(--gold); margin: 1rem 0;">Building the Watchdog Before the House Burns Down</h2>
-            <p style="font-size: 1.3rem; color: var(--gold-light); font-style: italic; margin-bottom: 1.5rem;">
-                Forensic Governance Architecture for NHI Implementation</p>
-            <div style="background: rgba(198,160,86,0.1); border: 1px solid rgba(198,160,86,0.3); padding: 1.5rem; margin: 1.5rem 0; border-radius: 4px;">
-                <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--gold-light); margin-bottom: 0.5rem;">
-                    MS ID#: MEDRXIV/2026/352535</p>
-                <p style="color: var(--off-white); margin-bottom: 1rem;">
-                    Now under peer review at <strong>medRxiv</strong> — The Preprint Server for Health Sciences</p>
-                <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7);">
-                    This paper establishes the forensic governance architecture necessary for NHI implementation.</p>
-            </div>
-            <a href="https://www.medrxiv.org" target="_blank" class="btn" style="margin-top: 1rem;">Visit medRxiv</a>
-        </div>
-    </section>
         <section class="section-dark" id="method">
             <div class="container">
                 <h2 class="gold-border">The Closed Loop of Truth</h2>
