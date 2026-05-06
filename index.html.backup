@@ -3,21 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Ethic Hawks – Forensic Governance &amp; The Wilbur Method™</title wilburmat-boop-patch-1
-    <meta name="description" content="The Wilbur Method™ — forensic architecture and the science of institutional integrity.">
-
-    <meta name="description" content="The Wilbur Method™ — forensic architecture and the science of institutional integrity. We diagnose and excise Institutional Sepsis through the Closed Loop of Truth."> main
+    <title>Ethic Hawks – Forensic Governance &amp; The Wilbur Method™</title>
+    <meta name="description" content="The Wilbur Method™ — forensic architecture and the science of institutional integrity. We diagnose and excise Institutional Sepsis through the Closed Loop of Truth.">
     
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
 
     <style>
         * { margin:0; padding:0; box-sizing:border-box; }
- wilburmat-boop-patch-1 main
+
         :root {
             --navy: #172744; --navy-deep: #0D1625; --navy-mid: #1A2D4A;
             --gold: #C6A056; --gold-light: #DFC07A; --gold-pale: #F2E0B8;
-           --gold-dark: #8B6B2A; --white: #FFFFFF; --off-white: #F5F0 wilburmat-boop-patch-1
-            --rule: rgba(198,160,86,0.0 main
+            --gold-dark: #8B6B2A; --white: #FFFFFF; --off-white: #F5F0E8;
+            --rule: rgba(198,160,86,0.35);
             --grad-gold: linear-gradient(135deg, #8B6B2A 0%, #C6A056 40%, #DFC07A 60%, #C6A056 80%, #8B6B2A 100%);
             --grad-hero: linear-gradient(170deg, #0D1625 0%, #172744 35%, #1A2D4A 65%, #0D1625 100%);
             --font-heading: 'Cinzel', serif;
@@ -32,15 +30,6 @@
         }
 
         .container { max-width:1200px; margin:0 auto; padding:0 1.5rem; }
- wilburmat-boop-patch-1
-        h1,h2,h3 { font-family:var(--font-heading); }
-        h1 { font-size:clamp(2.2rem,6vw,3.5rem); color:var(--white); margin-bottom:1rem; }
-        h2 { font-size:clamp(1.8rem,4vw,2.4rem); color:var(--gold); margin-bottom:1rem; }
-        
-        .gold-text { color:var(--gold); }
-        .gold-border { border-bottom:2px solid var(--gold); padding-bottom:0.5rem; margin-bottom:1.5rem; }
-
-
         h1,h2,h3,h4 { font-family:var(--font-heading); font-weight:700; }
         h1 { font-size:clamp(2.2rem,6vw,3.5rem); line-height:1.1; color:var(--white); }
         h2 { font-size:clamp(1.8rem,4vw,2.4rem); color:var(--gold); margin-bottom:1rem; }
@@ -49,31 +38,20 @@
         .gold-text { color:var(--gold); }
         .gold-border { border-bottom:2px solid var(--gold); padding-bottom:0.5rem; margin-bottom:1.5rem; }
         
- main
         .btn {
             display:inline-block; background:var(--grad-gold); color:var(--navy-deep);
             font-family:var(--font-mono); font-weight:700; font-size:0.85rem;
             letter-spacing:0.1em; text-transform:uppercase; padding:0.8rem 1.8rem;
-            border:none; cursor:pointer; text-decoration:none; transition:0.3s;
+            border:none; cursor:pointer; text-decoration:none; transition:all 0.3s ease;
         }
- wilburmat-boop-pat
         .btn:hover { opacity: 0.9; transform: translateY(-1px); }
- main
+
         .site-header {
             background:rgba(13,22,37,0.97); backdrop-filter:blur(12px);
             border-bottom:1px solid rgba(198,160,86,0.2); position:sticky; top:0; z-index:100; padding:1rem 0;
         }
 
         .header-inner { display:flex; justify-content:space-between; align-items:center; }
- wilburmat-boop-patch-1
-        .logo { font-family:var(--font-heading); font-size:1.6rem; color:var(--white); text-decoration:none; font-weight:900; }
-        .logo span { color:var(--gold); }
-
-        nav a { color:rgba(255,255,255,0.7); text-decoration:none; margin-left:2rem; font-family:var(--font-mono); font-size:0.8rem; text-transform:uppercase; }
-        nav a:hover { color:var(--gold); }
-
-        .hero { background:var(--grad-hero); padding:6rem 0; text-align:center; }
-
         .logo { font-family:var(--font-heading); font-size:1.6rem; color:var(--white); text-decoration:none; font-weight:900; display: flex; align-items: center; gap: 0.5rem; }
         .logo span { color:var(--gold); }
         .logo img { height: 40px; }
@@ -82,37 +60,11 @@
         nav a { color:rgba(255,255,255,0.7); text-decoration:none; font-family:var(--font-mono); font-size:0.8rem; text-transform:uppercase; transition: 0.3s; }
         nav a:hover { color:var(--gold); }
 
-        .hero { background:var(--grad-hero); padding:6rem 0 5rem; text-align:center; main
+        .hero { background:var(--grad-hero); padding:6rem 0 5rem; text-align:center; }
         section { padding:4.5rem 0; }
         .section-dark { background:var(--navy-deep); }
         .section-light { background:var(--navy-mid); }
 
-        .grid-2 { display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:3rem; }
-        
-        .service-card {
-            background:rgba(23,39,68,0.6); border:1px solid rgba(198,160,86,0.2);
-            padding:2rem; transition:0.3s;
-        }
-
-        /* --- Chat UI Styling --- */
-        #chat-wrapper {
-            position: fixed; bottom: 80px; right: 20px; width: 350px; height: 450px;
-            background: var(--navy-mid); border: 1px solid var(--gold);
-            display: flex; flex-direction: column; z-index: 1001; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        #chat-wrapper.hidden { display: none; }
-        #chat-header { background: var(--navy-deep); padding: 10px; display: flex; justify-content: space-between; border-bottom: 1px solid var(--gold); }
-        #chat-container { flex: 1; overflow-y: auto; padding: 15px; display: flex; flex-direction: column; gap: 10px; }
-        .message { padding: 8px 12px; border-radius: 4px; max-width: 85%; font-size: 0.9rem; }
-        .user-message { align-self: flex-end; background: var(--gold-dark); color: white; }
-        .gemini-message { align-self: flex-start; background: var(--navy); border-left: 3px solid var(--gold); }
-        .chat-input-area { display: flex; padding: 10px; background: var(--navy-deep); }
-        #user-input { flex: 1; background: transparent; border: 1px solid var(--gold); color: white; padding: 5px 10px; outline: none; }
-        #chat-toggle-btn { position: fixed; bottom: 20px; right: 20px; border-radius: 50%; width: 50px; height: 50px; z-index: 1001; }
-
-        @media (max-width:768px) {
-            nav { display:none; }
-            #chat-wrapper { width: 90%; right: 5%; }
         .grid-2 { display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:3rem; }
         .grid-3 { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:2rem; }
         
@@ -183,18 +135,8 @@
 
     <header class="site-header">
         <div class="container header-inner">
-            <a href="#home" class="logo">ETHIC <span>HAWKS</span></a>
-<div style="background:#1a237e;color:#fff;text-align:center;padding:6px 20px;font-family:Montserrat,sans-serif;font-size:0.8rem;letter-spacing:0.5px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;">
-<span>📋 NEW PREPRINT: <em>Building the Watchdog Before the House Burns Down</em></span>
-<span style="color:#ffd54f;font-weight:600;">MS ID#: MEDRxiv/2026/352535</span>
-<a href="https://www.medrxiv.org/content/10.1101/2026.352535" target="_blank" style="color:#ffd54f;text-decoration:underline;font-weight:600;white-space:nowrap;">VISIT MEDRXIV →</a>
-</div>
-
-
-    <header class="site-header">
-        <div class="container header-inner">
             <a href="#home" class="logo">
-                <img src="logo.png" alt="assest/logo.png" style="height:40px;">
+                <img src="logo.png" alt="logo.png">
                 Ethic<span>Hawks</span>
             </a>
             <nav id="mainNav">
@@ -210,16 +152,10 @@
     <main>
         <section class="hero" id="home">
             <div class="container">
- wilburmat-boop-patch-1
-                <h1>The Wilbur <span class="gold-text">Method™</span></h1>
-                <p>Forensic Architecture and the Science of Institutional Integrity.</p>
-                <a href="#contact" class="btn" style="margin-top:20px;">Secure Consultation</a>
-
                 <p style="font-family:var(--font-mono); letter-spacing:0.3em; color:var(--gold); text-transform:uppercase;">Forensic Governance &amp; Risk Architecture</p>
                 <h1>The Wilbur <span class="gold-text">Method™</span></h1>
                 <p style="max-width:700px; margin:1.5rem auto; font-size:1.25rem;">Forensic Architecture and the Science of Institutional Integrity. We do not treat symptoms. We excise the root cause.</p>
                 <a href="#contact" class="btn">Secure an Initial Consultation</a>
- main
             </div>
         </section>
 
@@ -227,15 +163,6 @@
             <div class="container">
                 <h2 class="gold-border">The Closed Loop of Truth</h2>
                 <div class="grid-2">
- wilburmat-boop-patch-1
-                    <div class="service-card">
-                        <h3>Forensic Audit</h3>
-                        <p>We trace the paper trail from policy to execution, identifying the exact coordinates of statutory breach.</p>
-                    </div>
-                    <div class="service-card">
-                        <h3>Systemic Remedy</h3>
-                        <p>Applying the Wilbur Method™ to excise root causes rather than treating administrative symptoms.</p>
-
                     <div>
                         <p>Institutional failure rarely begins as a catastrophe. It starts quietly — an unauthorised deduction, a board resolution passed without risk assessment, a whistleblower silenced. The <strong>Wilbur Method™</strong> treats governance failure as a structural pathology to be surgically removed.</p>
                         <div class="quote-block">
@@ -290,80 +217,10 @@
                         <h4>VI. Sovereign Accountability</h4>
                         <p>The Governor is subject to the same standards as the Governed. The corporate veil does not shield personal failure.</p>
                         <span class="pill-badge">The Governor</span>
- main
                     </div>
                 </div>
             </div>
         </section>
-    </main>
-
- wilburmat-boop-patch-1
-    <button id="chat-toggle-btn" class="btn">EH</button>
-    
-    <div id="chat-wrapper" class="hidden">
-        <div id="chat-header">
-            <span style="font-family:var(--font-heading); font-size:0.8rem; color:var(--gold);">Forensic Assistant</span>
-            <button id="close-chat" style="background:none; border:none; color:white; cursor:pointer;">✕</button>
-        </div>
-        <div id="chat-container"></div>
-        <div class="chat-input-area">
-            <input type="text" id="user-input" placeholder="Initiate diagnostic...">
-            <button id="send-btn" class="btn" style="padding:5px 10px; margin-left:5px;">→</button>
-        </div>
-    </div>
-
-    <script type="importmap">
-        {
-          "imports": {
-            "@google/generative-ai": "https://esm.run/@google/generative-ai"
-          }
-        }
-    </script>
-    
-    <script type="module">
-        import { GoogleGenerativeAI } from "@google/generative-ai";
-
-        // IMPORTANT: Ensure your API Key is set in your environment or replace here for testing
-        // const API_KEY = "YOUR_API_KEY_HERE"; 
-        const API_KEY = import.meta.env ? import.meta.env.VITE_GEMINI_API_KEY : ""; 
-
-        const genAI = new GoogleGenerativeAI(API_KEY);
-        const model = genAI.getGenerativeModel({ 
-            model: "gemini-1.5-flash", // Using Flash for speed
-            systemInstruction: "You are the Ethic Hawks Forensic Assistant. Expertise: The Wilbur Method™, SA Companies Act, PFMA. Tone: Clinical, authoritative, precise."
-        });
-
-        const chatToggle = document.getElementById('chat-toggle-btn');
-        const chatWrapper = document.getElementById('chat-wrapper');
-        const closeChat = document.getElementById('close-chat');
-        const chatContainer = document.getElementById('chat-container');
-        const userInput = document.getElementById('user-input');
-        const sendBtn = document.getElementById('send-btn');
-
-        chatToggle.addEventListener('click', () => chatWrapper.classList.toggle('hidden'));
-        closeChat.addEventListener('click', () => chatWrapper.classList.add('hidden'));
-
-        async function sendMessage() {
-            const text = userInput.value.trim();
-            if (!text || !API_KEY) return;
-
-            appendMsg(text, "user");
-            userInput.value = "";
-
-            try {
-                const result = await model.generateContent(text);
-                const response = await result.response;
-                appendMsg(response.text(), "gemini");
-            } catch (err) {
-                appendMsg("Diagnostic error: Connection to the forensic core failed.", "gemini");
-                console.error(err);
-            }
-        }
-
-        function appendMsg(text, sender) {
-            const msgDiv = document.createElement('div');
-            msgDiv.className = `message ${sender}-message`;
-            msgDiv.innerText = text;
 
         <section class="section-dark">
             <div class="container">
@@ -502,19 +359,14 @@
             const msgDiv = document.createElement('div');
             msgDiv.className = `message ${sender}-message`;
             msgDiv.textContent = text;
- main
             chatContainer.appendChild(msgDiv);
             chatContainer.scrollTop = chatContainer.scrollHeight;
         }
 
         sendBtn.addEventListener('click', sendMessage);
- wilburmat-boop-patch-1
-        userInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') sendMessage(); });
-
         userInput.addEventListener('keypress', (e) => { 
             if(e.key === 'Enter') sendMessage(); 
         });
- main
     </script>
 </body>
 </html>

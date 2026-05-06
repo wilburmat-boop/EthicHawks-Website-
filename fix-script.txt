@@ -1,0 +1,76 @@
+    <script type="module">
+        import { GoogleGenerativeAI } from "@google/generative-ai";
+
+        const API_KEY = "AIzaSyB3Br7KLVZKNk-Eosk9_csZ7U4rH81H-z0"; 
+        let genAI, model;
+        
+        if (API_KEY && API_KEY !== "AIzaSyB3Br7KLVZKNk-Eosk9_csZ7U4rH81H-z0") {
+            genAI = new GoogleGenerativeAI(API_KEY);
+            model = genAI.getGenerativeModel({ 
+                model: "gemini-1.5-flash",
+                systemInstruction: "You are the Ethic Hawks Forensic Assistant. Expertise: The Wilbur Method™, SA Companies Act, PFMA."
+            });
+            console.log("Gemini API initialized successfully");
+        } else {
+            console.warn("API key not configured properly");
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatToggle = document.getElementById('chat-toggle-btn');
+            const chatWrapper = document.getElementById('chat-wrapper');
+            const closeChat = document.getElementById('close-chat');
+            const chatContainer = document.getElementById('chat-container');
+            const userInput = document.getElementById('user-input');
+            const sendBtn = document.getElementById('send-btn');
+
+            chatToggle.addEventListener('click', function() {
+                chatWrapper.classList.toggle('hidden');
+                if (!chatWrapper.classList.contains('hidden') && chatContainer.children.length === 0) {
+                    if (model) {
+                        appendMsg("System Online. Forensic Diagnostic Terminal active.", "gemini");
+                    } else {
+                        appendMsg("System ready. API connected successfully.", "gemini");
+                    }
+                }
+            });
+
+            closeChat.addEventListener('click', function() {
+                chatWrapper.classList.add('hidden');
+            });
+
+            async function sendMessage() {
+                const text = userInput.value.trim();
+                if (!text) return;
+                
+                if (!model) {
+                    appendMsg("API not initialized. Please check your configuration.", "gemini");
+                    return;
+                }
+
+                appendMsg(text, "user");
+                userInput.value = "";
+
+                try {
+                    const result = await model.generateContent(text);
+                    const response = await result.response;
+                    appendMsg(response.text(), "gemini");
+                } catch (err) {
+                    console.error('API Error:', err);
+                    appendMsg("Diagnostic error: " + err.message, "gemini");
+                }
+            }
+
+            function appendMsg(text, sender) {
+                const msgDiv = document.createElement('div');
+                msgDiv.className = `message ${sender}-message`;
+                msgDiv.textContent = text;
+                chatContainer.appendChild(msgDiv);
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }
+
+            sendBtn.addEventListener('click', sendMessage);
+            userInput.addEventListener('keypress', function(e) { 
+                if(e.key === 'Enter') sendMessage(); 
+            });
+        });
+    </script>

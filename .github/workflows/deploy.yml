@@ -1,0 +1,25 @@
+name: Inject API Key and Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Inject API key into index.html
+        run: |
+          sed -i "s|const API_KEY = import.meta.env ? import.meta.env.VITE_GEMINI_API_KEY : \"\";|const API_KEY = \"${{ secrets.GEMINI_API_KEY }}\";|g" index.html
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: .
+          branch: gh-pages
