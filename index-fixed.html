@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethic Hawks – The Wilbur Method™</title>
+    <!-- [Keep all your existing CSS here - it's fine] -->
+</head>
+<body>
+    <!-- [Keep all your existing HTML body content] -->
+    
+    <button id="chat-toggle-btn">EH</button>
+    <div id="chat-wrapper" class="hidden">
+        <!-- [Keep existing chat HTML] -->
+    </div>
+
+    <script type="importmap">
+        { "imports": { "@google/generative-ai": "https://esm.run/@google/generative-ai" } }
+    </script>
+    
+    <script type="module">
+        import { GoogleGenerativeAI } from "@google/generative-ai";
+
+        const API_KEY = "AIzaSyB3Br7KLVZKNk-Eosk9_csZ7U4rH81H-z0";
+        
+        // Properly initialize the API
+        const genAI = new GoogleGenerativeAI(API_KEY);
+        const model = genAI.getGenerativeModel({ 
+            model: "gemini-1.5-flash",
+            systemInstruction: "You are the Ethic Hawks Forensic Assistant."
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const chatToggle = document.getElementById('chat-toggle-btn');
+            const chatWrapper = document.getElementById('chat-wrapper');
+            
+            chatToggle.addEventListener('click', () => {
+                chatWrapper.classList.toggle('hidden');
+                if (!chatWrapper.classList.contains('hidden')) {
+                    document.getElementById('chat-container').innerHTML += 
+                        '<div class="message gemini-message">System Online. How can I assist?</div>';
+                }
+            });
+
+            document.getElementById('close-chat').addEventListener('click', () => {
+                chatWrapper.classList.add('hidden');
+            });
+
+            async function sendMessage() {
+                const input = document.getElementById('user-input');
+                const text = input.value.trim();
+                if (!text) return;
+                
+                const container = document.getElementById('chat-container');
+                container.innerHTML += `<div class="message user-message">${text}</div>`;
+                input.value = '';
+
+                try {
+                    const result = await model.generateContent(text);
+                    container.innerHTML += `<div class="message gemini-message">${result.response.text()}</div>`;
+                } catch (err) {
+                    container.innerHTML += `<div class="message gemini-message">Error: ${err.message}</div>`;
+                }
+            }
+
+            document.getElementById('send-btn').addEventListener('click', sendMessage);
+            document.getElementById('user-input').addEventListener('keypress', (e) => {
+                if(e.key === 'Enter') sendMessage();
+            });
+        });
+    </script>
+</body>
+</html>
