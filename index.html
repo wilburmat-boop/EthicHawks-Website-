@@ -299,12 +299,12 @@
         import { GoogleGenerativeAI } from "@google/generative-ai";
 
         // IMPORTANT: Replace with your actual API key
-        const API_KEY = "PLACEHOLDER_API_KEY"; 
+        const API_KEY = "AIzaSyB3Br7KLVZKNk-Eosk9_csZ7U4rH81H-z0"; 
         
         // Only initialize if we have a valid API key
         let genAI, model;
         
-        if (API_KEY && API_KEY !== "PLACEHOLDER_API_KEY") {
+        if (API_KEY && API_KEY !== "AIzaSyB3Br7KLVZKNk-Eosk9_csZ7U4rH81H-z0) {
             genAI = new GoogleGenerativeAI(API_KEY);
             model = genAI.getGenerativeModel({ 
                 model: "gemini-1.5-flash",
