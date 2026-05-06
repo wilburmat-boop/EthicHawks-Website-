@@ -136,7 +136,7 @@
     <header class="site-header">
         <div class="container header-inner">
             <a href="#home" class="logo">
-                <img src="main/logo.png" alt="Ethic Hawks Logo">
+                <img src="logo.png" alt="logo.png">
                 Ethic<span>Hawks</span>
             </a>
             <nav id="mainNav">
