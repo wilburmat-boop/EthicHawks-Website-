@@ -48,7 +48,7 @@
 
         .site-header {
             background:rgba(13,22,37,0.97); backdrop-filter:blur(12px);
-            border-bottom:1px solid rgba(198,160,86,0.2); position:sticky; top:0; z-index:100; padding:1rem 0;
+            border-bottom:1px solid rgba(198,160,86,0.2); position:sticky; top:44px; z-index:100; padding:1rem 0;
         }
 
         .header-inner { display:flex; justify-content:space-between; align-items:center; }
@@ -88,7 +88,7 @@
         #chat-wrapper {
             position: fixed; bottom: 90px; right: 20px; width: 380px; height: 500px;
             background: var(--navy-mid); border: 1px solid var(--gold); border-radius: 8px;
-            display: flex; flex-direction: column; z-index: 1001; overflow: hidden;
+            display: flex; flex-direction: column; z-index: 9999; overflow: hidden;
             box-shadow: 0 15px 40px rgba(0,0,0,0.6);
         }
         #chat-wrapper.hidden { display: none; }
@@ -113,10 +113,10 @@
             padding: 8px 12px; border-radius: 4px; outline: none; 
         }
         #user-input::placeholder { color: rgba(255,255,255,0.5); }
-        #chat-toggle-btn { 
+        #chat-toggle-btn { cursor: pointer !important; pointer-events: auto !important; 
             position: fixed; bottom: 25px; right: 25px; 
             width: 60px; height: 60px; border-radius: 50%; 
-            z-index: 1001; font-size: 0.85rem; 
+            z-index: 9999; font-size: 0.85rem; 
             border: 2px solid var(--gold);
             display: flex; align-items: center; justify-content: center;
         }
@@ -136,10 +136,18 @@
     <div style="background: linear-gradient(90deg, var(--navy-deep), var(--navy-mid)); border-bottom: 1px solid var(--gold); padding: 0.5rem; text-align: center; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.05em;">
         📋 NEW PREPRINT: <a href="#announcement" style="color: var(--gold); text-decoration: underline;">Forensic Governance Architecture for NHI Implementation</a> — medRxiv MS ID#: MEDRXIV/2026/352535
     </div>
+    <!-- PREPRINT ANNOUNCEMENT BANNER -->
+    <div style="background: linear-gradient(90deg, #0D1625, #1A2D4A); border-bottom: 2px solid var(--gold); padding: 12px 20px; text-align: center; font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.05em; position: sticky; top: 0; z-index: 101;">
+        <span style="color: var(--gold);">📋 NEW PREPRINT:</span> 
+        <a href="https://www.medrxiv.org" target="_blank" style="color: var(--gold-light); text-decoration: underline; font-weight: 600;">
+            Building the Watchdog Before the House Burns Down: Forensic Governance Architecture for NHI Implementation
+        </a> 
+        <span style="color: rgba(255,255,255,0.5); font-size: 0.7rem;">— medRxiv MS ID#: MEDRXIV/2026/352535</span>
+    </div>
     <header class="site-header">
         <div class="container header-inner">
             <a href="#home" class="logo">
-                <img src="assets/logo.png" alt="Ethic Hawks Logo">
+                <img src="main/logo.png" alt="Ethic Hawks Logo">
                 Ethic<span>Hawks</span>
             </a>
             <nav id="mainNav">
