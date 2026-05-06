@@ -304,7 +304,8 @@
         // Only initialize if we have a valid API key
         let genAI, model;
         
-        if (API_KEY && API_KEY !== "AIzaSyB3Br7KLVZKNk-Eosk9_csZ7U4rH81H-z0) {
+        if (API_KEY && API_KEY !== "AIzaSyB3Br7KLVZKNk-Eosk9_csZ7U4rH81H-z0)
+        {
             genAI = new GoogleGenerativeAI(API_KEY);
             model = genAI.getGenerativeModel({ 
                 model: "gemini-1.5-flash",
