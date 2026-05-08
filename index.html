@@ -4,46 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>EthicHawks | Forensic Architecture</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
     <script src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
     <style>
-        :root { --primary: #003366; --accent: #c5a059; --bg: #fdfdfd; --white: #ffffff; }
-        body { margin: 0; font-family: 'Helvetica Neue', Arial, sans-serif; background: var(--bg); color: #333; line-height: 1.6; }
+        :root { --primary: #001f3f; --accent: #c5a059; --bg: #0a192f; --text-light: #e6f1ff; --card-bg: rgba(255,255,255,0.03); }
+        body { margin: 0; font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--text-light); line-height: 1.6; }
         
-        #consent-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 10000; display: flex; align-items: center; justify-content: center; padding: 20px; }
-        .modal-content { background: white; max-width: 450px; padding: 30px; border-radius: 8px; border-top: 10px solid var(--accent); text-align: center; }
-        .btn-accept { background: var(--primary); color: white; border: none; padding: 15px 40px; border-radius: 4px; font-weight: bold; cursor: pointer; margin-top: 20px; width: 100%; }
+        /* Premium Serif for Headings */
+        h1, h2, h3, .header-banner { font-family: 'Playfair Display', serif; }
+        
+        #consent-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 25, 47, 0.95); z-index: 10000; display: flex; align-items: center; justify-content: center; padding: 20px; }
+        .modal-content { background: var(--primary); border: 1px solid var(--accent); max-width: 450px; padding: 35px; border-radius: 8px; border-top: 10px solid var(--accent); text-align: center; color: var(--text-light); box-shadow: 0 10px 40px rgba(0,0,0,0.9); }
+        .btn-accept { background: var(--accent); color: var(--primary); border: none; padding: 15px 40px; border-radius: 4px; font-weight: 700; cursor: pointer; margin-top: 20px; width: 100%; text-transform: uppercase; letter-spacing: 2px; font-family: 'Montserrat', sans-serif; transition: 0.3s;}
+        .btn-accept:hover { background: #d4b271; }
 
-        #watchdog-btn { position: fixed; bottom: 20px; right: 20px; background: var(--accent); color: var(--primary); padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 0.75rem; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 9999; border: 2px solid var(--primary); }
+        #watchdog-btn { position: fixed; bottom: 20px; right: 20px; background: var(--accent); color: var(--primary); padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 0.75rem; box-shadow: 0 4px 15px rgba(0,0,0,0.5); z-index: 9999; border: 2px solid var(--primary); font-family: 'Montserrat', sans-serif;}
 
-        .header-banner { background: var(--primary); color: white; padding: 15px; text-align: center; font-weight: bold; position: fixed; top: 0; width: 100%; z-index: 1000; display: flex; justify-content: center; align-items: center; gap: 10px; }
-        .header-logo { height: 30px; }
+        .header-banner { background: var(--primary); color: var(--accent); padding: 15px; text-align: center; font-size: 1.3rem; font-weight: 800; position: fixed; top: 0; width: 100%; z-index: 1000; display: flex; justify-content: center; align-items: center; gap: 12px; border-bottom: 1px solid rgba(197, 160, 89, 0.2); letter-spacing: 2px; }
+        .header-logo { height: 35px; border-radius: 4px; }
 
-        .container { margin-top: 80px; padding: 20px; max-width: 850px; margin-left: auto; margin-right: auto; }
-        .hero-section { background: linear-gradient(135deg, #003366 0%, #001f3f 100%); color: white; padding: 40px 30px; border-radius: 8px; margin-bottom: 25px; border-bottom: 5px solid var(--accent); text-align: center; }
-        .hero-logo { max-width: 150px; margin-bottom: 20px; filter: drop-shadow(0 0 10px rgba(197, 160, 89, 0.5)); }
+        .container { margin-top: 90px; padding: 20px; max-width: 850px; margin-left: auto; margin-right: auto; }
+        
+        .hero-section { background: linear-gradient(135deg, #001122 0%, #001f3f 100%); padding: 50px 30px; border-radius: 8px; margin-bottom: 25px; border: 1px solid var(--accent); text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+        .hero-logo { max-width: 160px; margin-bottom: 20px; filter: drop-shadow(0 0 15px rgba(197, 160, 89, 0.4)); }
 
-        .card { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eee; margin-bottom: 25px; }
+        .card { background: var(--card-bg); padding: 40px 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); border: 1px solid rgba(197, 160, 89, 0.15); margin-bottom: 25px; }
+        
+        .history-text { font-size: 0.95rem; line-height: 1.8; color: #ccd6f6; margin-top: 20px; text-align: left; font-weight: 300; }
+        
         .pillar { margin-bottom: 25px; padding-left: 20px; border-left: 5px solid var(--accent); }
-        .pillar-head { font-weight: 800; color: var(--primary); text-transform: uppercase; font-size: 0.9rem; margin-bottom: 5px; display: block; }
+        .pillar-head { font-weight: 700; color: var(--accent); text-transform: uppercase; font-size: 0.95rem; margin-bottom: 5px; display: block; letter-spacing: 1px; font-family: 'Montserrat', sans-serif;}
         
-        .workflow-step { background: #f0f4f8; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--primary); margin-bottom: 10px; }
+        .workflow-step { background: var(--accent); border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--primary); margin-bottom: 15px; font-family: 'Montserrat', sans-serif; font-size: 1.2rem;}
 
-        .truth-loop { background: var(--primary); color: white; padding: 35px; border-radius: 8px; margin-top: 30px; }
-        details { background: rgba(0,51,102,0.05); border-radius: 6px; margin-bottom: 12px; border: 1px solid #ddd; }
-        summary { padding: 15px; cursor: pointer; font-weight: bold; color: var(--primary); outline: none; list-style: none; display: flex; justify-content: space-between; }
+        .truth-loop { background: var(--primary); color: var(--text-light); padding: 40px; border-radius: 8px; margin-top: 30px; border: 1px solid var(--accent); }
+        details { background: rgba(0,0,0,0.3); border-radius: 6px; margin-bottom: 12px; border: 1px solid rgba(197, 160, 89, 0.2); }
+        summary { padding: 18px; cursor: pointer; font-weight: 600; color: var(--accent); outline: none; list-style: none; display: flex; justify-content: space-between; font-family: 'Montserrat', sans-serif; letter-spacing: 1px;}
         summary::after { content: ' +'; }
         details[open] summary::after { content: ' −'; }
-        .details-content { padding: 0 15px 15px 15px; font-size: 0.95rem; }
+        .details-content { padding: 0 18px 18px 18px; font-size: 0.95rem; color: #ccd6f6; font-weight: 300; line-height: 1.7;}
         
-        .footer { text-align: center; font-size: 0.8rem; padding: 40px; color: #888; }
+        .compliance-badge { display: inline-block; background: var(--accent); color: var(--primary); padding: 5px 12px; border-radius: 4px; font-size: 0.75rem; font-weight: 800; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;}
+        .footer { text-align: center; font-size: 0.8rem; padding: 40px; color: #666; font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 2px;}
+        a { color: var(--accent); text-decoration: none; }
     </style>
 </head>
 <body>
 
     <div id="consent-modal">
         <div class="modal-content">
-            <h2 style="color: var(--primary);">Forensic Access Granted</h2>
-            <p>You are entering the EthicHawks digital architecture. Access implies consent to POPIA data handling and acknowledgment of the Forensic Disclaimer.</p>
+            <h2 style="color: var(--accent); margin-top: 0; font-size: 2rem;">Access Granted</h2>
+            <p style="font-size: 0.95rem; font-weight: 300;">You are entering the EthicHawks digital architecture. Access implies consent to POPIA data handling and acknowledgment of the Forensic Disclaimer.</p>
             <button class="btn-accept" onclick="acceptConsent()">Accept & Enter</button>
         </div>
     </div>
@@ -52,23 +63,30 @@
 
     <header class="header-banner">
         <img src="1000184683.jpg" alt="Justice" class="header-logo" onerror="this.style.display='none'">
-        ETHICHAWKS CONSULTANCY
+        ETHIC HAWKS
     </header>
     
     <main class="container">
         <section class="hero-section">
             <img src="1000184770.jpg" alt="HawkVision" class="hero-logo" onerror="this.style.display='none'">
-            <h2 style="color: var(--accent); text-transform: uppercase; font-size: 1rem; margin:0;">Executive Summary</h2>
-            <h1 style="font-size: 1.5rem; margin-top: 10px;">Integrity Architecture for the Modern Enterprise</h1>
-            <p style="font-size: 0.9rem; opacity: 0.8;">Bridging the gap between corporate box-ticking and clinical-grade forensic governance.</p>
+            <h2 style="color: var(--accent); text-transform: uppercase; font-size: 1.1rem; margin:0; letter-spacing: 3px;">Executive Summary</h2>
+            <h1 style="font-size: 2.2rem; margin-top: 10px; color: var(--text-light);">Integrity Architecture for the Modern Enterprise</h1>
+            <p style="font-size: 1rem; opacity: 0.85; font-weight: 300;">Bridging the gap between corporate box-ticking and clinical-grade forensic governance.</p>
         </section>
 
         <section class="card">
-            <div style="text-align: center;">
-                <h1 style="color: var(--primary); margin: 0; text-transform: uppercase;">Wilbur William Matthee</h1>
-                <div style="color: #666; margin-bottom: 20px; border-bottom: 3px solid var(--accent); padding-bottom: 10px;">Founder | Forensic Specialist</div>
+            <div style="text-align: center; margin-bottom: 35px; border-bottom: 1px solid rgba(197, 160, 89, 0.3); padding-bottom: 30px;">
+                <h2 style="color: var(--accent); text-transform: uppercase; font-size: 1rem; letter-spacing: 2px; margin-bottom: 5px;">About the Founder</h2>
+                <h1 style="color: var(--text-light); margin: 0; font-size: 2.5rem;">Wilbur W. Matthee</h1>
+                <div style="color: var(--accent); margin-top: 10px; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Forensic Specialist | Architect of Integrity</div>
+                
+                <div class="history-text">
+                    <p>With a career forged in unapologetic truth and clinical precision, Wilbur established EthicHawks to bridge the critical gap between superficial corporate compliance and actionable statutory governance. The Wilbur Method™ was born from high-stakes investigations, treating institutional detriment not as a mere symptom, but as a systemic pathogen that must be excised.</p>
+                    <p>EthicHawks stands as the definitive Sentinel for radical transparency, ensuring that no entity is too big to comply, and that the voice of the whistleblower is protected as a clinical emergency.</p>
+                </div>
             </div>
             
+            <h2 style="color: var(--text-light); text-align: center; margin-bottom: 30px; font-size: 1.8rem;">The Six Pillars of Governance</h2>
             <div class="pillar"><span class="pillar-head">1. Forensic Governance</span>A Statutory Obligation. The death of discretionary compliance.</div>
             <div class="pillar"><span class="pillar-head">2. Specialist Duty</span>Clinical rigor applied to the balance sheet. Patient vs. Ego.</div>
             <div class="pillar"><span class="pillar-head">3. Protection of the Voice</span>Detriment is a clinical emergency. Whistleblowing as systemic survival.</div>
@@ -78,49 +96,50 @@
         </section>
 
         <section class="card">
-            <h3 style="color: var(--primary); text-transform: uppercase; text-align: center;">The Diagnostic Workflow</h3>
-            <div style="display: flex; gap: 20px; justify-content: space-around; flex-wrap: wrap;">
+            <h2 style="color: var(--accent); text-transform: uppercase; text-align: center; margin-top: 0; letter-spacing: 2px; font-size: 1.5rem;">The Diagnostic Workflow</h2>
+            <div style="display: flex; gap: 20px; justify-content: space-around; flex-wrap: wrap; margin-top: 30px;">
                 <div style="max-width: 200px; text-align: center;">
-                    <div class="workflow-step" style="margin: 0 auto 10px auto;">1</div>
-                    <strong>Diagnostic Scan</strong><br><p style="font-size: 0.8rem;">Initial identification of institutional sepsis.</p>
+                    <div class="workflow-step" style="margin: 0 auto 15px auto;">1</div>
+                    <strong style="color: var(--text-light); font-family: 'Playfair Display', serif; font-size: 1.2rem;">Diagnostic Scan</strong><br><p style="font-size: 0.9rem; color: #aaa; font-weight: 300;">Initial identification of institutional sepsis.</p>
                 </div>
                 <div style="max-width: 200px; text-align: center;">
-                    <div class="workflow-step" style="margin: 0 auto 10px auto;">2</div>
-                    <strong>Forensic Audit</strong><br><p style="font-size: 0.8rem;">Rendering invisible oversight visible and actionable.</p>
+                    <div class="workflow-step" style="margin: 0 auto 15px auto;">2</div>
+                    <strong style="color: var(--text-light); font-family: 'Playfair Display', serif; font-size: 1.2rem;">Forensic Audit</strong><br><p style="font-size: 0.9rem; color: #aaa; font-weight: 300;">Rendering invisible oversight visible and actionable.</p>
                 </div>
                 <div style="max-width: 200px; text-align: center;">
-                    <div class="workflow-step" style="margin: 0 auto 10px auto;">3</div>
-                    <strong>Surgical Closing</strong><br><p style="font-size: 0.8rem;">Forcing alignment via force of Law (Labour Court/SARS).</p>
+                    <div class="workflow-step" style="margin: 0 auto 15px auto;">3</div>
+                    <strong style="color: var(--text-light); font-family: 'Playfair Display', serif; font-size: 1.2rem;">Surgical Closing</strong><br><p style="font-size: 0.9rem; color: #aaa; font-weight: 300;">Forcing alignment via force of Law (Labour Court/SARS).</p>
                 </div>
             </div>
         </section>
 
         <section class="truth-loop">
-            <h3 style="color: var(--accent); text-transform: uppercase; margin-top: 0; text-align: center;">The Closed Loop of Truth</h3>
-            <details style="background: rgba(255,255,255,0.1); border-color: var(--accent);">
-                <summary style="color: var(--accent);">Forensic Synchronicity</summary>
-                <div class="details-content" style="color: white;">A state where action and law are a single indisputable record.</div>
+            <h2 style="color: var(--accent); text-transform: uppercase; margin-top: 0; text-align: center; letter-spacing: 2px;">The Closed Loop of Truth</h2>
+            <details>
+                <summary>Forensic Synchronicity</summary>
+                <div class="details-content">A state where action and law are a single indisputable record.</div>
             </details>
         </section>
 
         <section class="card" style="margin-top: 30px;">
-            <div style="display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap;">
+            <div style="display: flex; gap: 30px; align-items: flex-start; flex-wrap: wrap;">
                 <div style="flex: 1; min-width: 300px;">
-                    <h3 style="margin-top: 0; color: var(--primary);">Information Officer (The Sentinel)</h3>
-                    <p style="font-size: 0.9rem;"><strong>Name:</strong> Wilbur William Matthee<br><strong>Contact:</strong> info@ethichawks.co.za</p>
+                    <div class="compliance-badge">STATUS: POPIA & PAIA COMPLIANT</div>
+                    <h2 style="margin-top: 10px; color: var(--text-light); font-size: 1.6rem;">Information Officer (The Sentinel)</h2>
+                    <p style="font-size: 0.95rem; font-weight: 300;"><strong>Name:</strong> Wilbur William Matthee<br><strong>Contact:</strong> <a href="mailto:info@ethichawks.co.za">info@ethichawks.co.za</a></p>
                     <details>
                         <summary>PAIA: Statutory Records held</summary>
                         <div class="details-content">
-                            <ul>
-                                <li><strong>Finances:</strong> ITR34s, Revenue Returns, Audit Records, Asset Registers.</li>
-                                <li><strong>Investigation:</strong> Subpoenas, Summons, Investigation Reports.</li>
+                            <ul style="padding-left: 20px;">
+                                <li style="margin-bottom: 8px;"><strong>Finances:</strong> ITR34s, Revenue Returns, Audit Records, Asset Registers.</li>
+                                <li style="margin-bottom: 8px;"><strong>Investigation:</strong> Subpoenas, Summons, Investigation Reports.</li>
                                 <li><strong>Operational:</strong> Agendas, Minutes, Legal Opinions.</li>
                             </ul>
                         </div>
                     </details>
                 </div>
                 
-                <div style="min-width: 200px;">
+                <div style="min-width: 200px; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; border: 1px solid rgba(197, 160, 89, 0.1);">
                     <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="wilbur-w-matthee-8588188a" data-version="v1">
                         <a class="badge-base__link LI-simple-link" href="https://za.linkedin.com/in/wilbur-w-matthee-8588188a?trk=profile-badge">Wilbur W. Matthee</a>
                     </div>
