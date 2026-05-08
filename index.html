@@ -2,175 +2,145 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Ethic Hawks – Forensic Governance &amp; The Wilbur Method™</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>EthicHawks | Forensic Architecture</title>
+    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
     <style>
-        * { margin:0; padding:0; box-sizing:border-box; }
-        :root {
-            --navy: #172744; --navy-deep: #0D1625; --navy-mid: #1A2D4A;
-            --gold: #C6A056; --gold-light: #DFC07A; --gold-pale: #F2E0B8;
-            --gold-dark: #8B6B2A; --white: #FFFFFF; --off-white: #F5F0E8;
-            --rule: rgba(198,160,86,0.35);
-            --grad-gold: linear-gradient(135deg, #8B6B2A 0%, #C6A056 40%, #DFC07A 60%, #C6A056 80%, #8B6B2A 100%);
-            --grad-hero: linear-gradient(170deg, #0D1625 0%, #172744 35%, #1A2D4A 65%, #0D1625 100%);
-            --font-heading: 'Cinzel', serif;
-            --font-body: 'Cormorant Garamond', serif;
-            --font-mono: 'Montserrat', sans-serif;
-        }
-        html { scroll-behavior:smooth; }
-        body { font-family:var(--font-body); background:var(--navy-deep); color:var(--white); line-height:1.6; -webkit-font-smoothing:antialiased; }
-        .container { max-width:1200px; margin:0 auto; padding:0 1.5rem; }
+        :root { --primary: #003366; --accent: #c5a059; --bg: #fdfdfd; --white: #ffffff; }
+        body { margin: 0; font-family: 'Helvetica Neue', Arial, sans-serif; background: var(--bg); color: #333; line-height: 1.6; }
         
-        /* --- Header Realignment --- */
-        .site-header { background:rgba(13,22,37,0.97); border-bottom:1px solid var(--rule); position:sticky; top:0; z-index:100; padding: 1rem 0; }
-        .header-inner { display:flex; flex-direction: column; align-items:center; gap: 1rem; }
-        .brand { display: flex; align-items: center; gap: 12px; }
-        .logo { font-family:var(--font-heading); color:var(--white); text-decoration:none; font-size:1.6rem; font-weight:900; white-space: nowrap; }
-        .logo span { color:var(--gold); }
-        nav { display: flex; gap: 1.5rem; }
-        nav a { color:var(--white); text-decoration:none; font-family:var(--font-mono); font-size:0.75rem; text-transform:uppercase; letter-spacing: 0.05em; }
+        #consent-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 10000; display: flex; align-items: center; justify-content: center; padding: 20px; }
+        .modal-content { background: white; max-width: 450px; padding: 30px; border-radius: 8px; border-top: 10px solid var(--accent); text-align: center; }
+        .btn-accept { background: var(--primary); color: white; border: none; padding: 15px 40px; border-radius: 4px; font-weight: bold; cursor: pointer; margin-top: 20px; width: 100%; }
 
-        /* --- Sections --- */
-        .hero { background:var(--grad-hero); padding:6rem 0 4rem; text-align:center; }
-        section { padding:4rem 0; }
-        .section-dark { background:var(--navy-deep); }
-        .section-light { background:var(--navy-mid); }
-        h1,h2,h3 { font-family:var(--font-heading); font-weight:700; }
-        h1 { font-size:clamp(2rem,5vw,3.5rem); margin-bottom: 1rem; }
-        h2 { font-size:clamp(1.6rem,4vw,2.2rem); color:var(--gold); border-bottom:2px solid var(--gold); padding-bottom:0.5rem; margin-bottom:2rem; }
+        #watchdog-btn { position: fixed; bottom: 20px; right: 20px; background: var(--accent); color: var(--primary); padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 0.75rem; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 9999; border: 2px solid var(--primary); }
+
+        .header-banner { background: var(--primary); color: white; padding: 15px; text-align: center; font-weight: bold; position: fixed; top: 0; width: 100%; z-index: 1000; display: flex; justify-content: center; align-items: center; gap: 10px; }
+        .header-logo { height: 30px; }
+
+        .container { margin-top: 80px; padding: 20px; max-width: 850px; margin-left: auto; margin-right: auto; }
+        .hero-section { background: linear-gradient(135deg, #003366 0%, #001f3f 100%); color: white; padding: 40px 30px; border-radius: 8px; margin-bottom: 25px; border-bottom: 5px solid var(--accent); text-align: center; }
+        .hero-logo { max-width: 150px; margin-bottom: 20px; filter: drop-shadow(0 0 10px rgba(197, 160, 89, 0.5)); }
+
+        .card { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eee; margin-bottom: 25px; }
+        .pillar { margin-bottom: 25px; padding-left: 20px; border-left: 5px solid var(--accent); }
+        .pillar-head { font-weight: 800; color: var(--primary); text-transform: uppercase; font-size: 0.9rem; margin-bottom: 5px; display: block; }
         
-        .btn { display:inline-block; background:var(--grad-gold); color:var(--navy-deep); font-family:var(--font-mono); font-weight:700; padding:0.8rem 1.8rem; text-decoration:none; text-transform:uppercase; letter-spacing:0.1em; transition: 0.3s; }
-        .grid-2 { display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:3rem; }
-        .about-image { width: 180px; border: 2px solid var(--gold); border-radius: 4px; margin-bottom: 1.5rem; }
+        .workflow-step { background: #f0f4f8; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--primary); margin-bottom: 10px; }
 
-        /* --- Compliance --- */
-        .compliance-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
-        .compliance-link { color: var(--gold-pale); text-decoration: none; font-family: var(--font-mono); font-size: 0.75rem; border: 1px solid var(--rule); padding: 1rem; text-align: center; }
-
-        /* --- AI Assistant --- */
-        #chat-toggle-btn { position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px; border-radius: 50%; z-index: 1001; border: 2px solid var(--gold); background: var(--grad-gold); color: var(--navy-deep); font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-        #chat-wrapper { position: fixed; bottom: 95px; right: 20px; width: 350px; height: 480px; background: var(--navy-mid); border: 1px solid var(--gold); border-radius: 8px; display: flex; flex-direction: column; z-index: 1001; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.6); }
-        #chat-wrapper.hidden { display: none; }
-        #chat-header { background: var(--navy-deep); padding: 12px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--gold); }
-        #chat-container { flex: 1; overflow-y: auto; padding: 15px; display: flex; flex-direction: column; gap: 12px; }
-        .message { padding: 10px; border-radius: 6px; font-size: 0.9rem; max-width: 85%; }
-        .user-message { align-self: flex-end; background: var(--gold-dark); color: white; }
-        .gemini-message { align-self: flex-start; background: var(--navy-deep); border-left: 3px solid var(--gold); }
-        .chat-input-area { display: flex; padding: 12px; background: var(--navy-deep); gap: 8px; }
-        #user-input { flex: 1; background: rgba(255,255,255,0.05); border: 1px solid var(--gold-dark); color: white; padding: 8px; border-radius: 4px; outline: none; }
+        .truth-loop { background: var(--primary); color: white; padding: 35px; border-radius: 8px; margin-top: 30px; }
+        details { background: rgba(0,51,102,0.05); border-radius: 6px; margin-bottom: 12px; border: 1px solid #ddd; }
+        summary { padding: 15px; cursor: pointer; font-weight: bold; color: var(--primary); outline: none; list-style: none; display: flex; justify-content: space-between; }
+        summary::after { content: ' +'; }
+        details[open] summary::after { content: ' −'; }
+        .details-content { padding: 0 15px 15px 15px; font-size: 0.95rem; }
+        
+        .footer { text-align: center; font-size: 0.8rem; padding: 40px; color: #888; }
     </style>
 </head>
 <body>
 
-    <header class="site-header">
-        <div class="container header-inner">
-            <div class="brand">
-                <img src="assets/logo.png" alt="EH" style="height:45px;">
-                <a href="#" class="logo">ETHIC <span>HAWKS</span></a>
-            </div>
-            <nav>
-                <a href="#method">Method</a>
-                <a href="#compliance">Compliance</a>
-                <a href="#about">About</a>
-                <a href="#contact">Engage</a>
-            </nav>
+    <div id="consent-modal">
+        <div class="modal-content">
+            <h2 style="color: var(--primary);">Forensic Access Granted</h2>
+            <p>You are entering the EthicHawks digital architecture. Access implies consent to POPIA data handling and acknowledgment of the Forensic Disclaimer.</p>
+            <button class="btn-accept" onclick="acceptConsent()">Accept & Enter</button>
         </div>
-    </header>
+    </div>
 
-    <main>
-        <section class="hero" id="home">
-            <div class="container">
-                <p style="color:var(--gold); text-transform:uppercase; letter-spacing:0.3em; margin-bottom:1rem; font-family:var(--font-mono); font-size:0.8rem;">Forensic Governance & Risk Architecture</p>
-                <h1>The Wilbur <span style="color:var(--gold);">Method™</span></h1>
-                <p style="max-width:700px; margin:0 auto 2rem; font-size:1.2rem; font-style: italic; color: var(--gold-pale);">"Excising structural pathology through the Closed Loop of Truth."</p>
-                <a href="#contact" class="btn">Secure Consultation</a>
-            </div>
+    <a href="nhi-watchdog.html" id="watchdog-btn">🐾 NHI WATCHDOG ARTICLE</a>
+
+    <header class="header-banner">
+        <img src="1000184683.jpg" alt="Justice" class="header-logo" onerror="this.style.display='none'">
+        ETHICHAWKS CONSULTANCY
+    </header>
+    
+    <main class="container">
+        <section class="hero-section">
+            <img src="1000184770.jpg" alt="HawkVision" class="hero-logo" onerror="this.style.display='none'">
+            <h2 style="color: var(--accent); text-transform: uppercase; font-size: 1rem; margin:0;">Executive Summary</h2>
+            <h1 style="font-size: 1.5rem; margin-top: 10px;">Integrity Architecture for the Modern Enterprise</h1>
+            <p style="font-size: 0.9rem; opacity: 0.8;">Bridging the gap between corporate box-ticking and clinical-grade forensic governance.</p>
         </section>
 
-        <section id="compliance" class="section-dark">
-            <div class="container">
-                <h2>Statutory Compliance</h2>
-                <div class="compliance-grid">
-                    <a href="compliance/popia-policy.html" class="compliance-link">POPIA Privacy Policy</a>
-                    <a href="compliance/nda.html" class="compliance-link">POPIA & NDA Agreement</a>
-                    <a href="compliance/terms.html" class="compliance-link">Terms of Engagement</a>
+        <section class="card">
+            <div style="text-align: center;">
+                <h1 style="color: var(--primary); margin: 0; text-transform: uppercase;">Wilbur William Matthee</h1>
+                <div style="color: #666; margin-bottom: 20px; border-bottom: 3px solid var(--accent); padding-bottom: 10px;">Founder | Forensic Specialist</div>
+            </div>
+            
+            <div class="pillar"><span class="pillar-head">1. Forensic Governance</span>A Statutory Obligation. The death of discretionary compliance.</div>
+            <div class="pillar"><span class="pillar-head">2. Specialist Duty</span>Clinical rigor applied to the balance sheet. Patient vs. Ego.</div>
+            <div class="pillar"><span class="pillar-head">3. Protection of the Voice</span>Detriment is a clinical emergency. Whistleblowing as systemic survival.</div>
+            <div class="pillar"><span class="pillar-head">4. The Wilbur Method&trade;</span>We do not treat symptoms; we excise the root cause via Pathogen Identification.</div>
+            <div class="pillar"><span class="pillar-head">5. Procedural Mastery</span>Technical perfection and the D.I.E.S. Locking the gates of accountability.</div>
+            <div class="pillar"><span class="pillar-head">6. Radical Transparency</span>The End of Arrogance. No entity is too big to comply.</div>
+        </section>
+
+        <section class="card">
+            <h3 style="color: var(--primary); text-transform: uppercase; text-align: center;">The Diagnostic Workflow</h3>
+            <div style="display: flex; gap: 20px; justify-content: space-around; flex-wrap: wrap;">
+                <div style="max-width: 200px; text-align: center;">
+                    <div class="workflow-step" style="margin: 0 auto 10px auto;">1</div>
+                    <strong>Diagnostic Scan</strong><br><p style="font-size: 0.8rem;">Initial identification of institutional sepsis.</p>
+                </div>
+                <div style="max-width: 200px; text-align: center;">
+                    <div class="workflow-step" style="margin: 0 auto 10px auto;">2</div>
+                    <strong>Forensic Audit</strong><br><p style="font-size: 0.8rem;">Rendering invisible oversight visible and actionable.</p>
+                </div>
+                <div style="max-width: 200px; text-align: center;">
+                    <div class="workflow-step" style="margin: 0 auto 10px auto;">3</div>
+                    <strong>Surgical Closing</strong><br><p style="font-size: 0.8rem;">Forcing alignment via force of Law (Labour Court/SARS).</p>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="section-light">
-            <div class="container">
-                <h2>About the Founder</h2>
-                <div class="grid-2">
-                    <div>
-                        <img src="assets/author.png" alt="Wilbur Matthee SRN" class="about-image">
-                        <h3>Wilbur Matthee <span style="color:var(--gold);">SRN</span></h3>
-                        <p style="font-family:var(--font-mono); font-size:0.8rem; color:var(--gold-dark); margin-bottom:1rem;">NQF Level 8 · Specialist Registered Nurse · Forensic Governance Specialist</p>
-                        <p>Sixteen years of clinical practice taught me that the most important skill is knowing when a system is failing the people it is supposed to protect.</p>
-                        <p>I founded <strong>EthicHawks</strong> to make forensic auditing available to those who need governance frameworks that actually work.</p>
+        <section class="truth-loop">
+            <h3 style="color: var(--accent); text-transform: uppercase; margin-top: 0; text-align: center;">The Closed Loop of Truth</h3>
+            <details style="background: rgba(255,255,255,0.1); border-color: var(--accent);">
+                <summary style="color: var(--accent);">Forensic Synchronicity</summary>
+                <div class="details-content" style="color: white;">A state where action and law are a single indisputable record.</div>
+            </details>
+        </section>
+
+        <section class="card" style="margin-top: 30px;">
+            <div style="display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 300px;">
+                    <h3 style="margin-top: 0; color: var(--primary);">Information Officer (The Sentinel)</h3>
+                    <p style="font-size: 0.9rem;"><strong>Name:</strong> Wilbur William Matthee<br><strong>Contact:</strong> info@ethichawks.co.za</p>
+                    <details>
+                        <summary>PAIA: Statutory Records held</summary>
+                        <div class="details-content">
+                            <ul>
+                                <li><strong>Finances:</strong> ITR34s, Revenue Returns, Audit Records, Asset Registers.</li>
+                                <li><strong>Investigation:</strong> Subpoenas, Summons, Investigation Reports.</li>
+                                <li><strong>Operational:</strong> Agendas, Minutes, Legal Opinions.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+                
+                <div style="min-width: 200px;">
+                    <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="wilbur-w-matthee-8588188a" data-version="v1">
+                        <a class="badge-base__link LI-simple-link" href="https://za.linkedin.com/in/wilbur-w-matthee-8588188a?trk=profile-badge">Wilbur W. Matthee</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="section-dark" style="text-align: center;">
-            <div class="container">
-                <h2>Engage Ethic Hawks</h2>
-                <p style="margin-bottom: 2rem;">Secure a strategic forensic audit or navigation of institutional accountability.</p>
-                <p style="font-family: var(--font-mono); color: var(--gold);">info@ethichawks.co.za</p>
-                <a href="mailto:info@ethichawks.co.za" class="btn" style="margin-top: 2rem;">Email Diagnostic Request</a>
-            </div>
-        </section>
+        <footer class="footer">&copy; 2026 EthicHawks Consultancy | Cape Town</footer>
     </main>
 
-    <footer style="padding:3rem 0; text-align:center; border-top: 1px solid var(--rule);">
-        <p style="font-family: var(--font-heading); color: var(--gold);">ETHIC HAWKS</p>
-        <p style="font-size: 0.7rem; color: rgba(255,255,255,0.4);">© 2026 The Wilbur Method™ · Cape Town, SA</p>
-    </footer>
-
-    <button id="chat-toggle-btn">EH</button>
-    <div id="chat-wrapper" class="hidden">
-        <div id="chat-header"><span style="color:var(--gold); font-size:0.8rem;">Forensic Terminal</span><button id="close-chat" style="background:none; border:none; color:white; cursor:pointer;">✕</button></div>
-        <div id="chat-container"></div>
-        <div class="chat-input-area"><input type="text" id="user-input" placeholder="Initiate coordinate..."><button id="send-btn" class="btn">→</button></div>
-    </div>
-
-    <script type="importmap">{ "imports": { "@google/generative-ai": "https://esm.run/@google/generative-ai" } }</script>
-    <script type="module">
-        import { GoogleGenerativeAI } from "@google/generative-ai";
-        const API_KEY = "AIzaSyB3Br7KLVZKNk-Eosk9_csZ7U4rH81H-z0";
-        let genAI, model;
-        try {
-            genAI = new GoogleGenerativeAI(API_KEY);
-            model = genAI.getGenerativeModel({ model: "gemini-1.5-flash", systemInstruction: "Clinical, authoritative, precise." });
-        } catch(e) { console.error("AI Core Offline"); }
-
-        const chatToggle = document.getElementById('chat-toggle-btn');
-        const chatWrapper = document.getElementById('chat-wrapper');
-        const closeChat = document.getElementById('close-chat');
-        const chatContainer = document.getElementById('chat-container');
-        const userInput = document.getElementById('user-input');
-        const sendBtn = document.getElementById('send-btn');
-
-        chatToggle.addEventListener('click', () => chatWrapper.classList.toggle('hidden'));
-        closeChat.addEventListener('click', () => chatWrapper.classList.add('hidden'));
-
-        async function sendMessage() {
-            const text = userInput.value.trim(); if (!text || !model) return;
-            appendMsg(text, "user"); userInput.value = "";
-            try { 
-                const result = await model.generateContent(text); 
-                const response = await result.response;
-                appendMsg(response.text(), "gemini"); 
-            } catch (err) { appendMsg("Diagnostic failed: Check connectivity.", "gemini"); }
+    <script>
+        function acceptConsent() {
+            document.getElementById('consent-modal').style.display = 'none';
+            localStorage.setItem('ethichawks_consent', 'true');
         }
-        function appendMsg(text, sender) {
-            const msgDiv = document.createElement('div'); msgDiv.className = `message ${sender}-message`; msgDiv.textContent = text;
-            chatContainer.appendChild(msgDiv); chatContainer.scrollTop = chatContainer.scrollHeight;
+        window.onload = function() {
+            if(localStorage.getItem('ethichawks_consent') === 'true') {
+                document.getElementById('consent-modal').style.display = 'none';
+            }
         }
-        sendBtn.addEventListener('click', sendMessage);
-        userInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') sendMessage(); });
     </script>
 </body>
 </html>
