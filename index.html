@@ -71,7 +71,7 @@
         </section>
     </main>
     <script>
-        function acceptConsent() { document.getElementById('consent-modal').style.display = 'none'; }
+        function acceptConsent() { localStorage.setItem("ethichawks_consent", "true"); document.getElementById('consent-modal').style.display = 'none'; }
         <section id="governance" class="card">
             <h2 style="color: var(--accent); text-transform: uppercase; text-align: center;">The Six Pillars of Truth</h2>
             <details><summary>1. Forensic Governance (RCA)</summary>
@@ -105,7 +105,7 @@
         </section>
     </main>
     <script>
-        function acceptConsent() { document.getElementById('consent-modal').style.display = 'none'; localStorage.setItem('ethichawks_consent', 'true'); }
+        function acceptConsent() { localStorage.setItem("ethichawks_consent", "true"); document.getElementById('consent-modal').style.display = 'none'; localStorage.setItem('ethichawks_consent', 'true'); }
         window.onload = function() { if(localStorage.getItem('ethichawks_consent') === 'true') { document.getElementById('consent-modal').style.display = 'none'; } }
     </script>
 </body>
