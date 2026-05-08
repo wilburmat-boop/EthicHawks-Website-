@@ -2,99 +2,75 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EthicHawks | Forensic Architecture</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #001f3f; --accent: #c5a059; --bg: #0a192f; --text-light: #e6f1ff; --card-bg: rgba(255,255,255,0.05); }
-        html { scroll-behavior: smooth; }
-        body { margin: 0; font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--text-light); line-height: 1.6; }
+        :root { --primary: #001f3f; --accent: #c5a059; --bg: #0a192f; --text-light: #e6f1ff; }
+        body { margin: 0; font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--text-light); line-height: 1.6; display: flex; flex-direction: column; align-items: center; }
         h1, h2, h3, .brand, summary { font-family: 'Playfair Display', serif; }
         
-        /* The Entrance Portal */
-        #consent-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #0a192f; z-index: 10000; display: flex; align-items: center; justify-content: center; padding: 20px; }
-        .modal-content { background: var(--primary); border: 1px solid var(--accent); max-width: 450px; padding: 35px; border-radius: 8px; border-top: 8px solid var(--accent); text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.9); }
-        .btn-accept { background: var(--accent); color: var(--primary); border: none; padding: 15px 40px; border-radius: 4px; font-weight: 700; cursor: pointer; margin-top: 20px; width: 100%; text-transform: uppercase; letter-spacing: 2px; }
+        /* Centered Header */
+        .header-banner { background: var(--primary); color: var(--accent); padding: 15px; position: fixed; top: 0; width: 100%; z-index: 1000; text-align: center; border-bottom: 2px solid var(--accent); }
+        .header-logo { height: 35px; vertical-align: middle; margin-right: 10px; }
+        
+        /* One-Way Entrance Portal */
+        #consent-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #0a192f; z-index: 10000; display: flex; align-items: center; justify-content: center; }
+        .modal-content { background: var(--primary); border: 1px solid var(--accent); max-width: 400px; padding: 40px; border-radius: 8px; text-align: center; border-top: 8px solid var(--accent); }
+        .btn-accept { background: var(--accent); color: var(--primary); border: none; padding: 15px 40px; cursor: pointer; font-weight: 700; text-transform: uppercase; margin-top: 20px; width: 100%; }
 
-        /* Header Navigation */
-        .header-banner { background: var(--primary); color: var(--accent); padding: 10px 20px; position: fixed; top: 0; width: 100%; z-index: 1000; display: flex; justify-content: center; align-items: center; border-bottom: 2px solid var(--accent); box-sizing: border-box; }
-        .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; font-size: 1.1rem; }
+        /* Content Layout */
+        .container { margin-top: 120px; padding: 20px; max-width: 800px; width: 95%; text-align: center; }
+        .hero-section { background: linear-gradient(135deg, #001122 0%, #001f3f 100%); padding: 50px 20px; border-radius: 8px; border: 1px solid var(--accent); margin-bottom: 30px; }
+        .welcome-logo { width: 180px; margin-bottom: 20px; }
         
-        /* Content Containers */
-        .container { margin-top: 100px; padding: 20px; max-width: 850px; margin-left: auto; margin-right: auto; }
-        .hero-section { background: linear-gradient(135deg, #001122 0%, #001f3f 100%); padding: 60px 30px; border-radius: 8px; border: 1px solid var(--accent); text-align: center; margin-bottom: 25px; }
-        display: flex; flex-direction: column; align-items: center;
-        .card { background: var(--card-bg); padding: 40px 30px; border-radius: 8px; border: 1px solid rgba(197, 160, 89, 0.2); margin-bottom: 25px; }
-        .founder-photo { width: 150px; height: 150px; border-radius: 50%; border: 3px solid var(--accent); object-fit: cover; margin-bottom: 15px; }
+        .card { background: rgba(255,255,255,0.05); padding: 40px; border-radius: 8px; border: 1px solid rgba(197, 160, 89, 0.2); margin-bottom: 30px; text-align: left; }
+        .founder-photo { width: 150px; height: 150px; border-radius: 50%; border: 3px solid var(--accent); display: block; margin: 0 auto 20px auto; }
         
-        /* Interactive Pillars */
         details { background: rgba(255,255,255,0.03); border-radius: 6px; margin-bottom: 12px; border: 1px solid rgba(197, 160, 89, 0.2); }
-        summary { padding: 18px; cursor: pointer; font-weight: 600; color: var(--accent); display: flex; justify-content: center; outline: none; list-style: none; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; }
-        summary::after { content: "+"; }
-        details[open] summary::after { content: "−"; }
-        .details-content { padding: 0 20px 20px; font-size: 0.95rem; color: #ccd6f6; border-top: 1px solid rgba(197, 160, 89, 0.1); padding-top: 15px; text-align: left; }
-        
-        #watchdog-btn { position: fixed; bottom: 20px; right: 20px; background: var(--accent); color: var(--primary); padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 0.75rem; z-index: 9999; border: 2px solid var(--primary); text-transform: uppercase; }
-        .footer { text-align: center; font-size: 0.75rem; padding: 40px; color: #666; letter-spacing: 2px; }
-        a { color: var(--accent); text-decoration: none; }
+        summary { padding: 18px; cursor: pointer; font-weight: 600; color: var(--accent); display: flex; justify-content: space-between; text-transform: uppercase; }
+        .details-content { padding: 0 20px 20px; color: #ccd6f6; border-top: 1px solid rgba(197, 160, 89, 0.1); padding-top: 15px; }
     </style>
 </head>
 <body>
-
     <div id="consent-modal">
         <div class="modal-content">
-            <img src="assets/logo.png" style="width: 200px; margin-bottom: 30px; filter: drop-shadow(0 0 15px rgba(197, 160, 89, 0.3));" alt="EthicHawks Welcome Seal">
-            <h2 style="color: var(--accent); margin-top: 0;">Forensic Access Granted</h2>
-            <p style="color: #e6f1ff;">Accessing this digital architecture implies clinical consent to forensic data handling and POPIA sentinel protocols.</p>
+            <img src="assets/logo.png" style="width: 80px; margin-bottom: 15px;">
+            <h2 style="color: var(--accent);">Forensic Access Granted</h2>
+            <p>Entry implies clinical consent to forensic data handling and POPIA sentinel protocols.</p>
             <button class="btn-accept" onclick="acceptConsent()">Accept & Enter</button>
         </div>
     </div>
 
-    <a href="nhi-watchdog.pdf" id="watchdog-btn">🐾 NHI WATCHDOG</a>
-
     <header class="header-banner">
-        <div class="brand"><img src="assets/logo.png" style="height:35px" alt="Logo"> ETHIC HAWKS</div>
+        <img src="assets/logo.png" class="header-logo"> ETHIC HAWKS
     </header>
     
     <main class="container">
-        <section id="summary" class="hero-section">
-            <img src="assets/logo.png" style="width: 200px; margin-bottom: 30px; filter: drop-shadow(0 0 15px rgba(197, 160, 89, 0.3));" alt="EthicHawks Welcome Seal">
-            <h2 style="color: var(--accent); text-transform: uppercase; letter-spacing: 3px;">Executive Summary</h2>
-            <p>Identifying the <strong>'Governance Paradox'</strong>—a state where institutional silence is mistaken for safety. EthicHawks provides the architectural precision required to bridge clinical duty and statutory accountability.</p>
+        <section class="hero-section">
+            <img src="assets/logo.png" class="welcome-logo">
+            <h2 style="color: var(--accent); text-transform: uppercase; letter-spacing: 2px;">Executive Summary</h2>
+            <p>Identifying the <strong>'Governance Paradox'</strong>—where institutional silence is mistaken for safety. We bridge clinical duty and statutory accountability.</p>
         </section>
 
-        <section id="about" class="card" style="text-align: center;">
-            <img src="assets/author.png" class="founder-photo" alt="Wilbur Matthee">
+        <section class="card" style="text-align: center;">
+            <img src="assets/author.png" class="founder-photo">
             <h1 style="margin-bottom: 5px;">Wilbur W. Matthee</h1>
-            <p style="font-weight: 700; color: var(--accent); margin-top: 0; margin-bottom: 25px;">Specialist Nurse & Health Services Manager (NQF 8)</p>
-            
-            <p style="text-align: left;">Sixteen years of clinical practice taught me a critical truth: the most important skill is knowing when a system is failing the people it protects, documenting that failure with forensic precision, and holding the architecture accountable.</p>
-            <p style="text-align: left;">My identity was forged in the trenches of compliance. After disclosing a systemic safety failure, I mapped the exact mechanisms of institutional gaslighting across executive leadership and board structures.</p>
-            <p style="text-align: left;"><strong>The Wilbur Method™:</strong> A diagnostic detailing how the 'anchoring' of specialists blinds leadership to <strong>Priority 1 (P1) Risks</strong>. Forensic notation always precedes institutional collapse.</p>
-            
-            <p style="font-weight: 700; margin-top: 30px;">📩 <a href="mailto:info@ethichawks.co.za">info@ethichawks.co.za</a></p>
+            <p style="font-weight: 700; color: var(--accent); margin-top: 0;">Specialist Nurse & Health Services Manager (NQF 8)</p>
+            <div style="text-align: left; margin-top: 30px;">
+                <p>Sixteen years of clinical practice taught me to document system failure with forensic precision and hold the architecture accountable.</p>
+                <p><strong>The Wilbur Method™:</strong> A diagnostic detailing how 'anchoring' specialists blinds leadership to <strong>Priority 1 (P1) Risks</strong>.</p>
+            </div>
+            <p style="font-weight: 700; margin-top: 25px;">📩 info@ethichawks.co.za</p>
         </section>
 
-        <section id="governance" class="card">
-            <img src="assets/logo.png" style="width: 200px; margin-bottom: 30px; filter: drop-shadow(0 0 15px rgba(197, 160, 89, 0.3));" alt="EthicHawks Welcome Seal">
-            <h2 style="color: var(--accent); text-transform: uppercase; text-align: center; margin-bottom: 30px;">The Six Pillars of Truth</h2>
-            <details><summary>1. Forensic Governance (RCA)</summary><div class="details-content">Root Cause Analysis & Incident Reporting. Documentation with forensic precision to eliminate discretionary compliance.</div></details>
-            <details><summary>2. Specialist Duty (Clinical)</summary><div class="details-content">GCP-Compliant Clinical Trial Coordination and Pharmaceutical Regulatory Compliance. Clinical rigor applied to corporate architecture.</div></details>
-            <details><summary>3. D.I.E.S. Framework</summary><div class="details-content">Structural integrity through <strong>Data</strong> (Forensic Notation), <strong>Integrity</strong> (Systemic Alignment), <strong>Ethics</strong> (Clinical Duty), and <strong>Statutory</strong> (PAIA/POPIA) mastery.</div></details>
-            <details><summary>4. Protection of the Voice</summary><div class="details-content">Strategic architecture for whistleblowers navigating institutional gaslighting and bureaucracy.</div></details>
-            <details><summary>5. Pathogen Excision</summary><div class="details-content">Identifying the structural integration gaps that lead to systemic fiduciary collapse.</div></details>
-            <details><summary>6. Radical Transparency</summary><div class="details-content">Auditing the structural gaps where institutional silence hides Priority 1 (P1) risks.</div></details>
-        </section>
-
-        <section id="disclosure" class="card">
-            <img src="assets/logo.png" style="width: 200px; margin-bottom: 30px; filter: drop-shadow(0 0 15px rgba(197, 160, 89, 0.3));" alt="EthicHawks Welcome Seal">
-            <h2 style="color: var(--accent); text-transform: uppercase; text-align: center;">Statutory Disclosure</h2>
-            <details><summary>Information Officer (Sentinel)</summary><div class="details-content"><strong>Wilbur William Matthee</strong> | Designated Sentinel for POPIA/PAIA compliance. Oversight of all data subjects and forensic integrity.</div></details>
-            <details><summary>Confidentiality & NDA</summary><div class="details-content">All client interactions are handled as clinical emergencies. Integrity is structural and protected by Forensic Synchronicity.</div></details>
+        <section class="card">
+            <h2 style="color: var(--accent); text-transform: uppercase; text-align: center;">The Six Pillars</h2>
+            <details><summary>1. Forensic Governance</summary><div class="details-content">Root Cause Analysis & Incident Reporting.</div></details>
+            <details><summary>2. Specialist Duty (NQF 8)</summary><div class="details-content">GCP-Compliant Clinical Trial Coordination and Pharmaceutical Regulatory Compliance.</div></details>
+            <details><summary>3. D.I.E.S. Framework</summary><div class="details-content">Data, Integrity, Ethics, and Statutory mastery.</div></details>
         </section>
     </main>
-
-    <footer class="footer">&copy; 2026 EthicHawks Consultancy | Cape Town</footer>
 
     <script>
         function acceptConsent() {
