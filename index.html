@@ -1,4 +1,4 @@
-]<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,40 +13,40 @@
         /* Typography Architecture */
         h1, h2, h3, .brand, summary { font-family: 'Playfair Display', serif; }
         
-        /* Floating Watchdog Sentinel */
+        /* Floating Sentinel Button */
         #watchdog-btn { position: fixed; bottom: 20px; right: 20px; background: var(--accent); color: var(--primary); padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 0.75rem; box-shadow: 0 4px 15px rgba(0,0,0,0.5); z-index: 9999; border: 2px solid var(--primary); text-transform: uppercase; transition: 0.3s; }
         #watchdog-btn:hover { background: #fff; transform: scale(1.05); }
 
-        /* Premium Navigation */
+        /* Premium Navigation Header */
         .header-banner { background: var(--primary); color: var(--accent); padding: 10px 20px; position: fixed; top: 0; width: 100%; z-index: 1000; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--accent); box-sizing: border-box; }
         .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: 2px; font-size: 1.2rem; text-transform: uppercase; }
-        .nav-links a { color: var(--accent); text-decoration: none; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; margin-left: 15px; letter-spacing: 1px; font-family: 'Montserrat', sans-serif; transition: 0.3s; }
+        .nav-links a { color: var(--accent); text-decoration: none; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; margin-left: 15px; letter-spacing: 1px; transition: 0.3s; }
         .nav-links a:hover { color: #fff; }
         .header-logo { height: 35px; border-radius: 4px; }
 
-        /* Container & Hero */
+        /* Hero Architecture */
         .container { margin-top: 100px; padding: 20px; max-width: 850px; margin-left: auto; margin-right: auto; }
         .hero-section { background: linear-gradient(135deg, #001122 0%, #001f3f 100%); padding: 60px 30px; border-radius: 8px; margin-bottom: 25px; border: 1px solid var(--accent); text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .hero-logo { max-width: 180px; margin-bottom: 20px; filter: drop-shadow(0 0 15px rgba(197, 160, 89, 0.4)); }
 
-        /* Content Cards */
+        /* Forensic Card Design */
         .card { background: var(--card-bg); padding: 40px 30px; border-radius: 8px; border: 1px solid rgba(197, 160, 89, 0.2); margin-bottom: 25px; }
         .founder-photo { width: 160px; height: 160px; border-radius: 50%; border: 4px solid var(--accent); object-fit: cover; margin-bottom: 15px; box-shadow: 0 0 20px rgba(197, 160, 89, 0.3); }
         
-        /* Clinical Dropdowns */
-        details { background: rgba(255,255,255,0.03); border-radius: 6px; margin-bottom: 12px; border: 1px solid rgba(197, 160, 89, 0.2); transition: 0.3s; }
+        /* Interactive Dropdowns */
+        details { background: rgba(255,255,255,0.03); border-radius: 6px; margin-bottom: 15px; border: 1px solid rgba(197, 160, 89, 0.2); transition: 0.3s; }
         details[open] { background: rgba(197, 160, 89, 0.08); border: 1px solid var(--accent); }
         summary { padding: 18px; cursor: pointer; font-weight: 600; color: var(--accent); display: flex; justify-content: space-between; outline: none; list-style: none; text-transform: uppercase; letter-spacing: 1px; font-size: 0.95rem; }
         summary::after { content: '+'; font-size: 1.2rem; transition: 0.3s; }
         details[open] summary::after { content: '−'; transform: rotate(180deg); }
-        .details-content { padding: 0 18px 18px; font-size: 0.95rem; color: #ccd6f6; border-top: 1px solid rgba(197, 160, 89, 0.1); padding-top: 15px; text-align: left; }
+        .details-content { padding: 0 20px 20px; font-size: 0.95rem; color: #ccd6f6; border-top: 1px solid rgba(197, 160, 89, 0.1); padding-top: 15px; text-align: left; }
 
-        /* Utility Styles */
+        /* Buttons & Lists */
         .btn-link { display: inline-block; margin-top: 15px; padding: 10px 20px; background: var(--accent); color: var(--primary); text-decoration: none; border-radius: 4px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
-        .footer { text-align: center; font-size: 0.8rem; padding: 60px 40px; color: #666; letter-spacing: 2px; text-transform: uppercase; }
+        .footer { text-align: center; font-size: 0.8rem; padding: 60px 40px; color: #666; letter-spacing: 2px; }
         strong { color: var(--accent); font-weight: 700; }
-        ul { padding-left: 20px; }
-        li { margin-bottom: 8px; }
+        ul { padding-left: 20px; margin: 15px 0; }
+        li { margin-bottom: 10px; }
     </style>
 </head>
 <body>
@@ -69,10 +69,10 @@
             <img src="assets/logo.png" alt="EthicHawks Hawk" class="hero-logo">
             <h2 style="color: var(--accent); text-transform: uppercase; font-size: 1.1rem; letter-spacing: 3px; margin-bottom: 20px;">The Sentinel Mandate</h2>
             <details open>
-                <summary>Integrity Architecture & SARS Compliance</summary>
+                <summary>Structural Integrity Architecture</summary>
                 <div class="details-content">
-                    <p>EthicHawks provides <strong>clinical-grade forensic governance</strong>, bridging the gap between discretionary executive power and <strong>SARS/Statutory accountability</strong>. We treat institutional detriment as a systemic pathogen that must be excised through technical procedural mastery.</p>
-                    <p>Our architecture ensures that <strong>Institutional Integrity</strong> is woven into the functional DNA of your enterprise, providing the structural resilience required to withstand heavy forensic scrutiny.</p>
+                    <p>EthicHawks provides <strong>clinical-grade forensic governance</strong>, bridging the gap between discretionary executive power and absolute statutory accountability. We treat institutional detriment as a systemic pathogen that must be excised through technical procedural mastery.</p>
+                    <p>Our architecture ensures that <strong>Institutional Integrity</strong> is woven into the functional DNA of your enterprise, providing the structural resilience required to withstand the heaviest forensic scrutiny.</p>
                 </div>
             </details>
         </section>
@@ -87,9 +87,9 @@
             <details>
                 <summary>Professional Pedigree & Philosophy</summary>
                 <div class="details-content">
-                    <p>Expertise in navigating high-friction environments including the <strong>Labour Court</strong>, <strong>SARS Revenue returns (ITR34s)</strong>, and <strong>Clinical Forensic Audits</strong>. Our focus is ensuring that whistleblowing leads to surgical systemic evolution rather than institutional decay.</p>
-                    <p>Wilbur treats institutional health as a clinical duty, where transparency is the ultimate disinfectant for operational arrogance.</p>
-                    <a href="https://za.linkedin.com/in/wilbur-w-matthee-8588188a" class="btn-link" target="_blank">View LinkedIn Profile</a>
+                    <p>Expertise in navigating high-friction environments including the <strong>Labour Court</strong> and complex <strong>Forensic Audits</strong>. Our focus is ensuring that whistleblowing leads to surgical systemic evolution rather than institutional decay.</p>
+                    <p>Wilbur treats institutional health as a clinical duty, where radical transparency is the ultimate disinfectant for operational arrogance and systemic rot.</p>
+                    <a href="https://za.linkedin.com/in/wilbur-w-matthee-8588188a" class="btn-link" target="_blank">View Professional Profile</a>
                 </div>
             </details>
         </section>
@@ -100,14 +100,14 @@
             <details>
                 <summary>1. Forensic Governance</summary>
                 <div class="details-content">
-                    <p><strong>The End of Discretion:</strong> We eliminate discretionary compliance by aligning every corporate action with the cold reality of the Law. We build the architecture that renders invisible oversight visible.</p>
+                    <p><strong>Absolute Accountability:</strong> We eliminate discretionary compliance by aligning every corporate action with the cold reality of the Law. We build the architecture that renders invisible oversight visible.</p>
                 </div>
             </details>
 
             <details>
                 <summary>2. Specialist Duty</summary>
                 <div class="details-content">
-                    <p><strong>Clinical Discipline:</strong> Applying forensic rigor to the balance sheet. Our specialists operate with a surgical duty of care, prioritizing the institution's long-term integrity over short-term ego.</p>
+                    <p><strong>Clinical Discipline:</strong> Applying forensic rigor to the core operations. Our specialists operate with a surgical duty of care, prioritizing the institution's long-term integrity over short-term ego.</p>
                 </div>
             </details>
 
@@ -121,7 +121,7 @@
             <details>
                 <summary>4. The Wilbur Method™</summary>
                 <div class="details-content">
-                    <p><strong>Pathogen Excision:</strong> We do not treat symptoms like "missed KPIs." We identify the root pathogen—the structural rot—and provide the architectural roadmap to excise it permanently.</p>
+                    <p><strong>Pathogen Excision:</strong> We do not treat symptoms. We identify the root pathogen—the structural rot—and provide the architectural roadmap to excise it permanently from the enterprise.</p>
                 </div>
             </details>
 
@@ -157,25 +157,28 @@
                 <summary>Confidentiality & Non-Disclosure (NDA)</summary>
                 <div class="details-content">
                     <p>All interactions are governed by <strong>Forensic Synchronicity</strong>. We treat every data point as a clinical emergency. Our architecture ensures zero leakage and whistleblower identities are protected by statutory shield.</p>
+                    <a href="#" class="btn-link">View Forensic NDA Architecture</a>
                 </div>
             </details>
 
             <details>
-                <summary>POPIA Policy (Data Integrity)</summary>
+                <summary>POPIA Policy (Data Protection)</summary>
                 <div class="details-content">
                     <p>In accordance with the <strong>Protection of Personal Information Act</strong>, EthicHawks acts as a Responsible Party. We only process forensic data that is adequate, relevant, and required for the statutory mandate.</p>
+                    <a href="#" class="btn-link">Read POPIA Sentinel Policy</a>
                 </div>
             </details>
 
             <details>
-                <summary>PAIA Manual & SARS Records</summary>
+                <summary>PAIA Manual & Statutory Records</summary>
                 <div class="details-content">
                     <p>Statutory records held per the <strong>Promotion of Access to Information Act</strong> include:</p>
                     <ul>
-                        <li><strong>Finances:</strong> ITR34s, Revenue Returns, Audit Records.</li>
-                        <li><strong>Investigation:</strong> Subpoenas, Summons, Forensic Investigation Reports.</li>
-                        <li><strong>Governance:</strong> Board Minutes, Legal Opinions, Operational Manuals.</li>
+                        <li><strong>Audit & Investigation:</strong> Subpoenas, Summons, and Forensic Investigation Reports.</li>
+                        <li><strong>Governance Records:</strong> Board Minutes, Legal Opinions, and Operational Manuals.</li>
+                        <li><strong>Structural Data:</strong> Institutional Integrity maps and Procedural frameworks.</li>
                     </ul>
+                    <a href="#" class="btn-link">Access PAIA Information Manual</a>
                 </div>
             </details>
             
