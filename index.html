@@ -13,11 +13,6 @@
         
         #watchdog-btn { position: fixed; bottom: 20px; right: 20px; background: var(--accent); color: var(--primary); padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 0.75rem; box-shadow: 0 4px 15px rgba(0,0,0,0.5); z-index: 9999; border: 2px solid var(--primary); text-transform: uppercase; }
 
-        #consent-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 25, 47, 0.98); z-index: 10000; display: flex; align-items: center; justify-content: center; padding: 20px; }
-        .modal-content { background: var(--primary); border: 1px solid var(--accent); max-width: 450px; padding: 35px; border-radius: 8px; border-top: 10px solid var(--accent); text-align: center; }
-        .btn-accept { background: var(--accent); color: var(--primary); border: none; padding: 15px 40px; border-radius: 4px; font-weight: 700; cursor: pointer; margin-top: 20px; width: 100%; text-transform: uppercase; letter-spacing: 2px; }
-
-        /* Navigation Header */
         .header-banner { background: var(--primary); color: var(--accent); padding: 10px 20px; position: fixed; top: 0; width: 100%; z-index: 1000; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--accent); box-sizing: border-box; }
         .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: 2px; font-size: 1.2rem; }
         .nav-links a { color: var(--accent); text-decoration: none; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; margin-left: 15px; letter-spacing: 1px; }
@@ -30,84 +25,93 @@
         .card { background: var(--card-bg); padding: 40px 30px; border-radius: 8px; border: 1px solid rgba(197, 160, 89, 0.2); margin-bottom: 25px; }
         .founder-photo { width: 160px; height: 160px; border-radius: 50%; border: 4px solid var(--accent); object-fit: cover; margin-bottom: 15px; box-shadow: 0 0 20px rgba(197, 160, 89, 0.3); }
         
+        /* Premium Dropdowns */
         details { background: rgba(255,255,255,0.05); border-radius: 6px; margin-bottom: 12px; border: 1px solid rgba(197, 160, 89, 0.3); transition: 0.3s; }
         details[open] { background: rgba(197, 160, 89, 0.1); }
-        summary { padding: 18px; cursor: pointer; font-weight: 600; color: var(--accent); display: flex; justify-content: space-between; outline: none; list-style: none; }
+        summary { padding: 18px; cursor: pointer; font-weight: 600; color: var(--accent); display: flex; justify-content: space-between; outline: none; list-style: none; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; }
         summary::after { content: '+'; font-size: 1.2rem; }
         details[open] summary::after { content: '−'; }
-        .details-content { padding: 0 18px 18px; font-size: 0.9rem; color: #ccd6f6; border-top: 1px solid rgba(197, 160, 89, 0.1); padding-top: 15px; }
+        .details-content { padding: 0 18px 18px; font-size: 0.95rem; color: #ccd6f6; border-top: 1px solid rgba(197, 160, 89, 0.1); padding-top: 15px; }
 
-        .pillar { margin-bottom: 25px; padding-left: 20px; border-left: 5px solid var(--accent); }
-        .pillar-head { font-weight: 700; color: var(--accent); text-transform: uppercase; font-size: 0.95rem; margin-bottom: 5px; display: block; }
-        
         .footer { text-align: center; font-size: 0.8rem; padding: 40px; color: #666; letter-spacing: 2px; }
     </style>
 </head>
 <body>
 
-    <div id="consent-modal">
-        <div class="modal-content">
-            <h2 style="color: var(--accent); margin-top: 0;">Forensic Access Granted</h2>
-            <p style="color: #e6f1ff;">You are entering the EthicHawks digital architecture. Access implies consent to POPIA data handling.</p>
-            <button class="btn-accept" onclick="acceptConsent()">Accept & Enter</button>
-        </div>
-    </div>
-
     <a href="nhi-watchdog.pdf" id="watchdog-btn">🐾 NHI WATCHDOG</a>
 
     <header class="header-banner">
         <div class="brand">
-            <img src="assets/logo.png" alt="Logo" class="header-logo">
-            ETHIC HAWKS
+            <img src="assets/logo.png" alt="Logo" class="header-logo"> ETHIC HAWKS
         </div>
         <nav class="nav-links">
             <a href="#summary">Summary</a>
             <a href="#about">Founder</a>
-            <a href="#governance">Governance</a>
+            <a href="#governance">Pillars</a>
         </nav>
     </header>
     
     <main class="container">
         <section id="summary" class="hero-section">
             <img src="assets/logo.png" alt="EthicHawks Hawk" class="hero-logo">
-            <h2 style="color: var(--accent); text-transform: uppercase; font-size: 1.1rem; letter-spacing: 3px;">Executive Summary</h2>
-            <h1 style="font-size: 2.2rem; margin-top: 10px;">Integrity Architecture for the Modern Enterprise</h1>
+            <h2 style="color: var(--accent); text-transform: uppercase; font-size: 1.1rem; letter-spacing: 3px; margin-bottom: 20px;">Executive Summary</h2>
+            
+            <details>
+                <summary>Integrity Architecture for the Modern Enterprise</summary>
+                <div class="details-content" style="text-align: left;">
+                    <p>In an era of performative compliance, EthicHawks provides clinical-grade forensic governance. We don't just "check boxes"—we build the structural integrity required to survive statutory scrutiny and institutional decay.</p>
+                    <p>Our architecture bridges the gap between executive discretion and forensic accountability, ensuring that integrity is not a policy, but a functional component of your business DNA.</p>
+                </div>
+            </details>
         </section>
 
         <section id="about" class="card" style="text-align: center;">
             <img src="assets/author.png" alt="Wilbur Matthee" class="founder-photo">
-            <h2 style="color: var(--accent); text-transform: uppercase; font-size: 1rem; letter-spacing: 2px;">About the Founder</h2>
+            <h2 style="color: var(--accent); text-transform: uppercase; font-size: 1rem; letter-spacing: 2px;">The Architect</h2>
             <h1 style="margin: 0; font-size: 2.5rem;">Wilbur W. Matthee</h1>
-            <div style="color: var(--accent); font-weight: 700; margin-top: 5px; letter-spacing: 1px;">Forensic Specialist | Architect of Integrity</div>
-            <p style="text-align: left; margin-top: 20px; color: #ccd6f6;">Established to bridge the gap between superficial compliance and actionable statutory governance. The Wilbur Method™ treats institutional detriment as a systemic pathogen that must be excised.</p>
+            <div style="color: var(--accent); font-weight: 700; margin-top: 5px; letter-spacing: 1px; margin-bottom: 20px;">Forensic Specialist | Architect of Integrity</div>
+            
+            <p style="text-align: left; color: #ccd6f6;">With a career forged in the high-stakes environment of forensic investigation, Wilbur Matthee established EthicHawks to address the "Integrity Gap" in modern institutions.</p>
+            
+            <details>
+                <summary>View Full Background & Philosophy</summary>
+                <div class="details-content" style="text-align: left;">
+                    <p>The Wilbur Method™ was developed through years of observing systemic failures. It treats institutional detriment not as a series of accidents, but as a pathogen that requires surgical excision. Wilbur's approach combines deep legal literacy with clinical forensic precision, ensuring that whistleblowing and internal audits result in systemic evolution rather than temporary fixes.</p>
+                </div>
+            </details>
         </section>
 
         <section id="governance" class="card">
-            <h2 style="text-align: center; margin-bottom: 30px; color: var(--accent);">The Six Pillars</h2>
-            <div class="pillar"><span class="pillar-head">1. Forensic Governance</span>A Statutory Obligation. The death of discretionary compliance.</div>
-            <div class="pillar"><span class="pillar-head">2. Specialist Duty</span>Clinical rigor applied to the balance sheet.</div>
-            <div class="pillar"><span class="pillar-head">3. Protection of the Voice</span>Detriment is a clinical emergency. Whistleblowing as survival.</div>
-            <div class="pillar"><span class="pillar-head">4. The Wilbur Method&trade;</span>We do not treat symptoms; we excise the root cause.</div>
-            <div class="pillar"><span class="pillar-head">5. Procedural Mastery</span>Technical perfection and the D.I.E.S.</div>
-            <div class="pillar"><span class="pillar-head">6. Radical Transparency</span>The End of Arrogance. No entity is too big to comply.</div>
-        </section>
-
-        <section class="card">
-            <h2 style="text-align: center; margin-bottom: 20px;">Statutory Disclosure & Governance</h2>
+            <h2 style="text-align: center; margin-bottom: 30px; color: var(--accent); text-transform: uppercase; letter-spacing: 2px;">The Six Pillars of Truth</h2>
             
             <details>
-                <summary>Information Officer (The Sentinel)</summary>
-                <div class="details-content">
-                    <p><strong>Name:</strong> Wilbur William Matthee</p>
-                    <p><strong>Contact:</strong> info@ethichawks.co.za</p>
-                </div>
+                <summary>1. Forensic Governance</summary>
+                <div class="details-content">A Statutory Obligation. We eliminate "discretionary compliance" by aligning every corporate action with the cold reality of the Law.</div>
             </details>
 
             <details>
-                <summary>Confidentiality & POPIA Compliance</summary>
-                <div class="details-content">
-                    <p>EthicHawks operates under strict Forensic Synchronicity. All client data and whistleblowing information is handled as a clinical emergency.</p>
-                </div>
+                <summary>2. Specialist Duty</summary>
+                <div class="details-content">Applying clinical rigor to the balance sheet. Our specialists operate with the same duty of care as a surgeon, where the "patient" is the institution's integrity.</div>
+            </details>
+
+            <details>
+                <summary>3. Protection of the Voice</summary>
+                <div class="details-content">We treat detriment to a whistleblower as a clinical emergency. Whistleblowing is not an HR issue; it is a systemic survival mechanism.</div>
+            </details>
+
+            <details>
+                <summary>4. The Wilbur Method™</summary>
+                <div class="details-content">We do not treat symptoms. We identify the root pathogen of institutional rot and provide the architectural roadmap to excise it.</div>
+            </details>
+
+            <details>
+                <summary>5. Procedural Mastery</summary>
+                <div class="details-content">Technical perfection in the D.I.E.S. framework. We ensure your procedural documentation is bulletproof under the heaviest forensic scrutiny.</div>
+            </details>
+
+            <details>
+                <summary>6. Radical Transparency</summary>
+                <div class="details-content">The end of institutional arrogance. No entity is too big to comply, and no process is too complex for radical forensic sunlight.</div>
             </details>
         </section>
 
