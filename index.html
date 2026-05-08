@@ -51,6 +51,41 @@
     </main>
     <script>
         function acceptConsent() { document.getElementById('consent-modal').style.display = 'none'; }
+        <section id="governance" class="card">
+            <h2 style="color: var(--accent); text-transform: uppercase; text-align: center;">The Six Pillars of Truth</h2>
+            <details><summary>1. Forensic Governance (RCA)</summary>
+                <div class="details-content">Root Cause Analysis & Incident Reporting. We eliminate discretionary compliance by documenting failure with forensic precision.</div>
+            </details>
+            <details><summary>2. Specialist Duty (Clinical)</summary>
+                <div class="details-content">GCP-Compliant Clinical Trial Coordination and Pharmaceutical Regulatory Compliance. Clinical rigor applied to corporate architecture.</div>
+            </details>
+            <details><summary>3. Protection of the Voice</summary>
+                <div class="details-content">Strategic architecture for whistleblowers. We understand the legal and psychosocial dimensions of institutional accountability.</div>
+            </details>
+            <details><summary>4. The Wilbur Method™</summary>
+                <div class="details-content">Forensic notation always precedes institutional collapse. We audit the structural integration gaps that lead to fiduciary collapse.</div>
+            </details>
+            <details><summary>5. Procedural Mastery</summary>
+                <div class="details-content">Building compliance frameworks that actually work, rather than just existing on paper.</div>
+            </details>
+            <details><summary>6. Radical Transparency</summary>
+                <div class="details-content">Identifying the 'Governance Paradox' where institutional silence is mistaken for safety.</div>
+            </details>
+        </section>
+
+        <section id="disclosure" class="card">
+            <h2 style="color: var(--accent); text-transform: uppercase; text-align: center;">Statutory Disclosure</h2>
+            <details><summary>Information Officer & POPIA</summary>
+                <div class="details-content"><strong>Wilbur William Matthee</strong> | info@ethichawks.co.za<br>Responsible for systemic oversight and POPI Act compliance.</div>
+            </details>
+            <details><summary>Confidentiality & PAIA Manual</summary>
+                <div class="details-content">All interactions governed by Forensic Synchronicity. Access to records via the Promotion of Access to Information Act.</div>
+            </details>
+        </section>
+    </main>
+    <script>
+        function acceptConsent() { document.getElementById('consent-modal').style.display = 'none'; localStorage.setItem('ethichawks_consent', 'true'); }
+        window.onload = function() { if(localStorage.getItem('ethichawks_consent') === 'true') { document.getElementById('consent-modal').style.display = 'none'; } }
     </script>
 </body>
 </html>
