@@ -10,7 +10,6 @@
         body { margin: 0; font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--text-light); line-height: 1.6; }
         h1, h2, h3, .header-banner { font-family: 'Playfair Display', serif; }
         
-        /* Floating Watchdog Banner */
         #watchdog-btn { position: fixed; bottom: 20px; right: 20px; background: var(--accent); color: var(--primary); padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 0.75rem; box-shadow: 0 4px 15px rgba(0,0,0,0.5); z-index: 9999; border: 2px solid var(--primary); text-transform: uppercase; }
 
         #consent-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 25, 47, 0.98); z-index: 10000; display: flex; align-items: center; justify-content: center; padding: 20px; }
@@ -18,16 +17,15 @@
         .btn-accept { background: var(--accent); color: var(--primary); border: none; padding: 15px 40px; border-radius: 4px; font-weight: 700; cursor: pointer; margin-top: 20px; width: 100%; text-transform: uppercase; letter-spacing: 2px; }
 
         .header-banner { background: var(--primary); color: var(--accent); padding: 15px; text-align: center; font-size: 1.4rem; font-weight: 800; position: fixed; top: 0; width: 100%; z-index: 1000; display: flex; justify-content: center; align-items: center; gap: 12px; border-bottom: 2px solid var(--accent); letter-spacing: 2px; }
-        .header-logo { height: 35px; border-radius: 4px; }
+        .header-logo { height: 40px; border-radius: 4px; }
 
         .container { margin-top: 100px; padding: 20px; max-width: 850px; margin-left: auto; margin-right: auto; }
         .hero-section { background: linear-gradient(135deg, #001122 0%, #001f3f 100%); padding: 50px 30px; border-radius: 8px; margin-bottom: 25px; border: 1px solid var(--accent); text-align: center; }
         .hero-logo { max-width: 180px; margin-bottom: 20px; filter: drop-shadow(0 0 15px rgba(197, 160, 89, 0.4)); }
 
         .card { background: var(--card-bg); padding: 40px 30px; border-radius: 8px; border: 1px solid rgba(197, 160, 89, 0.2); margin-bottom: 25px; }
-        .founder-photo { width: 140px; height: 140px; border-radius: 50%; border: 3px solid var(--accent); object-fit: cover; margin-bottom: 15px; box-shadow: 0 0 20px rgba(197, 160, 89, 0.2); }
+        .founder-photo { width: 150px; height: 150px; border-radius: 50%; border: 3px solid var(--accent); object-fit: cover; margin-bottom: 15px; box-shadow: 0 0 20px rgba(197, 160, 89, 0.2); }
         
-        /* Interactive Dropdowns */
         details { background: rgba(255,255,255,0.05); border-radius: 6px; margin-bottom: 12px; border: 1px solid rgba(197, 160, 89, 0.3); transition: 0.3s; }
         details[open] { background: rgba(197, 160, 89, 0.1); }
         summary { padding: 18px; cursor: pointer; font-weight: 600; color: var(--accent); display: flex; justify-content: space-between; outline: none; list-style: none; }
@@ -55,19 +53,19 @@
     <a href="nhi-watchdog.html" id="watchdog-btn">🐾 NHI WATCHDOG</a>
 
     <header class="header-banner">
-        <img src="assets/1000244956.jpg" alt="Justice" class="header-logo">
+        <img src="assets/logo.png" alt="EthicHawks Logo" class="header-logo">
         ETHIC HAWKS
     </header>
     
     <main class="container">
         <section class="hero-section">
-            <img src="assets/1000244954.jpg" alt="HawkVision" class="hero-logo">
+            <img src="assets/logo.png" alt="EthicHawks Hawk" class="hero-logo">
             <h2 style="color: var(--accent); text-transform: uppercase; font-size: 1.1rem; letter-spacing: 3px;">Executive Summary</h2>
             <h1 style="font-size: 2.2rem; margin-top: 10px;">Integrity Architecture for the Modern Enterprise</h1>
         </section>
 
         <section class="card" style="text-align: center;">
-            <img src="assets/1000244958.jpg" alt="Wilbur Matthee" class="founder-photo">
+            <img src="assets/author.jpg" alt="Wilbur Matthee" class="founder-photo">
             <h2 style="color: var(--accent); text-transform: uppercase; font-size: 1rem; letter-spacing: 2px;">About the Founder</h2>
             <h1 style="margin: 0; font-size: 2.5rem;">Wilbur W. Matthee</h1>
             <div style="color: var(--accent); font-weight: 700; margin-top: 5px; letter-spacing: 1px;">Forensic Specialist | Architect of Integrity</div>
@@ -79,6 +77,9 @@
             <div class="pillar"><span class="pillar-head">1. Forensic Governance</span>A Statutory Obligation. The death of discretionary compliance.</div>
             <div class="pillar"><span class="pillar-head">2. Specialist Duty</span>Clinical rigor applied to the balance sheet.</div>
             <div class="pillar"><span class="pillar-head">3. Protection of the Voice</span>Detriment is a clinical emergency. Whistleblowing as survival.</div>
+            <div class="pillar"><span class="pillar-head">4. The Wilbur Method&trade;</span>We do not treat symptoms; we excise the root cause.</div>
+            <div class="pillar"><span class="pillar-head">5. Procedural Mastery</span>Technical perfection and the D.I.E.S.</div>
+            <div class="pillar"><span class="pillar-head">6. Radical Transparency</span>The End of Arrogance. No entity is too big to comply.</div>
         </section>
 
         <section class="card">
