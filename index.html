@@ -9,15 +9,13 @@
         :root { --primary: #001f3f; --accent: #c5a059; --bg: #0a192f; --text-light: #e6f1ff; --card-bg: rgba(255,255,255,0.05); }
         html { scroll-behavior: smooth; }
         body { margin: 0; font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--text-light); line-height: 1.6; }
-        
-        /* Typography Locks */
         h1, h2, h3, .brand, summary { font-family: 'Playfair Display', serif; }
         
         #watchdog-btn { position: fixed; bottom: 20px; right: 20px; background: var(--accent); color: var(--primary); padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 0.75rem; box-shadow: 0 4px 15px rgba(0,0,0,0.5); z-index: 9999; border: 2px solid var(--primary); text-transform: uppercase; }
 
         .header-banner { background: var(--primary); color: var(--accent); padding: 10px 20px; position: fixed; top: 0; width: 100%; z-index: 1000; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--accent); box-sizing: border-box; }
         .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: 2px; font-size: 1.2rem; }
-        .nav-links a { color: var(--accent); text-decoration: none; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; margin-left: 15px; letter-spacing: 1px; font-family: 'Montserrat', sans-serif; }
+        .nav-links a { color: var(--accent); text-decoration: none; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; margin-left: 15px; letter-spacing: 1px; }
         .header-logo { height: 35px; border-radius: 4px; }
 
         .container { margin-top: 100px; padding: 20px; max-width: 850px; margin-left: auto; margin-right: auto; }
@@ -27,7 +25,6 @@
         .card { background: var(--card-bg); padding: 40px 30px; border-radius: 8px; border: 1px solid rgba(197, 160, 89, 0.2); margin-bottom: 25px; }
         .founder-photo { width: 160px; height: 160px; border-radius: 50%; border: 4px solid var(--accent); object-fit: cover; margin-bottom: 15px; box-shadow: 0 0 20px rgba(197, 160, 89, 0.3); }
         
-        /* Interactive Elements */
         details { background: rgba(255,255,255,0.05); border-radius: 6px; margin-bottom: 12px; border: 1px solid rgba(197, 160, 89, 0.3); transition: 0.3s; }
         details[open] { background: rgba(197, 160, 89, 0.1); }
         summary { padding: 18px; cursor: pointer; font-weight: 600; color: var(--accent); display: flex; justify-content: space-between; outline: none; list-style: none; text-transform: uppercase; letter-spacing: 1px; font-size: 0.95rem; }
@@ -35,7 +32,9 @@
         details[open] summary::after { content: '−'; }
         .details-content { padding: 0 18px 18px; font-size: 0.95rem; color: #ccd6f6; border-top: 1px solid rgba(197, 160, 89, 0.1); padding-top: 15px; text-align: left; }
 
-        .pillar-head { color: var(--accent); font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 5px; font-family: 'Montserrat', sans-serif; }
+        .btn-link { display: inline-block; margin-top: 10px; padding: 8px 15px; background: var(--accent); color: var(--primary); text-decoration: none; border-radius: 4px; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; transition: 0.3s; }
+        .btn-link:hover { background: #fff; color: var(--primary); }
+        
         .footer { text-align: center; font-size: 0.8rem; padding: 40px; color: #666; letter-spacing: 2px; }
         strong { color: var(--accent); }
     </style>
@@ -60,10 +59,9 @@
             <img src="assets/logo.png" alt="EthicHawks Hawk" class="hero-logo">
             <h2 style="color: var(--accent); text-transform: uppercase; font-size: 1.1rem; letter-spacing: 3px; margin-bottom: 20px;">Executive Summary</h2>
             <details open>
-                <summary>Integrity Architecture for the Modern Enterprise</summary>
+                <summary>Integrity Architecture & SARS Compliance</summary>
                 <div class="details-content">
-                    <p>In an era of performative compliance, EthicHawks provides <strong>clinical-grade forensic governance</strong>. We specialize in building the structural integrity required to survive statutory scrutiny and institutional decay.</p>
-                    <p>Our architecture ensures that <strong>Institutional Integrity</strong> is woven into the functional DNA of your enterprise, bridging the gap between executive discretion and forensic accountability.</p>
+                    <p>EthicHawks provides <strong>clinical-grade forensic governance</strong>, bridging the gap between discretionary executive power and <strong>SARS/Statutory accountability</strong>. We treat institutional detriment as a systemic pathogen that must be excised through technical procedural mastery.</p>
                 </div>
             </details>
         </section>
@@ -72,38 +70,40 @@
             <img src="assets/author.png" alt="Wilbur Matthee" class="founder-photo">
             <h1 style="margin: 0; font-size: 2.5rem;">Wilbur W. Matthee</h1>
             <div style="color: var(--accent); font-weight: 700; margin-top: 5px; letter-spacing: 1px; margin-bottom: 20px;">Forensic Specialist | Architect of Integrity</div>
-            <p style="text-align: left; color: #ccd6f6;">Wilbur established EthicHawks to address the growing "Integrity Gap" in modern corporate and public institutions through the <strong>Wilbur Method™</strong>.</p>
+            <p style="text-align: left; color: #ccd6f6;">Drawing from a career in <strong>Forensic Investigation</strong> and <strong>Clinical Corporate Governance</strong>, Wilbur established EthicHawks to enforce <strong>Institutional Integrity</strong> via the Wilbur Method™.</p>
             <details>
-                <summary>Background & Philosophy</summary>
+                <summary>Professional Pedigree</summary>
                 <div class="details-content">
-                    <p>Developed through years of analyzing systemic failures, our method treats institutional detriment as a pathogen requiring surgical excision. We prioritize permanent systemic evolution over temporary fixes.</p>
+                    <p>Expertise in navigating the <strong>Labour Court</strong>, <strong>SARS Revenue returns</strong>, and <strong>Forensic Audits</strong>. Our focus is on ensuring that whistleblowing leads to surgical systemic evolution rather than institutional decay.</p>
+                    <a href="https://za.linkedin.com/in/wilbur-w-matthee-8588188a" class="btn-link" target="_blank">View Professional Profile</a>
                 </div>
             </details>
-        </section>
-
-        <section id="governance" class="card">
-            <h2 style="text-align: center; margin-bottom: 30px; color: var(--accent); text-transform: uppercase; letter-spacing: 2px;">The Six Pillars of Truth</h2>
-            <details><summary>1. Forensic Governance</summary><div class="details-content">Eliminating discretionary compliance by aligning actions with Law.</div></details>
-            <details><summary>2. Specialist Duty</summary><div class="details-content">Applying forensic discipline and a surgical duty of care to integrity.</div></details>
-            <details><summary>3. Protection of the Voice</summary><div class="details-content">Treating whistleblower detriment as a clinical emergency.</div></details>
-            <details><summary>4. The Wilbur Method™</summary><div class="details-content">Identifying and excising the root pathogen of structural rot.</div></details>
-            <details><summary>5. Procedural Mastery</summary><div class="details-content">Ensuring resilience under the D.I.E.S. framework.</div></details>
-            <details><summary>6. Radical Transparency</summary><div class="details-content">No entity is too big to comply; sunlight as a disinfectant.</div></details>
         </section>
 
         <section id="disclosure" class="card">
-            <h2 style="text-align: center; margin-bottom: 30px; color: var(--accent); text-transform: uppercase; letter-spacing: 2px;">Statutory Disclosure</h2>
+            <h2 style="text-align: center; margin-bottom: 30px; color: var(--accent); text-transform: uppercase; letter-spacing: 2px;">Statutory & Legal Disclosure</h2>
+            
             <details>
-                <summary>Information Officer & POPIA</summary>
+                <summary>Confidentiality & Non-Disclosure (NDA)</summary>
                 <div class="details-content">
-                    <p><strong>Name:</strong> Wilbur William Matthee | <strong>Email:</strong> info@ethichawks.co.za</p>
-                    <p>Responsible for POPI/PAIA Sentinel oversight and statutory alignment.</p>
+                    <p>All forensic engagements are protected by <strong>Forensic Synchronicity</strong> protocols. Identities of whistleblowers are shielded by statutory force.</p>
+                    <a href="#" class="btn-link">Read Full NDA Architecture</a>
                 </div>
             </details>
+
             <details>
-                <summary>Confidentiality & Records (PAIA)</summary>
+                <summary>POPIA Policy (Data Integrity)</summary>
                 <div class="details-content">
-                    <p>All data is handled under <strong>Forensic Synchronicity</strong>. We hold records including Audit Records, Investigation Reports, and Board Minutes.</p>
+                    <p>Systemic oversight of all data subjects in accordance with the <strong>Protection of Personal Information Act</strong>. We only process data required for forensic mandate.</p>
+                    <a href="#" class="btn-link">View POPIA Sentinel Manual</a>
+                </div>
+            </details>
+
+            <details>
+                <summary>PAIA Manual & SARS Records</summary>
+                <div class="details-content">
+                    <p>Statutory records held include Audit trails, Revenue Returns (ITR34s), and Board Minutes. Sunlight is the ultimate disinfectant.</p>
+                    <a href="#" class="btn-link">Access Information Manual</a>
                 </div>
             </details>
         </section>
