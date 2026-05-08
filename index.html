@@ -9,47 +9,58 @@
         :root { --primary: #001f3f; --accent: #c5a059; --bg: #0a192f; --text-light: #e6f1ff; --card-bg: rgba(255,255,255,0.05); }
         html { scroll-behavior: smooth; }
         body { margin: 0; font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--text-light); line-height: 1.6; }
+        
+        /* Typography Architecture */
         h1, h2, h3, .brand, summary { font-family: 'Playfair Display', serif; }
         
+        /* Terms & Conditions Modal (Required Entrance) */
         #consent-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(10, 25, 47, 0.98); z-index: 10000; display: flex; align-items: center; justify-content: center; padding: 20px; }
-        .modal-content { background: var(--primary); border: 1px solid var(--accent); max-width: 500px; padding: 40px; border-radius: 8px; border-top: 10px solid var(--accent); text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
-        .btn-accept { background: var(--accent); color: var(--primary); border: none; padding: 15px 40px; border-radius: 4px; font-weight: 700; cursor: pointer; margin-top: 20px; width: 100%; text-transform: uppercase; letter-spacing: 2px; }
+        .modal-content { background: var(--primary); border: 1px solid var(--accent); max-width: 500px; padding: 40px; border-radius: 8px; border-top: 10px solid var(--accent); text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
+        .btn-accept { background: var(--accent); color: var(--primary); border: none; padding: 15px 40px; border-radius: 4px; font-weight: 700; cursor: pointer; margin-top: 20px; width: 100%; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
+        .btn-accept:hover { background: #fff; }
 
+        /* Floating NHI Watchdog */
         #watchdog-btn { position: fixed; bottom: 20px; right: 20px; background: var(--accent); color: var(--primary); padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 0.75rem; box-shadow: 0 4px 15px rgba(0,0,0,0.5); z-index: 9999; border: 2px solid var(--primary); text-transform: uppercase; transition: 0.3s; }
+        #watchdog-btn:hover { background: #fff; transform: scale(1.05); }
 
+        /* Navigation Header */
         .header-banner { background: var(--primary); color: var(--accent); padding: 10px 20px; position: fixed; top: 0; width: 100%; z-index: 1000; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--accent); box-sizing: border-box; }
-        .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: 2px; font-size: 1.2rem; }
-        .nav-links a { color: var(--accent); text-decoration: none; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; margin-left: 15px; letter-spacing: 1px; }
-        .header-logo { height: 35px; border-radius: 4px; }
+        .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: 2px; font-size: 1.1rem; text-transform: uppercase; }
+        .nav-links a { color: var(--accent); text-decoration: none; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; margin-left: 12px; letter-spacing: 1px; }
+        .header-logo { height: 32px; border-radius: 4px; }
 
+        /* Main Layout */
         .container { margin-top: 100px; padding: 20px; max-width: 850px; margin-left: auto; margin-right: auto; }
-        .hero-section { background: linear-gradient(135deg, #001122 0%, #001f3f 100%); padding: 60px 30px; border-radius: 8px; margin-bottom: 25px; border: 1px solid var(--accent); text-align: center; }
+        .hero-section { background: linear-gradient(135deg, #001122 0%, #001f3f 100%); padding: 60px 30px; border-radius: 8px; margin-bottom: 25px; border: 1px solid var(--accent); text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .hero-logo { max-width: 180px; margin-bottom: 20px; filter: drop-shadow(0 0 15px rgba(197, 160, 89, 0.4)); }
 
         .card { background: var(--card-bg); padding: 40px 30px; border-radius: 8px; border: 1px solid rgba(197, 160, 89, 0.2); margin-bottom: 25px; }
         .founder-photo { width: 160px; height: 160px; border-radius: 50%; border: 4px solid var(--accent); object-fit: cover; margin-bottom: 15px; box-shadow: 0 0 20px rgba(197, 160, 89, 0.3); }
         
+        /* Interactive Disclosures & Pillars */
         details { background: rgba(255,255,255,0.03); border-radius: 6px; margin-bottom: 15px; border: 1px solid rgba(197, 160, 89, 0.2); transition: 0.3s; }
-        details[open] { background: rgba(197, 160, 89, 0.08); border: 1px solid var(--accent); }
+        details[open] { background: rgba(197, 160, 89, 0.1); border: 1px solid var(--accent); }
         summary { padding: 18px; cursor: pointer; font-weight: 600; color: var(--accent); display: flex; justify-content: space-between; outline: none; list-style: none; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; }
-        summary::after { content: '+'; }
-        details[open] summary::after { content: '−'; }
+        summary::after { content: '+'; font-size: 1.2rem; transition: 0.3s; }
+        details[open] summary::after { content: '−'; transform: rotate(180deg); }
         .details-content { padding: 0 20px 20px; font-size: 0.95rem; color: #ccd6f6; border-top: 1px solid rgba(197, 160, 89, 0.1); padding-top: 15px; text-align: left; }
 
-        .btn-link { display: inline-block; margin-top: 15px; padding: 10px 20px; background: var(--accent); color: var(--primary); text-decoration: none; border-radius: 4px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; }
+        .btn-link { display: inline-block; margin-top: 15px; padding: 10px 20px; background: var(--accent); color: var(--primary); text-decoration: none; border-radius: 4px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        .btn-link:hover { background: #fff; }
+        
         .footer { text-align: center; font-size: 0.8rem; padding: 60px 40px; color: #666; letter-spacing: 2px; }
         strong { color: var(--accent); }
         ul { padding-left: 20px; margin: 15px 0; }
-        li { margin-bottom: 8px; }
+        li { margin-bottom: 10px; }
     </style>
 </head>
 <body>
 
     <div id="consent-modal">
         <div class="modal-content">
-            <h2 style="color: var(--accent);">Forensic Access Granted</h2>
-            <p>You are entering the EthicHawks digital architecture. Access implies consent to the clinical handling of data and POPIA protocols.</p>
-            <button class="btn-accept" onclick="acceptConsent()">Accept & Enter</button>
+            <h2 style="color: var(--accent); margin-top: 0;">Forensic Access Granted</h2>
+            <p style="color: #e6f1ff;">Accessing this digital architecture implies clinical consent to forensic data handling and POPIA sentinel protocols. Integrity is not occasional; it is structural.</p>
+            <button class="btn-accept" onclick="acceptConsent()">Accept & Enter Architecture</button>
         </div>
     </div>
 
@@ -61,7 +72,7 @@
             <a href="#summary">Mandate</a>
             <a href="#about">Founder</a>
             <a href="#governance">Pillars</a>
-            <a href="#disclosure">Disclosure</a>
+            <a href="#disclosure">Disclosures</a>
         </nav>
     </header>
     
@@ -73,8 +84,8 @@
             <details open>
                 <summary>The Governance Paradox</summary>
                 <div class="details-content">
-                    <p>I specialize in identifying the <strong>'Governance Paradox'</strong>—a state where institutional silence is mistaken for safety. EthicHawks audits the structural integration gaps that lead to systemic fiduciary collapse.</p>
-                    <p>Forensic notation always precedes institutional collapse. We build compliance frameworks that actually work, rather than just existing on paper.</p>
+                    <p>I identify the <strong>'Governance Paradox'</strong>—a state where institutional silence is mistaken for safety. Forensic notation always precedes institutional collapse. EthicHawks audits the structural integration gaps that lead to systemic fiduciary collapse.</p>
+                    <p>We build compliance and governance frameworks that actually <strong>function</strong>, bridging the gap between executive discretionary power and clinical forensic accountability.</p>
                 </div>
             </details>
         </section>
@@ -84,14 +95,14 @@
             <h1 style="margin: 0; font-size: 2.5rem;">Wilbur W. Matthee</h1>
             <div style="color: var(--accent); font-weight: 700; margin-top: 5px; letter-spacing: 1px; margin-bottom: 25px;">Forensic Specialist | Architect of Integrity</div>
             
-            <p style="text-align: left; color: #ccd6f6;">Sixteen years of clinical practice taught me a critical truth: true accountability is not occasional; it is <strong>structural</strong>.</p>
+            <p style="text-align: left; color: #ccd6f6;">Sixteen years of clinical practice taught me a critical truth: the most important skill is knowing when a system is failing the people it protects, and <strong>documenting that failure with forensic precision</strong>.</p>
             
             <details>
-                <summary>View Bio & The Wilbur Method™</summary>
+                <summary>Bio & The Wilbur Method™</summary>
                 <div class="details-content">
-                    <p>My governance identity was forged in the trenches of public and private sector compliance. After identifying and formally disclosing a systemic safety failure, I mapped the exact mechanisms of institutional gaslighting across executive leadership and board structures.</p>
-                    <p><strong>The Wilbur Method™</strong> treats institutional detriment as a systemic pathogen. We provide strategic architecture for organizations and whistleblowers who need someone who understands the clinical, legal, and psychosocial dimensions of institutional accountability.</p>
-                    <a href="https://za.linkedin.com/in/wilbur-w-matthee-8588188a" class="btn-link" target="_blank">LinkedIn Profile</a>
+                    <p>My identity was forged in the trenches of public and private compliance. After identifying a systemic safety failure, I experienced first-hand how institutions weaponize bureaucracy. I mapped the exact mechanisms of institutional gaslighting across executive leadership and board structures.</p>
+                    <p><strong>The Wilbur Method™</strong> treats institutional detriment as a systemic pathogen. We provide strategic architecture for those who need someone who understands the clinical, legal, and psychosocial dimensions of institutional accountability.</p>
+                    <a href="https://za.linkedin.com/in/wilbur-w-matthee-8588188a" class="btn-link" target="_blank">LinkedIn Professional Profile</a>
                 </div>
             </details>
         </section>
@@ -100,64 +111,86 @@
             <h2 style="text-align: center; margin-bottom: 30px; color: var(--accent); text-transform: uppercase; letter-spacing: 2px;">The Six Pillars of Truth</h2>
             
             <details>
-                <summary>1. Forensic Governance</summary>
+                <summary>1. Forensic Governance & RCA</summary>
                 <div class="details-content">
-                    <p><strong>Root Cause Analysis (RCA):</strong> We eliminate discretionary compliance by aligning every corporate action with the cold reality of the Law. We build the architecture that renders invisible oversight visible.</p>
+                    <p><strong>Root Cause Analysis (RCA):</strong> We eliminate discretionary compliance by aligning every corporate action with the cold reality of the Law. We build architecture that renders invisible oversight visible.</p>
                 </div>
             </details>
 
             <details>
-                <summary>2. Specialist Duty</summary>
+                <summary>2. Specialist Duty (NQF 8)</summary>
                 <div class="details-content">
-                    <p><strong>Clinical Discipline:</strong> Applying forensic rigor to pharmaceutical and clinical regulatory compliance. Our specialists operate with a surgical duty of care (NQF 8 standards).</p>
+                    <p><strong>Clinical Discipline:</strong> Applying forensic rigor to pharmaceutical and clinical regulatory compliance. Our specialists operate with a surgical duty of care (Postgrad Health Services Management standards).</p>
                 </div>
             </details>
 
             <details>
                 <summary>3. Protection of the Voice</summary>
                 <div class="details-content">
-                    <p><strong>Sentinel Protocol:</strong> We treat whistleblower detriment as a clinical emergency. We provide the strategic architecture to protect the voice that protects the institution.</p>
+                    <p><strong>Sentinel Protocol:</strong> We treat whistleblower detriment as a clinical emergency. We provide the strategic architecture to protect the voice that protects the institution's fiduciary health.</p>
                 </div>
             </details>
 
             <details>
-                <summary>4. Procedural Mastery</summary>
+                <summary>4. Procedural Mastery (GCP)</summary>
                 <div class="details-content">
-                    <p><strong>GCP-Compliant Coordination:</strong> Technical perfection in incident reporting and regulatory coordination. Bulletproof documentation for the Labour Court and regulatory bodies.</p>
+                    <p><strong>GCP-Compliant Coordination:</strong> Technical perfection in incident reporting and regulatory coordination. Bulletproof documentation designed for the Labour Court and regulatory bodies.</p>
                 </div>
             </details>
 
             <details>
                 <summary>5. Pathogen Excision</summary>
                 <div class="details-content">
-                    <p><strong>The Wilbur Method™:</strong> Identifying the structural rot—the pathogen—and providing the roadmap to excise it permanently from the architecture.</p>
+                    <p><strong>Systemic Diagnostic:</strong> Identifying the structural rot—the pathogen—and providing the roadmap to excise it permanently from the institutional architecture.</p>
                 </div>
             </details>
 
             <details>
                 <summary>6. Radical Transparency</summary>
                 <div class="details-content">
-                    <p><strong>Sunlight Disinfection:</strong> No entity is too big to comply. Radical forensic sunlight is the only cure for institutional arrogance and fiduciary collapse.</p>
+                    <p><strong>Sunlight Disinfection:</strong> No entity is too big to comply. Radical forensic sunlight is the only cure for institutional arrogance and systemic fiduciary collapse.</p>
                 </div>
             </details>
         </section>
 
         <section id="disclosure" class="card">
-            <h2 style="text-align: center; margin-bottom: 30px; color: var(--accent); text-transform: uppercase; letter-spacing: 2px;">Statutory Disclosures</h2>
+            <h2 style="text-align: center; margin-bottom: 30px; color: var(--accent); text-transform: uppercase; letter-spacing: 2px;">Statutory & Legal Disclosures</h2>
             
             <details>
                 <summary>Information Officer (POPI/PAIA Sentinel)</summary>
                 <div class="details-content">
-                    <p><strong>Name:</strong> Wilbur William Matthee | <strong>Email:</strong> info@ethichawks.co.za</p>
-                    <p>Responsible for the systemic oversight of all data subjects and ensuring EthicHawks' internal forensic architecture remains compliant with South African Law.</p>
+                    <p><strong>Designation:</strong> Information Officer | <strong>Name:</strong> Wilbur William Matthee</p>
+                    <p><strong>Email:</strong> <a href="mailto:info@ethichawks.co.za" style="color: var(--accent);">info@ethichawks.co.za</a></p>
+                    <p>Tasked with the systemic oversight of all data subjects and ensuring that EthicHawks' internal forensic architecture remains compliant with South African Law.</p>
                 </div>
             </details>
 
             <details>
-                <summary>Confidentiality & POPIA Protocol</summary>
+                <summary>Confidentiality & Forensic NDA</summary>
                 <div class="details-content">
-                    <p>All interactions are governed by Forensic Synchronicity. All client data and whistleblowing information is handled as a clinical emergency with statutory protection.</p>
-                    <a href="#" class="btn-link">View Full NDA Architecture</a>
+                    <p>All interactions are governed by <strong>Forensic Synchronicity</strong>. We treat every data point as a clinical emergency. Whistleblower identities are shielded by statutory force and clinical-grade NDAs.</p>
+                    <a href="#" class="btn-link">View Confidentiality Protocol</a>
+                </div>
+            </details>
+
+            <details>
+                <summary>POPIA Policy (Data Protection)</summary>
+                <div class="details-content">
+                    <p>In accordance with the <strong>Protection of Personal Information Act</strong>, EthicHawks acts as a Responsible Party. We only process forensic data that is adequate, relevant, and required for the statutory mandate.</p>
+                    <a href="#" class="btn-link">Read POPIA Sentinel Policy</a>
+                </div>
+            </details>
+
+            <details>
+                <summary>PAIA Manual & Statutory Records</summary>
+                <div class="details-content">
+                    <p>Statutory records held per the <strong>Promotion of Access to Information Act</strong> include:</p>
+                    <ul>
+                        <li><strong>Investigation:</strong> Subpoenas, Summons, Forensic investigation reports.</li>
+                        <li><strong>Governance:</strong> Audit records, Board Minutes, Legal Opinions.</li>
+                        <li><strong>Structural:</strong> ITR34s and Revenue Returns relevant to forensic audits.</li>
+                    </ul>
+                    <a href="#" class="btn-link">Access PAIA Information Manual</a>
                 </div>
             </details>
         </section>
@@ -166,6 +199,7 @@
     </main>
 
     <script>
+        // Modal Logic
         function acceptConsent() {
             document.getElementById('consent-modal').style.display = 'none';
             localStorage.setItem('ethichawks_consent', 'true');
@@ -175,6 +209,15 @@
                 document.getElementById('consent-modal').style.display = 'none';
             }
         }
+        // Smooth scrolling for navigation anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
 </body>
 </html>
