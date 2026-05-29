@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Factory Blueprint Designer | EthicHawks</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f0e8;
+            margin: 0;
+            padding: 2rem;
+            color: #1a1a1a;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #b8860b;
+            border-bottom: 2px solid #b8860b;
+            display: inline-block;
+            padding-bottom: 0.25rem;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.25rem;
+        }
+        input, select {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        button {
+            background: #b8860b;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        button:hover {
+            background: #9a7209;
+        }
+        pre {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 0.85rem;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .output {
+            margin-top: 1.5rem;
+            border-top: 1px solid #ddd;
+            padding-top: 1rem;
+        }
+        .loader {
+            display: none;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #b8860b;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 1rem auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🏭 AI Factory Blueprint Designer (Agent 5)</h1>
+    <p>Generate a custom multi-agent blueprint using OpenAI GPT-4.1. Define your team size, workspace style, and industry.</p>
+
+    <form id="blueprintForm">
+        <div class="form-group">
+            <label>Team Size (number of agents)</label>
+            <input type="number" id="teamSize" value="5" min="1" max="20">
+        </div>
+        <div class="form-group">
+            <label>Workspace Style</label>
+            <select id="workspaceStyle">
+                <option>modern office</option>
+                <option>forensic governance lab</option>
+                <option>startup loft</option>
+                <option>enterprise campus</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Industry</label>
+            <input type="text" id="industry" value="legal compliance & POPIA">
+        </div>
+        <div class="form-group">
+            <label>Action</label>
+            <select id="action">
+                <option value="init">Initial Setup (minimal)</option>
+                <option value="expand">Expand (add rooms, agents)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Additional Constraints (optional)</label>
+            <input type="text" id="constraints" placeholder="e.g., integrate Yoco billing">
+        </div>
+        <button type="submit">✨ Generate Blueprint</button>
+    </form>
+
+    <div class="loader" id="loader"></div>
+    <div class="output" id="output" style="display: none;">
+        <h3>Blueprint Result:</h3>
+        <pre id="blueprintOutput"></pre>
+    </div>
+</div>
+
+<script>
+    const SUPABASE_FUNCTION_URL = 'https://ejxavchhriaxfahpjnkl.supabase.co/functions/v1/agent-factory';
+    const SUPABASE_ANON_KEY = 'sb_publishable_v8LYYzW28Fy3vQg-McIoRA_WDviPCKs';
+
+    document.getElementById('blueprintForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Get form values
+        const teamSize = parseInt(document.getElementById('teamSize').value);
+        const workspaceStyle = document.getElementById('workspaceStyle').value;
+        const industry = document.getElementById('industry').value;
+        const action = document.getElementById('action').value;
+        const constraints = document.getElementById('constraints').value;
+
+        // Show loader, hide previous output
+        const loader = document.getElementById('loader');
+        const outputDiv = document.getElementById('output');
+        loader.style.display = 'block';
+        outputDiv.style.display = 'none';
+
+        try {
+            const response = await fetch(SUPABASE_FUNCTION_URL, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                    'apikey': SUPABASE_ANON_KEY,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    action: action,
+                    teamSize: teamSize,
+                    workspaceStyle: workspaceStyle,
+                    industry: industry,
+                    constraints: constraints || undefined
+                })
+            });
+
+            const data = await response.json();
+            loader.style.display = 'none';
+
+            if (data.ok) {
+                const blueprint = data.blueprint;
+                document.getElementById('blueprintOutput').textContent = JSON.stringify(blueprint, null, 2);
+                outputDiv.style.display = 'block';
+            } else {
+                alert('Error: ' + (data.error || 'Unknown error'));
+            }
+        } catch (err) {
+            loader.style.display = 'none';
+            alert('Failed to connect: ' + err.message);
+        }
+    });
+</script>
+</body>
+</html>
