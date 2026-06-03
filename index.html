@@ -104,16 +104,16 @@
   .hawk-logo {
     width: 48px;
     height: 48px;
-    background: linear-gradient(135deg, var(--gold), var(--gold-light));
-    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--navy-deep);
-    box-shadow: 0 4px 20px rgba(201,168,76,0.4);
+    flex-shrink: 0;
+  }
+
+  .hawk-logo img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
   }
 
   .logo-text h1 {
@@ -355,19 +355,35 @@
     margin-bottom: 12px;
   }
 
-  /* AUTHOR SECTION - MINIMAL */
-  .author-section {
+  /* AUTHOR SECTION */
+  .author-profile {
     background: rgba(27, 42, 74, 0.4);
     border: 1px solid var(--glass-border);
     padding: 48px;
     border-radius: 12px;
     backdrop-filter: blur(20px);
     text-align: center;
-    max-width: 600px;
+    max-width: 700px;
     margin: 40px auto 0;
   }
 
-  .author-section h3 {
+  .author-image {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 24px;
+    border: 2px solid var(--gold);
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(201,168,76,0.1);
+  }
+
+  .author-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .author-profile h3 {
     font-family: 'Cormorant Garamond', serif;
     font-size: 28px;
     font-weight: 700;
@@ -380,14 +396,14 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--gold);
-    margin-bottom: 16px;
+    margin-bottom: 20px;
   }
 
   .author-bio {
     font-size: 13px;
     line-height: 1.8;
     color: var(--text-light);
-    margin-bottom: 20px;
+    margin-bottom: 24px;
   }
 
   .credentials {
@@ -395,7 +411,7 @@
     flex-wrap: wrap;
     gap: 8px;
     justify-content: center;
-    margin-top: 16px;
+    margin-top: 20px;
   }
 
   .cred-badge {
@@ -742,7 +758,9 @@
 <header>
   <div class="header-bar">
     <div class="logo-section">
-      <div class="hawk-logo">H</div>
+      <div class="hawk-logo">
+        <img src="logo.png" alt="EthicHawks Logo">
+      </div>
       <div class="logo-text">
         <h1>HAWK</h1>
         <p>Forensic Governance Intelligence</p>
@@ -805,14 +823,17 @@
     </div>
   </section>
 
-  <!-- ABOUT THE AUTHOR - MINIMAL -->
+  <!-- ABOUT THE AUTHOR -->
   <section id="about">
     <div class="section-header">
       <span class="section-label">Leadership</span>
       <h2 class="section-title">About Sr. Wilbur William Matthee</h2>
     </div>
 
-    <div class="author-section">
+    <div class="author-profile">
+      <div class="author-image">
+        <img src="assets/author.png" alt="Sr. Wilbur William Matthee">
+      </div>
       <h3>Sr. Wilbur William Matthee</h3>
       <p class="author-title">Specialist Registered Nurse · Founder</p>
       
