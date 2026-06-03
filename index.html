@@ -355,58 +355,21 @@
     margin-bottom: 12px;
   }
 
-  .about-card ul {
-    list-style: none;
-    padding-left: 0;
-  }
-
-  .about-card li {
-    font-size: 12px;
-    line-height: 1.8;
-    color: var(--text-light);
-    padding-left: 20px;
-    position: relative;
-    margin-bottom: 8px;
-  }
-
-  .about-card li:before {
-    content: '▸';
-    position: absolute;
-    left: 0;
-    color: var(--gold);
-  }
-
-  /* AUTHOR SECTION */
-  .author-profile {
+  /* AUTHOR SECTION - MINIMAL */
+  .author-section {
     background: rgba(27, 42, 74, 0.4);
     border: 1px solid var(--glass-border);
     padding: 48px;
     border-radius: 12px;
     backdrop-filter: blur(20px);
     text-align: center;
-    max-width: 800px;
+    max-width: 600px;
     margin: 40px auto 0;
   }
 
-  .author-badge {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, var(--gold), var(--gold-light));
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .author-section h3 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 40px;
-    font-weight: 700;
-    color: var(--navy-deep);
-    margin: 0 auto 24px;
-    box-shadow: 0 8px 24px rgba(201,168,76,0.3);
-  }
-
-  .author-profile h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 700;
     color: var(--gold-light);
     margin-bottom: 8px;
@@ -417,14 +380,14 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--gold);
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
 
   .author-bio {
     font-size: 13px;
     line-height: 1.8;
     color: var(--text-light);
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
 
   .credentials {
@@ -432,15 +395,15 @@
     flex-wrap: wrap;
     gap: 8px;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 16px;
   }
 
   .cred-badge {
-    padding: 6px 12px;
+    padding: 5px 10px;
     background: rgba(201,168,76,0.08);
     border: 1px solid rgba(201,168,76,0.2);
-    border-radius: 16px;
-    font-size: 9px;
+    border-radius: 14px;
+    font-size: 8px;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -494,6 +457,65 @@
     font-size: 12px;
     line-height: 1.6;
     color: var(--text-light);
+  }
+
+  /* FLOATING HAWK ASSISTANT */
+  .floating-hawk {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 500;
+    animation: hawkFloat 3s ease-in-out infinite;
+  }
+
+  @keyframes hawkFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .hawk-button {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    cursor: pointer;
+    box-shadow: 0 8px 32px rgba(201,168,76,0.4);
+    border: 2px solid rgba(201,168,76,0.6);
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .hawk-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 40px rgba(201,168,76,0.6);
+  }
+
+  .chat-bubble {
+    position: absolute;
+    bottom: -50px;
+    right: 0;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 11px;
+    color: var(--off-white);
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    letter-spacing: 0.05em;
+  }
+
+  .hawk-button:hover .chat-bubble {
+    opacity: 1;
+    visibility: visible;
+    bottom: -60px;
   }
 
   /* FOOTER */
@@ -669,6 +691,8 @@
     .nav-links { gap: 16px; font-size: 10px; }
     .hero-buttons { flex-direction: column; }
     .btn-primary, .btn-secondary { width: 100%; }
+    .floating-hawk { bottom: 20px; right: 20px; }
+    .hawk-button { width: 70px; height: 70px; font-size: 32px; }
   }
 </style>
 </head>
@@ -730,7 +754,6 @@
       <li><a onclick="scrollToSection('about')">About</a></li>
       <li><a onclick="scrollToSection('services')">Services</a></li>
       <li><a onclick="scrollToSection('contact')">Contact</a></li>
-      <li><a href="hawk-assistant.html" class="cta-btn">HAWK Assistant</a></li>
     </ul>
   </div>
 </header>
@@ -782,46 +805,29 @@
     </div>
   </section>
 
-  <!-- ABOUT THE AUTHOR -->
+  <!-- ABOUT THE AUTHOR - MINIMAL -->
   <section id="about">
     <div class="section-header">
       <span class="section-label">Leadership</span>
       <h2 class="section-title">About Sr. Wilbur William Matthee</h2>
-      <p class="section-description">
-        Founder & Chief Governance Strategist
-      </p>
     </div>
 
-    <div class="author-profile">
-      <div class="author-badge">W</div>
+    <div class="author-section">
       <h3>Sr. Wilbur William Matthee</h3>
-      <p class="author-title">Specialist Registered Nurse | Governance Strategist | Whistleblower</p>
+      <p class="author-title">Specialist Registered Nurse · Founder</p>
       
       <div class="author-bio">
-        Sr. Matthee brings 16+ years of clinical governance experience, including formative roles 
-        as Case Manager at Medscheme/GEMS Active Disease Risk Management Unit and Acting Chairperson 
-        of the Health and Safety Committee. His professional journey—culminating in reporting a Priority 1 
-        patient safety risk affecting 1.9 million beneficiaries—shaped the forensic diagnostic methodology 
-        that defines EthicHawks today.
+        16+ years of clinical governance experience. Specialist in forensic diagnostic methodology, healthcare compliance architecture, and institutional integrity frameworks.
       </div>
 
       <div class="credentials">
-        <span class="cred-badge">RN | BTech General Nursing</span>
-        <span class="cred-badge">PGDip Health Services Management</span>
+        <span class="cred-badge">RN</span>
+        <span class="cred-badge">BTech Nursing</span>
         <span class="cred-badge">NQF Level 8</span>
-        <span class="cred-badge">CPrac(SA) Candidate</span>
-        <span class="cred-badge">GACP · Sept 2026</span>
-        <span class="cred-badge">AI Risk Management</span>
+        <span class="cred-badge">CPrac(SA)</span>
+        <span class="cred-badge">GACP · 2026</span>
         <span class="cred-badge">AI Governance</span>
       </div>
-
-      <p style="margin-top: 20px; font-size: 12px; line-height: 1.8; color: var(--text-light);">
-        <strong>Notable Achievements:</strong><br>
-        Developer of the Wilbur Method™ — a proprietary forensic governance framework<br>
-        Author of peer-reviewed research on NHI governance<br>
-        Whistleblower protection advocate and strategic advisor<br>
-        Developer of PalCare — a clinical governance platform for palliative care
-      </p>
     </div>
   </section>
 
@@ -870,7 +876,7 @@
 
     <div style="text-align: center; margin-top: 40px;">
       <p style="color: var(--text-light); font-size: 13px; margin-bottom: 16px;">
-        For detailed service inquiries and custom engagements:
+        For detailed service inquiries:
       </p>
       <button class="btn-primary" onclick="window.location.href='mailto:info@ethichawks.co.za'">
         Request a Consultation
@@ -946,6 +952,14 @@
 
 </div>
 
+<!-- FLOATING HAWK ASSISTANT -->
+<div class="floating-hawk">
+  <div class="hawk-button" onclick="window.location.href='hawk-assistant.html'">
+    🦅
+    <div class="chat-bubble">Ask HAWK</div>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer id="contact">
   <div class="footer-content">
@@ -1019,7 +1033,6 @@
   }
 
   function managePreferences() {
-    // In production, this would show a more detailed preferences panel
     alert('Preference management interface. You can change these settings anytime through the footer link.');
   }
 
