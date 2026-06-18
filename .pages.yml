@@ -1,0 +1,18 @@
+media:
+  input: assets
+  output: /assets
+
+content:
+  - name: pages
+    label: Website Pages
+    type: collection
+    path: .
+    exclude: [README.md, .pages.yml, package.json, package-lock.json]
+    fields:
+      - name: title
+        label: Page Title
+        type: string
+      - name: body
+        label: Content Editor
+        type: rich-text
+        
