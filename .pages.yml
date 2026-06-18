@@ -15,4 +15,3 @@ content:
       - name: body
         label: Content Editor
         type: rich-text
-        
