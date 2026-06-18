@@ -1,0 +1,18 @@
+paths:
+  static: ''
+  uploads: uploads
+timezone: Africa/Johannesburg
+markdown:
+  engine: commonmark
+  options: {}
+source: /
+collections_config:
+  pages:
+    path: ''
+    icon: wysiwyg
+  compliance:
+    path: compliance
+    icon: compare
+  dev:
+    path: dev
+    icon: bed
