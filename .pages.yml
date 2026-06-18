@@ -1,13 +1,12 @@
 media:
-  input: assets
-  output: /assets
+  input: public
+  output: /
 
 content:
-  - name: pages
-    label: Website Pages
-    type: collection
-    path: .
-    exclude: [README.md, .pages.yml, package.json, package-lock.json]
+  - name: homepage
+    label: Homepage (index.html)
+    type: file
+    path: index.html
     fields:
       - name: title
         label: Page Title
