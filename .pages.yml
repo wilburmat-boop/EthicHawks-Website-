@@ -1,0 +1,16 @@
+media:
+  input: public
+  output: /
+
+content:
+  - name: homepage
+    label: Homepage (index.html)
+    type: file
+    path: index.html
+    fields:
+      - name: title
+        label: Page Title
+        type: string
+      - name: body
+        label: Content Editor
+        type: rich-text
