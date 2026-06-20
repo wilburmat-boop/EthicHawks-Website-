@@ -1,18 +1,55 @@
-paths:
-  static: ''
-  uploads: uploads
-timezone: Africa/Johannesburg
-markdown:
-  engine: commonmark
-  options: {}
 source: /
+paths:
+  uploads: uploads
+  static: ''
 collections_config:
   pages:
     path: ''
     icon: wysiwyg
+    disable_url: false
+    preview:
+      text:
+      subtext:
+      icon:
+      icon_color:
+      icon_background_color:
+      image:
+      metadata:
+      gallery:
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
   compliance:
     path: compliance
     icon: compare
+    disable_url: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
   dev:
     path: dev
     icon: bed
+    disable_url: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+timezone: Africa/Johannesburg
+markdown:
+  engine: commonmark
+  options:
+    xhtml: false
+    breaks: false
+    linkify: false
+    typographer: false
+    spaced_lists: false
+    sentence_per_line: false
+    gfm: false
+    code_block_fences: '```'
+    escape_snippets_in_code_blocks: false
+    treat_indentation_as_code: false
+    table: false
+    strikethrough: false
+    subscript: false
+    superscript: false
+    heading_ids: false
+    attributes: false
