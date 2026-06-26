@@ -1,424 +1,380 @@
----
----
----
-
----
-
-/** * ========================================================================== * ETHICHAWKS COGNITIVE INTERFACE INITIALIZER * ========================================================================== */ document.addEventListener("DOMContentLoaded", function () {
-
-```
-// --- 1. Core Header and Brand Layout Setup ---
-const logoImg = document.querySelector("[alt='EthicHawks Logo']");
-if (logoImg) {
-    logoImg.setAttribute("src", "https://zohopagesense.nimbuspop.com/customerassets/927847750/images/1000306297.jpg");
-    logoImg.style.height = "68px";
-    logoImg.style.width = "67.995px";
-}
-
-const logoText = document.querySelector(".logo-text h1");
-if (logoText) {
-    logoText.textContent = "ETHICHAWKS";
-}
-
-// --- 2. Anchor Buttons and Interaction Elements ---
-const heroExploreBtn = document.querySelector(".hero-buttons .btn-primary");
-if (heroExploreBtn) {
-    heroExploreBtn.onclick = function () {
-        const target = document.getElementById('services');
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
-        } else {
-            window.location.hash = 'services';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EthicHawks | Forensic Governance Architecture for NHI Accreditation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-    };
-}
-
-const servicesConsultationBtn = document.querySelector("#services .btn-primary");
-if (servicesConsultationBtn) {
-    servicesConsultationBtn.onclick = function () {
-        window.location.href = "mailto:info@ethichawks.co.za?subject=General%20Forensic%20Governance%20%26%20Compliance%20Consultation%20Inquiry&body=Dear%20EthicHawks%20Team%2C%0A%0AI%20am%20writing%20to%20request%20an%20initial%20strategic%20consultation%20to%20discuss%20our%20organization%27s%20governance%2C%20risk%2C%20and%20regulatory%20compliance%20requirements.%0A%0APlease%20provide%20your%20earliest%20availability%20for%20a%20preliminary%20scoping%20discussion.%0A%0AKind%20regards%2C";
-    };
-}
-
-const servicesTouchBtn = document.querySelector(".btn-secondary");
-if (servicesTouchBtn) {
-    servicesTouchBtn.onclick = function () {
-        window.location.href = "mailto:info@ethichawks.co.za?subject=General%20Inquiry%20-%20EthicHawks%20Forensic%20Governance&body=Dear%20EthicHawks%20Team%2C%0A%0AI%20hope%20this%20email%20finds%20you%20well.%0A%0AI%20would%20like%20to%20get%20in%20touch%20regarding%20your%20services%20and%20operational%20frameworks.%20Kindly%20reach%20out%20to%20me%20so%20we%20can%20connect.%0A%0AKind%20regards%2C";
-    };
-}
-
-
-// --- 3. Unified Overlay Control & Modal Management Engine ---
-function initializeModalFramework(openButtonId, modalElementId, closeButtonId) {
-    const openBtn = document.getElementById(openButtonId);
-    const modal = document.getElementById(modalElementId);
-    const closeBtn = document.getElementById(closeButtonId);
-
-    if (modal && openBtn && closeBtn) {
-        openBtn.onclick = function (e) {
-            e.preventDefault();
-            modal.style.display = "block";
-            document.body.style.overflow = "hidden"; // Retains system focus / disables scrolling
-        };
-
-        const closeModal = function () {
-            modal.style.display = "none";
-            document.body.style.overflow = "auto"; // Re-enables document movement
-        };
-
-        closeBtn.onclick = closeModal;
-
-        window.addEventListener("click", function (event) {
-            if (event.target === modal) {
-                closeModal();
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: #1e293b;
+            background: #f8fafc;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 1.5rem;
+        }
+        /* Header */
+        header {
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .logo img {
+            height: 48px;
+            width: auto;
+        }
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.3rem;
+            letter-spacing: 0.5px;
+            color: #0f172a;
+        }
+        nav a {
+            text-decoration: none;
+            color: #334155;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: #2563eb;
+        }
+        /* Hero */
+        .hero {
+            padding: 5rem 0 4rem;
+            text-align: center;
+            background: linear-gradient(135deg, #f0f4ff 0%, #ffffff 100%);
+        }
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #0f172a;
+            max-width: 800px;
+            margin: 0 auto 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #475569;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+        }
+        .btn {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background: #1d4ed8;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #2563eb;
+            color: #2563eb;
+            margin-left: 1rem;
+        }
+        .btn-outline:hover {
+            background: #eff6ff;
+        }
+        /* Sections */
+        section {
+            padding: 4.5rem 0;
+        }
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: #0f172a;
+            border-left: 4px solid #2563eb;
+            padding-left: 1.2rem;
+        }
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: #1e293b;
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .card {
+            background: white;
+            padding: 1.8rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            border: 1px solid #e2e8f0;
+        }
+        .service-icon {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+        }
+        .author-profile {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            border: 1px solid #e2e8f0;
+        }
+        .author-image img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #2563eb;
+        }
+        .credentials span {
+            display: inline-block;
+            background: #e0e7ff;
+            color: #1e40af;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 0.4rem;
+            margin-top: 0.4rem;
+        }
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        li {
+            margin-bottom: 0.4rem;
+        }
+        .legal-links a {
+            color: #475569;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .legal-links a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background: #1e293b;
+            color: #cbd5e1;
+            padding: 2rem 0;
+            font-size: 0.9rem;
+        }
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .highlight {
+            color: #2563eb;
+            font-weight: 600;
+        }
+        @media (max-width: 768px) {
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
             }
-        });
-    }
-}
-
-// Bind Modular Modals Natively
-initializeModalFramework("openDisclaimer", "disclaimerModal", "closeDisclaimer");
-initializeModalFramework("openCookiePolicy", "cookieModal", "closeCookiePolicy");
-initializeModalFramework("openTerms", "termsModal", "closeTerms");
-initializeModalFramework("openGdprPopia", "gdprPopiaModal", "closeGdprPopia");
-initializeModalFramework("openPda", "pdaModal", "closePda");
-initializeModalFramework("openHealthcareStandards", "healthcareStandardsModal", "closeHealthcareStandards");
-initializeModalFramework("openNhi", "nhiModal", "closeNhi");
-initializeModalFramework("openDirectorModal", "directorReviewModal", "closeDirectorModal");
-initializeModalFramework("openAIGovernanceModal", "aiGovernanceModal", "closeAIGovernanceModal");
-initializeModalFramework("openWhistleblowerModal", "whistleblowerModal", "closeWhistleblowerModal");
-initializeModalFramework("openClinicalComplianceModal", "clinicalComplianceModal", "closeClinicalComplianceModal");
-initializeModalFramework("openNHIAccreditationModal", "nhiAccreditationModal", "closeNHIAccreditationModal");
-initializeModalFramework("openWilburMethodModal", "wilburMethodModal", "closeWilburMethodModal");
-
-
-// --- 4. HAWK Side Panel Sliding System ---
-const assistantModal = document.getElementById("ehAssistantPanel");
-const assistantOverlay = document.getElementById("ehAssistantOverlay");
-const assistantOpenBtn = document.getElementById("openAssistantFloating");
-const assistantCloseBtn = document.getElementById("closeAssistant");
-
-if (assistantModal && assistantOverlay && assistantOpenBtn && assistantCloseBtn) {
-    assistantOpenBtn.onclick = function (e) {
-        e.preventDefault();
-        assistantOverlay.style.display = "block";
-        setTimeout(() => {
-            assistantModal.style.right = "0";
-        }, 20); // Minor animation delay buffer
-        document.body.style.overflow = "hidden";
-    };
-
-    const hideAssistant = function () {
-        assistantModal.style.right = "-450px";
-        setTimeout(() => {
-            assistantOverlay.style.display = "none";
-        }, 300); // Wait for transition animation rules to finish
-        document.body.style.overflow = "auto";
-    };
-
-    assistantCloseBtn.onclick = hideAssistant;
-    assistantOverlay.onclick = hideAssistant;
-}
-```
-
-});
-
-
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-## Your Privacy & Preferences
-
-EthicHawks uses essential technologies to provide our services securely and compliantly. Please review and consent to our practices.
-
-```
-<div class="consent-checkboxes">
-  <div class="checkbox-group">
-    <input type="checkbox" id="consent-essential" checked disabled>
-    <label for="consent-essential"><strong>Essential Cookies</strong> — Required for security and functionality (GDPR, POPIA compliant)</label>
-  </div>
-  <div class="checkbox-group">
-    <input type="checkbox" id="consent-analytics">
-    <label for="consent-analytics"><strong>Analytics</strong> — Help us improve performance and user experience</label>
-  </div>
-  <div class="checkbox-group">
-    <input type="checkbox" id="consent-marketing">
-    <label for="consent-marketing"><strong>Marketing</strong> — Optional communications about our services</label>
-  </div>
-</div>
-
-<p style="font-size: 10px; color: rgba(212,201,176,0.6); margin-top: 16px;">
-  By continuing, you acknowledge our <a href="#terms" style="color: var(--gold);">Terms of Service</a>, 
-  <a href="#privacy" style="color: var(--gold);">Privacy Policy</a>, and 
-  <a href="#compliance" style="color: var(--gold);">Compliance Documentation</a>.
-</p>
-
-<div class="consent-buttons">
-  <button class="consent-btn consent-btn-accept" onclick="acceptConsent()">Accept & Continue</button>
-  <button class="consent-btn consent-btn-manage" onclick="managePreferences()">Manage Preferences</button>
-</div>
-```
-
-
-
-&nbsp;
-
-![EthicHawks Logo](logo.png)
-
-# HAWK
-
-Forensic Governance Intelligence
-
-```
-<ul class="nav-links">
-  <li><a onclick="scrollToSection('mission')">Our Mission</a></li>
-  <li><a onclick="scrollToSection('about')">About</a></li>
-  <li><a onclick="scrollToSection('services')">Services</a></li>
-  <li><a onclick="scrollToSection('contact')">Contact</a></li>
-</ul>
-```
-
-
-
-&nbsp;
-
-&nbsp;
-
-&nbsp;
-
-Forensic Governance Consultancy
-
-# Governance Intelligence Redefined
-
-EthicHawks applies forensic diagnostic methodology to institutional governance failures. We identify root cause, systemic risk, and architect sustainable compliance frameworks for healthcare institutions seeking NHI accreditation and integrity excellence.
-
-Explore Services Get in Touch
-
-
-
-Foundation
-
-## Our Mission & Vision
-
-### Our Mission
-
-To reframe institutional governance failures as diagnostic opportunities—not as catastrophic failures, but as components of a Root Cause Excision Protocol. We transform compliance from a checkbox exercise into a strategic competitive advantage for South African healthcare institutions.
-
-### Our Vision
-
-To position EthicHawks as the premier forensic governance authority in South Africa, recognized for our unique combination of clinical depth, forensic methodology, and lived institutional experience. We envision a healthcare ecosystem where governance intelligence drives patient safety and institutional integrity.
-
-
-
-Leadership
-
-## About Sr. Wilbur William Matthee
-
-```
-<div class="author-profile">
-  <div class="author-image">
-    <img src="assets/author.png" alt="Sr. Wilbur William Matthee">
-  </div>
-  <h3>Sr. Wilbur William Matthee</h3>
-  <p class="author-title">Specialist Registered Nurse · Founder</p>
-  
-  <div class="author-bio">
-    16+ years of clinical governance experience. Specialist in forensic diagnostic methodology, healthcare compliance architecture, and institutional integrity frameworks.
-  </div>
-
-  <div class="credentials">
-    <span class="cred-badge">RN</span>
-    <span class="cred-badge">BTech Nursing</span>
-    <span class="cred-badge">NQF Level 8</span>
-    <span class="cred-badge">CPrac(SA) Candid</span>
-    <span class="cred-badge">GACP · 2026</span>
-    <span class="cred-badge">AI Governance</span>
-  </div>
-</div>
-```
-
-
-
-&nbsp;
-
-Capabilities
-
-## Our Services
-
-Comprehensive forensic governance solutions for healthcare institutions
-
-```
-<div class="services-grid">
-  <div class="service-card">
-    <div class="service-icon">🔍</div>
-    <h3>Forensic Governance Audits</h3>
-    <p>Identify systemic governance failures using the Wilbur Method™. Root cause excision applied to institutional risk.</p>
-  </div>
-  <div class="service-card">
-    <div class="service-icon">✓</div>
-    <h3>NHI Accreditation Readiness</h3>
-    <p>Prepare institutions to meet National Health Insurance participation thresholds with strategic compliance architecture.</p>
-  </div>
-  <div class="service-card">
-    <div class="service-icon">⚙️</div>
-    <h3>Clinical Compliance Architecture</h3>
-    <p>Build sustainable compliance frameworks integrating governance, risk, and regulatory requirements.</p>
-  </div>
-  <div class="service-card">
-    <div class="service-icon">🛡️</div>
-    <h3>Whistleblower Protection Advisory</h3>
-    <p>Strategic guidance on protected disclosures under the Protected Disclosures Act (PDA).</p>
-  </div>
-  <div class="service-card">
-    <div class="service-icon">🤖</div>
-    <h3>AI Governance in Healthcare</h3>
-    <p>Risk management and governance frameworks for AI deployment in clinical settings.</p>
-  </div>
-  <div class="service-card">
-    <div class="service-icon">⚖️</div>
-    <h3>Director Accountability & Fiduciary Review</h3>
-    <p>Companies Act Section 162 applications and comprehensive governance reviews.</p>
-  </div>
-</div>
-
-<div style="text-align: center; margin-top: 40px;">
-  <p style="color: var(--text-light); font-size: 13px; margin-bottom: 16px;">
-    For detailed service inquiries:
-  </p>
-  <button class="btn-primary" onclick="window.location.href='mailto:info@ethichawks.co.za'">
-    Request a Consultation
-  </button>
-</div>
-```
-
-
-
-&nbsp;
-
-Governance
-
-## Terms & Compliance
-
-```
-<div style="max-width: 900px; margin: 0 auto;">
-  <div class="about-grid" style="gap: 40px;">
-    <div>
-      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--gold-light); margin-bottom: 12px;">
-        Legal Documentation
-      </h3>
-      <ul style="list-style: none;">
-        <li style="margin-bottom: 12px;">
-          <a href="#terms" style="color: var(--gold-light); text-decoration: none; font-size: 12px;">
-            → Terms of Service
-          </a>
-        </li>
-        <li style="margin-bottom: 12px;">
-          <a href="#privacy" style="color: var(--gold-light); text-decoration: none; font-size: 12px;">
-            → Privacy Policy
-          </a>
-        </li>
-        <li style="margin-bottom: 12px;">
-          <a href="#cookies" style="color: var(--gold-light); text-decoration: none; font-size: 12px;">
-            → Cookie Policy
-          </a>
-        </li>
-        <li>
-          <a href="#disclaimer" style="color: var(--gold-light); text-decoration: none; font-size: 12px;">
-            → Professional Disclaimer
-          </a>
-        </li>
-      </ul>
-    </div>
-    <div>
-      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--gold-light); margin-bottom: 12px;">
-        Regulatory Alignment
-      </h3>
-      <ul style="list-style: none;">
-        <li style="margin-bottom: 12px; font-size: 12px; color: var(--text-light);">
-          GDPR & POPIA Compliant
-        </li>
-        <li style="margin-bottom: 12px; font-size: 12px; color: var(--text-light);">
-          Protected Disclosures Act Compliance
-        </li>
-        <li style="margin-bottom: 12px; font-size: 12px; color: var(--text-light);">
-          NHI Governance Framework Alignment
-        </li>
-        <li style="font-size: 12px; color: var(--text-light);">
-          Healthcare Regulatory Standards Adherence
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <div style="margin-top: 32px; padding: 20px; background: rgba(201,168,76,0.06); border: 1px solid rgba(201,168,76,0.2); border-radius: 8px;">
-    <p style="font-size: 11px; color: var(--text-light); line-height: 1.8;">
-      <strong style="color: var(--gold);">Notice:</strong> This website uses cookies and tracking technologies to enhance your experience and ensure compliance with data protection regulations. 
-      By continuing to use this site, you acknowledge our data practices. You can manage your preferences at any time through the consent panel.
-    </p>
-  </div>
-</div>
-```
-
-
-
-&nbsp;
-
-&nbsp;
-
-🦅
-
-Ask HAWK
-
-
-
-#### EthicHawks
-
-Forensic Governance & Compliance Consultancy
-
-Cape Town, South Africa  
-**Phone:** +276 963 1615  
-**Email:** [info@ethichawks.co.za](mailto:info@ethichawks.co.za)
-
-```
-<div class="footer-section">
-  <h4>Services</h4>
-  <ul>
-    <li><a href="#services">Forensic Audits</a></li>
-    <li><a href="#services">NHI Accreditation</a></li>
-    <li><a href="#services">Compliance Architecture</a></li>
-    <li><a href="#services">AI Governance</a></li>
-  </ul>
-</div>
-
-<div class="footer-section">
-  <h4>Legal</h4>
-  <ul>
-    <li><a href="#terms" onclick="alert('Terms of Service document — access available upon request')">Terms of Service</a></li>
-    <li><a href="#privacy" onclick="alert('Privacy Policy document — access available upon request')">Privacy Policy</a></li>
-    <li><a href="#cookies" onclick="alert('Cookie preferences can be managed via the consent panel')">Cookie Preferences</a></li>
-    <li><a href="#compliance" onclick="scrollToSection('compliance')">Compliance</a></li>
-  </ul>
-</div>
-
-<div class="footer-section">
-  <h4>Resources</h4>
-  <ul>
-    <li><a href="hawk-assistant.html">HAWK Assistant</a></li>
-    <li><a href="#" onclick="alert('Case studies available upon request')">Case Studies</a></li>
-    <li><a href="#" onclick="alert('Research publications available upon request')">Research</a></li>
-    <li><a href="#" onclick="alert('Contact for consultation availability')">Consulting</a></li>
-  </ul>
-</div>
-```
-
-
-
-© 2026 EthicHawks Forensic Governance & Compliance. All rights reserved. | [Manage Cookie Consent](#)
-
-
-
-&nbsp;
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <img src="https://zohopagesense.nimbuspop.com/customerassets/927847750/images/1000306297.jpg" alt="EthicHawks Logo">
+                <span class="logo-text">ETHICHAWKS</span>
+            </div>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#framework">Framework</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Forensic Governance Architecture for NHI Accreditation</h1>
+            <p>
+                We transform institutional governance from a paper‑based burden into a <strong>real‑time forensic asset</strong>. 
+                Using the proprietary Wilbur Method™, we detect systemic failure before it compromises patient care or state resources.
+            </p>
+            <a href="#services" class="btn">Explore Services</a>
+            <a href="#contact" class="btn btn-outline">Request Consultation</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About EthicHawks</h2>
+            <div class="author-profile">
+                <div class="author-image">
+                    <img src="assets/author.png" alt="Sr. Wilbur William Matthee">
+                </div>
+                <div>
+                    <h3>Sr. Wilbur William Matthee</h3>
+                    <p style="color: #475569; margin-bottom: 0.5rem;">Specialist Registered Nurse · Founder</p>
+                    <p>16+ years of clinical governance experience. Specialist in forensic diagnostic methodology, healthcare compliance architecture, and institutional integrity frameworks.</p>
+                    <div class="credentials">
+                        <span>RN</span>
+                        <span>BTech Nursing</span>
+                        <span>NQF Level 8</span>
+                        <span>CPrac(SA) Candid</span>
+                        <span>GACP · 2026</span>
+                        <span>AI Governance</span>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-2" style="margin-top: 2rem;">
+                <div class="card">
+                    <h3>Our Mission</h3>
+                    <p>To reframe institutional governance failures as diagnostic opportunities—not as catastrophic failures, but as components of a Root Cause Excision Protocol. We turn compliance into a strategic competitive advantage for South African healthcare institutions.</p>
+                </div>
+                <div class="card">
+                    <h3>Our Vision</h3>
+                    <p>To be the premier forensic governance authority in South Africa, recognized for our unique combination of clinical depth, forensic methodology, and lived institutional experience—driving patient safety and NHI readiness.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section (simplified from your existing cards) -->
+    <section id="services" style="background: #f1f5f9;">
+        <div class="container">
+            <h2>Core Services</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <div class="service-icon">🔍</div>
+                    <h3>Forensic Governance Audits</h3>
+                    <p>Identify systemic governance failures using the Wilbur Method™. Root cause excision applied to institutional risk.</p>
+                </div>
+                <div class="card">
+                    <div class="service-icon">✓</div>
+                    <h3>NHI Accreditation Readiness</h3>
+                    <p>Prepare institutions to meet National Health Insurance participation thresholds with strategic compliance architecture.</p>
+                </div>
+                <div class="card">
+                    <div class="service-icon">⚙️</div>
+                    <h3>Clinical Compliance Architecture</h3>
+                    <p>Build sustainable compliance frameworks integrating governance, risk, and regulatory requirements.</p>
+                </div>
+                <div class="card">
+                    <div class="service-icon">🛡️</div>
+                    <h3>Whistleblower Protection Advisory</h3>
+                    <p>Strategic guidance on protected disclosures under the Protected Disclosures Act (PDA).</p>
+                </div>
+                <div class="card">
+                    <div class="service-icon">🤖</div>
+                    <h3>AI Governance in Healthcare</h3>
+                    <p>Risk management and governance frameworks for AI deployment in clinical settings.</p>
+                </div>
+                <div class="card">
+                    <div class="service-icon">⚖️</div>
+                    <h3>Director Accountability & Fiduciary Review</h3>
+                    <p>Companies Act Section 162 applications and comprehensive governance reviews.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Framework: POPIA, Statement of Interest, Wilbur Method -->
+    <section id="framework">
+        <div class="container">
+            <h2>Technical & Regulatory Framework</h2>
+            
+            <h3 style="margin-top:1.5rem;">POPIA Compliance & Data Anonymization</h3>
+            <div class="grid-2">
+                <div>
+                    <p><strong>Data Minimization:</strong> No direct personal identifiers (names, ID numbers, contacts) are stored in persistent storage.</p>
+                    <p><strong>Tokenization:</strong> At the API gateway, all sensitive identifiers are replaced with irreversible, randomized tokens. The mapping key stays exclusively with the data provider — re‑identification is mathematically impossible within EthicHawks.</p>
+                </div>
+                <div>
+                    <p><strong>SHA‑256 Cryptographic Hashing:</strong> All telemetry logs are hashed to create tamper‑evident audit trails suitable for litigation and regulatory scrutiny.</p>
+                    <p><strong>Data Governance:</strong> EthicHawks acts as a POPIA Data Processor, siloing each client’s data in a discrete encrypted environment — no cross‑contamination.</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top:2rem;">Statement of Interest: EthicHawks Forensic Telemetry Engine</h3>
+            <p><strong>Project Title:</strong> AI‑Driven Forensic Telemetry for Real‑Time Institutional Governance and NHI Accreditation Readiness.</p>
+            <p><strong>Technology Readiness:</strong> TRL 5 — validated API architecture, operational “Real‑Time Red Flag” logic, and a proof‑of‑concept Parliamentary Forensic Evidence Bundle.</p>
+            <p><strong>Impact:</strong> Protects state assets by detecting procurement bypasses and service suppression, directly supporting NHI Fund integrity.</p>
+            <p><strong>Commercialisation:</strong> 60‑day Shadow Run pilot → NHI Accreditation Readiness service → regulatory integration with oversight bodies (SIU).</p>
+
+            <h3 style="margin-top:2rem;">The Wilbur Method™</h3>
+            <p>A proprietary forensic diagnostic framework that maps the structural geometry of an institution using three layers:</p>
+            <ul>
+                <li><strong>Clinical Telemetry:</strong> Detects suppression anomalies (unreported adverse events).</li>
+                <li><strong>Procurement Geometry:</strong> Tracks “velocity bypasses” — abnormal time gaps signalling control circumvention.</li>
+                <li><strong>Human Capital Flux:</strong> Correlates staff exodus with risk spikes.</li>
+            </ul>
+            <p>The engine generates <strong>immutable forensic evidence bundles</strong> (SHA‑256 hashed) ready for parliamentary or SIU submission, turning institutional oversight from retrospective autopsy into predictive governance.</p>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" style="background: #0f172a; color: white;">
+        <div class="container">
+            <h2 style="color: white; border-left-color: #fbbf24;">Contact</h2>
+            <div class="grid-2">
+                <div>
+                    <p><strong>EthicHawks Forensic Governance & Compliance Consultancy</strong></p>
+                    <p>Cape Town, South Africa</p>
+                    <p>Phone: +276 963 1615</p>
+                    <p>Email: <a href="mailto:info@ethichawks.co.za" style="color: #fbbf24;">info@ethichawks.co.za</a></p>
+                </div>
+                <div>
+                    <p>For detailed service inquiries, NHI accreditation preparation, or to discuss a pilot Shadow Run, please contact us directly.</p>
+                    <a href="mailto:info@ethichawks.co.za?subject=NHI%20Accreditation%20Consultation%20Request" class="btn" style="background: #fbbf24; color: #0f172a;">Request a Consultation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2026 EthicHawks Forensic Governance & Compliance. All rights reserved.</p>
+            <div class="legal-links">
+                <a href="#" onclick="alert('Terms of Service document – available upon request.')">Terms</a> |
+                <a href="#" onclick="alert('Privacy Policy – available upon request.')">Privacy</a> |
+                <a href="#" onclick="alert('Cookie preferences can be managed via your browser settings.')">Cookies</a> |
+                <a href="#" onclick="alert('Professional Disclaimer – available upon request.')">Disclaimer</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
