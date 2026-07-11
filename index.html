@@ -8,117 +8,69 @@
     <style>
         :root {
             --bg-deep: #050a19;
-            --bg-gradient: linear-gradient(180deg, #0A1128 0%, #050a19 100%);
             --gold: #C9A84C;
-            --gold-bright: #e6c56b;
             --gold-border: rgba(201, 168, 76, 0.4);
             --text-primary: #F0E6D3;
             --text-secondary: #CBD5E1;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background: var(--bg-deep); 
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-deep); color: var(--text-secondary); line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 4rem 2rem; }
 
-        .container { max-width: 1100px; margin: auto; padding: 0 2rem; }
+        /* Header */
+        header { padding: 2rem 0; border-bottom: 1px solid var(--gold-border); text-align: center; }
+        .logo-text { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; }
 
-        /* The Gold Stripe System */
-        .gold-stripe-left {
-            border-left: 3px solid var(--gold);
-            padding-left: 2rem;
-        }
-
+        /* Typography */
         h1, h2, h3 { font-family: 'Cormorant Garamond', serif; color: var(--text-primary); }
-        h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 2rem; }
-        h2 { font-size: 2.5rem; margin-bottom: 3rem; color: var(--gold); border-bottom: 1px solid var(--gold-border); padding-bottom: 1rem; }
+        h1 { font-size: 3rem; margin-bottom: 1rem; }
+        h2 { font-size: 2rem; color: var(--gold); margin-bottom: 2rem; border-left: 3px solid var(--gold); padding-left: 1.5rem; }
 
-        .btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-decoration: none;
-            border: 1px solid var(--gold);
-            transition: all 0.3s ease;
-        }
-        .btn-primary { background: var(--gold); color: #0A1128; }
-        .btn-primary:hover { background: transparent; color: var(--gold); }
+        /* Author Section */
+        .author-box { background: rgba(255,255,255,0.03); padding: 3rem; border: 1px solid var(--gold-border); margin-bottom: 3rem; }
+        .author-name { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .author-title { font-size: 1.1rem; color: var(--gold); margin-bottom: 1.5rem; letter-spacing: 1px; }
 
-        header { padding: 1.5rem 0; border-bottom: 1px solid var(--gold-border); }
-        .logo-area { display: flex; align-items: center; gap: 1.5rem; }
-        .logo-area img { height: 60px; }
-        .logo-text { font-family: 'Cormorant Garamond', serif; font-size: 2rem; letter-spacing: 3px; color: var(--gold); }
-
-        .hero { 
-            padding: 8rem 0; 
-            background: var(--bg-gradient); 
-            text-align: center;
-        }
-
-        .section-padding { padding: 6rem 0; }
-        
-        .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
-        .card { 
-            background: rgba(255,255,255,0.03); 
-            padding: 2.5rem; 
-            border: 1px solid var(--gold-border);
-            position: relative;
-        }
-
-        footer { background: #000; padding: 3rem 0; text-align: center; color: var(--gold); }
+        /* Contact Section */
+        .contact-box { padding: 2rem 0; border-top: 1px solid var(--gold-border); margin-top: 3rem; }
+        .contact-details a { color: var(--text-primary); text-decoration: none; font-size: 1.1rem; display: block; margin-bottom: 0.5rem; }
+        .contact-details a:hover { color: var(--gold); }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="container logo-area">
-            <img src="https://zohopagesense.nimbuspop.com/customerassets/927847750/images/1000306297.jpg" alt="EthicHawks Warhawk Logo">
+        <div class="container">
             <span class="logo-text">ETHICHAWKS</span>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <h1>Forensic Governance <br><span style="color:var(--gold)">for Institutional Integrity</span></h1>
-            <p style="font-size: 1.3rem; max-width: 700px; margin: 0 auto 3rem;">
-                Mapping the structural geometry of healthcare institutions with forensic telemetry. 
-                Immutable, transparent, and built for oversight.
-            </p>
-            <a href="#services" class="btn btn-primary">Enter Portfolio</a>
-        </div>
-    </section>
+    <div class="container">
+        <!-- Professional Profile -->
+        <section class="author-box">
+            <h2 style="border:none; padding-left:0;">Professional Profile</h2>
+            <div class="author-name">Sr. Wilbur William Matthee</div>
+            <div class="author-title">Specialist Nurse | Health Services Manager | Founder EthicHawks</div>
+            <p>Providing formal forensic governance and compliance architecture. Specializing in institutional integrity frameworks, risk mapping, and NHI accreditation preparation.</p>
+        </section>
 
-    <section class="section-padding container">
-        <div class="gold-stripe-left">
-            <h2>The Forensic Approach</h2>
-            <p style="font-size: 1.2rem; max-width: 800px;">
-                We bypass reactive reporting. By applying proprietary forensic methodologies, we transform operational data into an immutable evidence vault. 
-                If the systems fail, the audit trail remains intact, transparent, and ready for parliamentary review.
-            </p>
-        </div>
-    </section>
+        <!-- Services -->
+        <section>
+            <h2>Governance Architecture</h2>
+            <p>Developing structural controls for healthcare institutions. We utilize forensic telemetry to identify operational failure points and enforce statutory compliance.</p>
+        </section>
 
-    <section class="container section-padding">
-        <div class="card-grid">
-            <div class="card">
-                <h3>NHI Shadow Run</h3>
-                <p>Establishing compliance benchmarks through 60-day forensic shadowing, ensuring your facility is audit-ready before the pressure of accreditation begins.</p>
+        <!-- Contact -->
+        <section class="contact-box">
+            <h2>Contact</h2>
+            <div class="contact-details">
+                <a href="tel:+2769631435">📞 +27 6 963 1435</a>
+                <a href="mailto:info@ethichawks.co.za">✉️ info@ethichawks.co.za</a>
+                <p style="margin-top: 1rem; color: var(--text-secondary);">15 Bellevue Street, Voorbrug, Cape Town, 7001</p>
             </div>
-            <div class="card">
-                <h3>Governance Audits</h3>
-                <p>Deploying the Wilbur Method™ to identify institutional bypasses and failure points, supported by cryptographically sealed evidence bundles.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>© 2026 ETHICHAWKS FORENSIC GOVERNANCE</p>
-    </footer>
+        </section>
+    </div>
 
 </body>
 </html>
