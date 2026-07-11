@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EthicHawks | Forensic Governance for NHI Accreditation</title>
+    <title>EthicHawks | Forensic Governance & NHI Compliance</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -84,7 +84,6 @@
             color: var(--gold);
         }
 
-        /* Buttons & Interactive States */
         .btn {
             display: inline-block;
             padding: 1rem 2.4rem;
@@ -124,7 +123,6 @@
             transform: translateY(-1px);
         }
 
-        /* Header Layout */
         header {
             background: rgba(10, 17, 40, 0.85);
             backdrop-filter: blur(12px);
@@ -134,7 +132,6 @@
             top: 0;
             z-index: 100;
             padding: 1rem 0;
-            transition: all 0.3s ease;
         }
 
         .header-inner {
@@ -169,15 +166,13 @@
             font-weight: 500;
             font-size: 0.9rem;
             letter-spacing: 0.5px;
-            transition: color 0.2s ease, text-shadow 0.2s ease;
+            transition: color 0.2s ease;
         }
 
         nav a:hover {
             color: var(--gold);
-            text-shadow: 0 0 10px var(--gold-glow);
         }
 
-        /* Hero */
         .hero {
             padding: 9rem 0 8rem;
             text-align: center;
@@ -207,10 +202,8 @@
             font-weight: 300;
         }
 
-        /* Structured Sections */
         section {
             padding: 6rem 0;
-            position: relative;
         }
 
         .grid-2 {
@@ -225,32 +218,26 @@
             gap: 2rem;
         }
 
-        /* Enhanced Card Design */
         .card {
             background: var(--bg-card);
             border: 1px solid var(--gold-border);
             padding: 2.5rem 2rem;
             border-radius: 4px;
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
         }
 
         .card:hover {
             border-color: var(--gold);
             background: rgba(255, 255, 255, 0.04);
             transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3), inset 0 0 15px rgba(201, 168, 76, 0.05);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
         }
 
         .card-icon {
             font-size: 2.2rem;
             margin-bottom: 1.5rem;
-            filter: drop-shadow(0 2px 8px var(--gold-glow));
         }
 
-        /* Author Profile Block */
         .author-profile {
             display: flex;
             align-items: center;
@@ -259,7 +246,6 @@
             border: 1px solid var(--gold-border);
             padding: 3rem;
             border-radius: 4px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .author-image img {
@@ -268,7 +254,6 @@
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--gold);
-            box-shadow: 0 0 20px var(--gold-glow);
         }
 
         .credentials {
@@ -286,7 +271,6 @@
             border-radius: 3px;
             font-size: 0.75rem;
             font-weight: 500;
-            letter-spacing: 0.5px;
             border: 1px solid rgba(201, 168, 76, 0.25);
         }
 
@@ -297,12 +281,12 @@
             border-radius: 0 4px 4px 0;
         }
 
-        ul, ol {
+        ul {
             margin-left: 1.5rem;
             color: var(--text-secondary);
         }
 
-        ul li, ol li {
+        ul li {
             margin-bottom: 0.6rem;
         }
 
@@ -322,7 +306,6 @@
             gap: 1.5rem;
         }
 
-        /* Responsive Breakpoints */
         @media (max-width: 992px) {
             .author-profile {
                 flex-direction: column;
@@ -335,26 +318,11 @@
         }
 
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.4rem;
-            }
-            h2 {
-                font-size: 1.8rem;
-            }
-            .hero {
-                padding: 6rem 0 5rem;
-            }
-            nav {
-                display: none; /* Can be paired with a mobile drawer later if needed */
-            }
-            .btn-outline {
-                margin-left: 0;
-                margin-top: 1rem;
-                display: block;
-            }
-            .btn-primary {
-                display: block;
-            }
+            h1 { font-size: 2.4rem; }
+            h2 { font-size: 1.8rem; }
+            .hero { padding: 6rem 0 5rem; }
+            nav { display: none; }
+            .btn-outline, .btn-primary { display: block; width: 100%; margin-left: 0; margin-top: 1rem; text-align: center; }
         }
     </style>
 </head>
@@ -367,7 +335,7 @@
             </div>
             <nav>
                 <a href="#about">About</a>
-                <a href="#services">Forensic Services</a>
+                <a href="#services">Services</a>
                 <a href="#compliance">Compliance</a>
                 <a href="#contact">Contact</a>
             </nav>
@@ -379,33 +347,30 @@
         <div class="container">
             <h1>Forensic Governance Architecture<br>for <span class="gold">NHI Accreditation</span></h1>
             <p>
-                We arm parliamentary oversight and healthcare institutions with immutable forensic telemetry — 
-                detecting systemic failure in real time, long before it compromises patient care or state resources.
+                Providing parliamentary oversight structures and healthcare institutions with verified data frameworks to monitor organizational integrity and track regulatory alignment in real time.
             </p>
-            <a href="#services" class="btn btn-primary">Explore Our Forensic Services</a>
-            <a href="#contact" class="btn btn-outline">Request an NHI Readiness Review</a>
+            <a href="#services" class="btn btn-primary">Our Services</a>
+            <a href="#contact" class="btn btn-outline">NHI Readiness Review</a>
         </div>
     </section>
 
     <!-- About -->
     <section id="about">
         <div class="container">
-            <h2>About the Practice</h2>
+            <h2>The Practice</h2>
             <div class="author-profile">
                 <div class="author-image">
                     <img src="assets/author.png" alt="Sr. Wilbur William Matthee">
                 </div>
                 <div>
                     <h3>Sr. Wilbur William Matthee <span class="gold">· Founder</span></h3>
-                    <p style="color:#CBD5E1; font-weight: 500; margin-bottom: 0.8rem;">Specialist Registered Nurse (NQF Level 8) · CISA Member · 16+ years clinical governance</p>
-                    <p>My work fuses front‑line clinical experience with forensic diagnostic methodology. I map the structural geometry of institutions to expose the root causes of failure — before they become scandals.</p>
+                    <p style="color:#CBD5E1; font-weight: 500; margin-bottom: 0.8rem;">Specialist Registered Nurse · Health Services Manager · CISA Member</p>
+                    <p>Integrating extensive clinical operations experience with formal forensic audit methodologies to trace structural risk, verify compliance architecture, and support institutional transparency.</p>
                     <div class="credentials">
                         <span>RN</span>
-                        <span>BTech Nursing</span>
+                        <span>Health Services Management</span>
                         <span>NQF Level 8</span>
-                        <span>CPrac(SA) Candid</span>
-                        <span>GACP · 2026</span>
-                        <span>AI Governance</span>
+                        <span>Clinical Governance</span>
                         <span>CISA Member</span>
                     </div>
                 </div>
@@ -413,120 +378,84 @@
         </div>
     </section>
 
-    <!-- The Forensic Gap & Our Solution -->
+    <!-- Framework & Solution -->
     <section style="background: rgba(255,255,255,0.01); border-top: 1px solid rgba(255,255,255,0.02); border-bottom: 1px solid rgba(255,255,255,0.02);">
         <div class="container">
-            <h2>The Problem: <span class="gold">The Retrospective Gap</span></h2>
-            <p style="max-width: 900px; margin-bottom: 3rem;">Current oversight in South African healthcare is reactive. Investigations begin only after a collapse — when financial damage is done and clinical outcomes already compromised. This “retrospective gap” is precisely where Institutional Malice thrives. There is no national mechanism for real‑time, cross‑silo monitoring of institutional integrity.</p>
+            <h2>The Core Objective</h2>
+            <p style="max-width: 900px; margin-bottom: 3rem;">Traditional healthcare compliance reviews operate retrospectively, evaluating systems long after data discrepancies or process gaps occur. This delayed timeline limits effective intervention and clear oversight across operational channels.</p>
             
-            <h2>Our Answer: <span class="gold">Real‑Time Forensic Telemetry</span></h2>
-            <p style="max-width: 900px;">EthicHawks deploys the <strong>Wilbur Method™</strong> — a proprietary diagnostic framework that maps the structural geometry of an institution. It acts as a digital nervous system, detecting risks before they manifest as critical failures. All telemetry is cryptographically sealed with <strong>SHA‑256 hashing</strong>, creating an immutable forensic audit trail that is ready for parliamentary scrutiny at any moment.</p>
+            <h2>The Framework</h2>
+            <p style="max-width: 900px;">EthicHawks utilizes structured data logging frameworks to verify system integrity dynamically. By applying cryptographic validations, operational telemetry is secured into clear, verifiable data trails structured to meet parliamentary oversight standards.</p>
         </div>
     </section>
 
-    <!-- Services Expanded -->
+    <!-- Services -->
     <section id="services">
         <div class="container">
-            <h2>Forensic Services</h2>
-            <p style="margin-bottom:4rem; max-width: 800px; color: var(--text-muted);">Each service is built to produce evidence that can withstand legal and parliamentary interrogation. No paper exercises — only immutable, actionable intelligence.</p>
+            <h2>Professional Services</h2>
+            <p style="margin-bottom:4rem; max-width: 800px; color: var(--text-muted);">Objective frameworks built to produce structured evidence profiles for formal institutional, regulatory, and legal review.</p>
             
             <div class="grid-3">
                 <div class="card">
                     <div class="card-icon">🔍</div>
                     <h3>Forensic Governance Audits</h3>
-                    <p>We apply the Wilbur Method™ to identify systemic governance failures. The output is a <strong>cryptographically signed evidence bundle</strong> — admissible, tamper‑evident, and ready for SIU or parliamentary submission.</p>
+                    <p>Comprehensive evaluations of institutional reporting streams, generating tamper-evident evidence structures optimized for independent regulatory submission.</p>
                 </div>
                 <div class="card">
                     <div class="card-icon">✓</div>
-                    <h3>NHI Accreditation Readiness</h3>
-                    <p>Prepare your facility for Phase Two accreditation with an <strong>immutable compliance record</strong>. We run a 60‑day Shadow Run, ingesting your data without disruption, and deliver a mock “Parliamentary Evidence Bundle” proving audit‑readiness.</p>
+                    <h3>NHI Accreditation Preparation</h3>
+                    <p>Structuring operational workflows and validation logs ahead of Phase Two requirements, establishing clear documentation for audit readiness.</p>
                 </div>
                 <div class="card">
                     <div class="card-icon">⚙️</div>
-                    <h3>Clinical Compliance Architecture</h3>
-                    <p>We design governance frameworks that integrate clinical, financial, and human‑capital risk. Every control is mapped to a forensic indicator, ensuring real‑time detection of suppression anomalies or procurement bypasses.</p>
+                    <h3>Compliance Architecture Design</h3>
+                    <p>Developing structural controls that align clinical, financial, and administrative operations into centralized risk indicator systems.</p>
                 </div>
                 <div class="card">
                     <div class="card-icon">🛡️</div>
-                    <h3>Whistleblower Protection Advisory</h3>
-                    <p>Strategic guidance under the Protected Disclosures Act. Our forensic telemetry creates an independent, immutable record that protects both the whistleblower and the integrity of the investigation.</p>
+                    <h3>Protected Disclosures Advisory</h3>
+                    <p>Providing formal framework guidance under governance guidelines, ensuring process steps are documented securely and objectively.</p>
                 </div>
                 <div class="card">
                     <div class="card-icon">🤖</div>
-                    <h3>AI Governance in Healthcare</h3>
-                    <p>Risk management for clinical AI deployments. We ensure algorithmic decisions are auditable, explainable, and compliant with emerging regulatory standards — backed by forensic logs.</p>
+                    <h3>Clinical Data Governance</h3>
+                    <p>Structuring auditable logs and transparent operational frameworks for digital records and administrative validation systems.</p>
                 </div>
                 <div class="card">
                     <div class="card-icon">⚖️</div>
-                    <h3>Director Accountability & Fiduciary Review</h3>
-                    <p>Companies Act Section 162 applications supported by forensic telemetry. We provide the immutable data trail that demonstrates whether directors exercised proper oversight — or enabled institutional malice.</p>
+                    <h3>Fiduciary Risk Review</h3>
+                    <p>Analyzing corporate alignment against statutory oversight requirements, verifying that administrative processes meet formal fiduciary standards.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- NHI Accreditation & Shadow Run Details -->
+    <!-- Validation and Compliance Details -->
     <section style="background: rgba(255,255,255,0.01); border-top: 1px solid rgba(255,255,255,0.02); border-bottom: 1px solid rgba(255,255,255,0.02);">
         <div class="container">
-            <h2>NHI Phase Two: <span class="gold">The 60‑Day Shadow Run</span></h2>
-            <p style="max-width: 900px; margin-bottom: 3rem;">The transition to NHI Phase Two demands that facilities prove institutional integrity <strong>before</strong> an incident occurs. Our Shadow Run delivers exactly that — a low‑risk, evidence‑based pilot that leaves your existing systems untouched while demonstrating forensic readiness.</p>
+            <h2>Data Architecture & Verification</h2>
+            <p style="max-width: 900px; margin-bottom: 3rem;">Achieving regulatory alignment requires clear operational validation before reporting cycles close. Our review processes provide objective, structured data validation within active environments.</p>
             
             <div class="grid-2">
                 <div class="nhi-highlight">
-                    <h3 style="color:#C9A84C; margin-bottom: 1.5rem;">Phases of Validation</h3>
+                    <h3 style="color:#C9A84C; margin-bottom: 1.5rem;">Validation Phases</h3>
                     <ul>
-                        <li><strong>Phase 1 (Sandbox):</strong> Ingestion of historical data to validate the Wilbur Method™ against known past incidents.</li>
-                        <li><strong>Phase 2 (Live Shadow):</strong> Silent monitoring of live data streams — zero operational disruption.</li>
-                        <li><strong>Phase 3 (Forensic Debrief):</strong> Generation of a mock “Parliamentary Evidence Bundle” proving that your facility meets the strictest oversight standards.</li>
+                        <li><strong>Historical Baseline:</strong> Evaluating existing administrative records to identify recurrent process gaps.</li>
+                        <li><strong>Active Observation:</strong> Structured monitoring of administrative workflows with zero operational disruption.</li>
+                        <li><strong>Oversight Compilation:</strong> Preparing consolidated compliance profiles matching strict regulatory and reporting guidelines.</li>
                     </ul>
                 </div>
                 <div style="padding-top: 0.5rem;">
-                    <h3 style="margin-bottom: 1.2rem;">What Oversight Sees</h3>
-                    <p>When a parliamentary committee or the SIU reviews your facility, they will find:</p>
+                    <h3 style="margin-bottom: 1.2rem;">Oversight Criteria</h3>
+                    <p>Reviews evaluate key core criteria required by standard reporting committees:</p>
                     <ul style="margin-bottom: 2rem;">
-                        <li><strong>Immutable SHA‑256 hashed logs</strong> — tamper‑evident records that can be verified independently.</li>
-                        <li><strong>Real‑time risk heat maps</strong> showing exactly where systemic controls held or failed.</li>
-                        <li><strong>Complete POPIA compliance</strong> with tokenized, anonymized data — privacy is never compromised.</li>
+                        <li><strong>Cryptographic Log Validation</strong> — Verifiable records ensuring data consistency across frameworks.</li>
+                        <li><strong>Risk Mapping Systems</strong> — Clear dashboards identifying baseline control status.</li>
+                        <li><strong>POPIA Regulatory Compliance</strong> — Complete protection profiles utilizing anonymized data flows.</li>
                     </ul>
-                    <a href="mailto:info@ethichawks.co.za?subject=Shadow%20Run%20Enquiry" class="btn btn-primary">Begin Your Shadow Run</a>
+                    <a href="mailto:info@ethichawks.co.za?subject=Validation%20Framework%20Enquiry" class="btn btn-primary">Enquire About Validation</a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Compliance & Immutable Record Keeping (deep dive) -->
-    <section id="compliance">
-        <div class="container">
-            <h2>Why Immutable Forensic Records <span class="gold">Matter to Parliament</span></h2>
-            <p style="max-width: 800px; color: var(--text-muted); margin-bottom: 3rem;">Oversight committees cannot rely on hearsay or after‑the‑fact audits. They need evidence that has been <strong>cryptographically sealed from the moment of creation</strong>. That is what EthicHawks provides.</p>
-            
-            <div class="grid-2">
-                <div class="card">
-                    <h3>SHA‑256 Hashing & Tamper‑Evidence</h3>
-                    <p>All telemetry is hashed using SHA‑256 upon ingestion. Any subsequent alteration — even a single comma — produces a mismatch, making the record legally indefensible to challenge. This transforms operational logs into <strong>court‑ready evidence</strong>.</p>
-                </div>
-                <div class="card">
-                    <h3>POPIA‑Compliant Anonymization</h3>
-                    <p>Patient and staff identifiers are tokenized irreversibly at the API gateway. The mapping key remains with the data controller only. Within the EthicHawks environment, re‑identification is mathematically impossible — yet systemic patterns remain fully visible for forensic analysis.</p>
-                </div>
-                <div class="card">
-                    <h3>Real‑Time Forensic Anchoring</h3>
-                    <p>When a red flag triggers (e.g., a procurement “velocity bypass”), the system automatically compiles a <strong>PDF Forensic Evidence Bundle</strong> with hashed timestamps. This bundle is immutable and ready for immediate submission to oversight bodies — no manual report writing needed.</p>
-                </div>
-                <div class="card">
-                    <h3>Data Governance & Siloing</h3>
-                    <p>We operate as a POPIA Data Processor. Each facility’s telemetry sits in a discrete, encrypted environment. No cross‑contamination, no aggregation — ensuring that evidence from one institution cannot be tainted by another.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Direct appeal to Parliament/Oversight -->
-    <section style="background: rgba(201,168,76,0.02); border-top: 1px solid var(--gold-border); border-bottom: 1px solid var(--gold-border);">
-        <div class="container" style="text-align: center; max-width: 900px;">
-            <h2 style="justify-content: center; margin-bottom: 2rem;">A Message to <span class="gold">Oversight Committees</span></h2>
-            <p style="font-size: 1.1rem; margin-bottom: 2.5rem;">When you visit this site, you are looking at the future of institutional accountability in South African healthcare. The EthicHawks framework directly supports the SIU’s mandate for “Forensic Data Analytics” and “Predictive Modelling”. It shifts oversight from <strong>retrospective autopsy to predictive governance</strong>. Every facility contracted under NHI Phase Two can be required to produce an immutable forensic record — and we make that possible today.</p>
-            <a href="mailto:info@ethichawks.co.za?subject=Parliamentary%20Oversight%20Briefing" class="btn btn-outline" style="margin-left: 0;">Request a Parliamentary Briefing</a>
         </div>
     </section>
 
@@ -542,8 +471,8 @@
                     <p>✉️ Email: <a href="mailto:info@ethichawks.co.za" class="gold" style="text-decoration: none; font-weight: 500;">info@ethichawks.co.za</a></p>
                 </div>
                 <div style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding-left: 1rem;">
-                    <p style="font-size: 1.1rem; margin-bottom: 2rem; color: var(--text-muted);">For NHI accreditation preparation, Shadow Run pilots, or to arrange a forensic governance review, contact us directly.</p>
-                    <a href="mailto:info@ethichawks.co.za?subject=NHI%20Accreditation%20Consultation" class="btn btn-primary">Request a Consultation</a>
+                    <p style="font-size: 1.1rem; margin-bottom: 2rem; color: var(--text-muted);">For alignment reviews, NHI accreditation mapping, or institutional risk assessments, reach out directly to coordinate a professional consultation.</p>
+                    <a href="mailto:info@ethichawks.co.za?subject=Governance%20Consultation%20Request" class="btn btn-primary">Request Consultation</a>
                 </div>
             </div>
         </div>
@@ -554,10 +483,9 @@
         <div class="container">
             <p>© 2026 EthicHawks Forensic Governance & Compliance. All rights reserved.</p>
             <div>
-                <a href="#" onclick="alert('Terms of Service – available upon request.')" style="color: var(--text-muted); text-decoration:none; transition: color 0.2s;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='#94A3B8'">Terms</a> &nbsp;|&nbsp;
-                <a href="#" onclick="alert('Privacy Policy – available upon request.')" style="color: var(--text-muted); text-decoration:none; transition: color 0.2s;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='#94A3B8'">Privacy</a> &nbsp;|&nbsp;
-                <a href="#" onclick="alert('Cookie preferences can be managed via browser settings.')" style="color: var(--text-muted); text-decoration:none; transition: color 0.2s;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='#94A3B8'">Cookies</a> &nbsp;|&nbsp;
-                <a href="#" onclick="alert('Professional Disclaimer – available upon request.')" style="color: var(--text-muted); text-decoration:none; transition: color 0.2s;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='#94A3B8'">Disclaimer</a>
+                <a href="#" onclick="alert('Terms of Service – available upon request.')" style="color: var(--text-muted); text-decoration:none;">Terms</a> &nbsp;|&nbsp;
+                <a href="#" onclick="alert('Privacy Policy – available upon request.')" style="color: var(--text-muted); text-decoration:none;">Privacy</a> &nbsp;|&nbsp;
+                <a href="#" onclick="alert('Disclaimer – available upon request.')" style="color: var(--text-muted); text-decoration:none;">Disclaimer</a>
             </div>
         </div>
     </footer>
