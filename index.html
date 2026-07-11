@@ -6,135 +6,185 @@
     <title>EthicHawks | Forensic Governance for NHI Accreditation</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-deep: #0A1128;
+            --bg-darker: #060B1C;
+            --bg-card: rgba(255, 255, 255, 0.02);
+            --gold: #C9A84C;
+            --gold-glow: rgba(201, 168, 76, 0.15);
+            --gold-border: rgba(201, 168, 76, 0.2);
+            --text-primary: #F0E6D3;
+            --text-secondary: #CBD5E1;
+            --text-muted: #94A3B8;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background: #0A1128;
-            color: #E2E8F0;
+            background: var(--bg-deep);
+            color: var(--text-secondary);
             line-height: 1.7;
         }
+
         .container {
             max-width: 1200px;
             margin: auto;
             padding: 0 2rem;
         }
+
         h1, h2, h3, h4 {
             font-family: 'Cormorant Garamond', serif;
-            color: #F0E6D3;
+            color: var(--text-primary);
         }
+
         h1 {
-            font-size: 3rem;
+            font-size: 3.2rem;
             font-weight: 700;
             line-height: 1.2;
+            letter-spacing: -0.5px;
         }
+
         h2 {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             font-weight: 600;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             display: flex;
             align-items: center;
         }
+
         h2::after {
             content: '';
             flex-grow: 1;
             height: 1px;
-            background: linear-gradient(to right, #C9A84C, transparent);
+            background: linear-gradient(to right, var(--gold), transparent);
             margin-left: 1.5rem;
         }
+
         h3 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             margin-bottom: 1rem;
+            letter-spacing: 0.5px;
         }
+
         p {
             margin-bottom: 1.2rem;
-            color: #CBD5E1;
+            color: var(--text-secondary);
         }
+
         .gold {
-            color: #C9A84C;
+            color: var(--gold);
         }
+
+        /* Buttons & Interactive States */
         .btn {
             display: inline-block;
-            padding: 0.9rem 2.2rem;
+            padding: 1rem 2.4rem;
             font-weight: 600;
             text-decoration: none;
-            border-radius: 2px;
-            letter-spacing: 0.5px;
-            transition: all 0.3s;
-            font-size: 0.9rem;
+            border-radius: 3px;
+            letter-spacing: 1px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            font-size: 0.85rem;
             text-transform: uppercase;
         }
+
         .btn-primary {
-            background: #C9A84C;
-            color: #0A1128;
-            border: 1px solid #C9A84C;
+            background: var(--gold);
+            color: var(--bg-deep);
+            border: 1px solid var(--gold);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
         }
+
         .btn-primary:hover {
             background: transparent;
-            color: #C9A84C;
+            color: var(--gold);
+            box-shadow: 0 4px 20px var(--gold-glow);
+            transform: translateY(-1px);
         }
+
         .btn-outline {
-            border: 1px solid #C9A84C;
-            color: #C9A84C;
+            border: 1px solid var(--gold);
+            color: var(--gold);
             background: transparent;
             margin-left: 1rem;
         }
+
         .btn-outline:hover {
-            background: rgba(201,168,76,0.1);
+            background: var(--gold-glow);
+            box-shadow: 0 4px 20px var(--gold-glow);
+            transform: translateY(-1px);
         }
-        /* Header */
+
+        /* Header Layout */
         header {
-            background: rgba(10,17,40,0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(201,168,76,0.2);
+            background: rgba(10, 17, 40, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--gold-border);
             position: sticky;
             top: 0;
             z-index: 100;
-            padding: 0.8rem 0;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
         }
+
         .header-inner {
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
+
         .logo {
             display: flex;
             align-items: center;
             gap: 1rem;
         }
+
         .logo img {
-            height: 44px;
+            height: 46px;
             width: auto;
         }
+
         .logo-text {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 700;
-            font-size: 1.5rem;
-            color: #F0E6D3;
-            letter-spacing: 1px;
+            font-size: 1.6rem;
+            color: var(--text-primary);
+            letter-spacing: 2px;
         }
+
         nav a {
-            color: #CBD5E1;
+            color: var(--text-secondary);
             text-decoration: none;
             margin-left: 2.5rem;
             font-weight: 500;
             font-size: 0.9rem;
             letter-spacing: 0.5px;
-            transition: color 0.2s;
+            transition: color 0.2s ease, text-shadow 0.2s ease;
         }
+
         nav a:hover {
-            color: #C9A84C;
+            color: var(--gold);
+            text-shadow: 0 0 10px var(--gold-glow);
         }
+
         /* Hero */
         .hero {
-            padding: 7rem 0 6rem;
+            padding: 9rem 0 8rem;
             text-align: center;
-            background: radial-gradient(circle at 20% 50%, rgba(201,168,76,0.08) 0%, transparent 50%);
+            background: radial-gradient(circle at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 60%);
             position: relative;
         }
+
         .hero::before {
             content: '';
             position: absolute;
@@ -142,103 +192,168 @@
             left: 10%;
             width: 80%;
             height: 1px;
-            background: linear-gradient(to right, transparent, #C9A84C, transparent);
+            background: linear-gradient(to right, transparent, var(--gold), transparent);
         }
+
         .hero h1 {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
+
         .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2.5rem;
-            color: #94A3B8;
+            font-size: 1.25rem;
+            max-width: 760px;
+            margin: 0 auto 3rem;
+            color: var(--text-muted);
+            font-weight: 300;
         }
-        /* Sections */
+
+        /* Structured Sections */
         section {
-            padding: 5rem 0;
+            padding: 6rem 0;
+            position: relative;
         }
+
         .grid-2 {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 3rem;
         }
+
         .grid-3 {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
         }
+
+        /* Enhanced Card Design */
         .card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(201,168,76,0.2);
-            padding: 2rem;
-            border-radius: 2px;
-            transition: border-color 0.3s;
+            background: var(--bg-card);
+            border: 1px solid var(--gold-border);
+            padding: 2.5rem 2rem;
+            border-radius: 4px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
         }
+
         .card:hover {
-            border-color: #C9A84C;
+            border-color: var(--gold);
+            background: rgba(255, 255, 255, 0.04);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3), inset 0 0 15px rgba(201, 168, 76, 0.05);
         }
+
         .card-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 2px 8px var(--gold-glow));
         }
+
+        /* Author Profile Block */
         .author-profile {
             display: flex;
             align-items: center;
-            gap: 2rem;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(201,168,76,0.2);
-            padding: 2.5rem;
+            gap: 3rem;
+            background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+            border: 1px solid var(--gold-border);
+            padding: 3rem;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
+
         .author-image img {
-            width: 130px;
-            height: 130px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid #C9A84C;
+            border: 2px solid var(--gold);
+            box-shadow: 0 0 20px var(--gold-glow);
         }
-        .credentials span {
-            display: inline-block;
-            background: rgba(201,168,76,0.1);
-            color: #C9A84C;
-            padding: 0.2rem 0.8rem;
-            border-radius: 2px;
-            font-size: 0.8rem;
-            margin-right: 0.5rem;
-            margin-top: 0.5rem;
-            border: 1px solid rgba(201,168,76,0.3);
-        }
-        .nhi-highlight {
-            background: rgba(201,168,76,0.05);
-            border-left: 3px solid #C9A84C;
-            padding: 1.5rem;
+
+        .credentials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
             margin-top: 1rem;
         }
+
+        .credentials span {
+            display: inline-block;
+            background: rgba(201, 168, 76, 0.08);
+            color: var(--gold);
+            padding: 0.3rem 0.9rem;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(201, 168, 76, 0.25);
+        }
+
+        .nhi-highlight {
+            background: linear-gradient(90deg, rgba(201,168,76,0.06) 0%, transparent 100%);
+            border-left: 3px solid var(--gold);
+            padding: 2rem;
+            border-radius: 0 4px 4px 0;
+        }
+
         ul, ol {
             margin-left: 1.5rem;
-            color: #CBD5E1;
+            color: var(--text-secondary);
         }
+
+        ul li, ol li {
+            margin-bottom: 0.6rem;
+        }
+
         footer {
-            background: #060B1C;
-            color: #94A3B8;
-            padding: 2rem 0;
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(201,168,76,0.2);
+            background: var(--bg-darker);
+            color: var(--text-muted);
+            padding: 2.5rem 0;
+            font-size: 0.85rem;
+            border-top: 1px solid var(--gold-border);
         }
+
         footer .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
         }
-        @media (max-width: 768px) {
-            .grid-2, .grid-3 {
+
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+            .author-profile {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+            .grid-2 {
                 grid-template-columns: 1fr;
             }
+        }
+
+        @media (max-width: 768px) {
             h1 {
-                font-size: 2.2rem;
+                font-size: 2.4rem;
+            }
+            h2 {
+                font-size: 1.8rem;
+            }
+            .hero {
+                padding: 6rem 0 5rem;
+            }
+            nav {
+                display: none; /* Can be paired with a mobile drawer later if needed */
             }
             .btn-outline {
                 margin-left: 0;
                 margin-top: 1rem;
+                display: block;
+            }
+            .btn-primary {
+                display: block;
             }
         }
     </style>
@@ -282,7 +397,7 @@
                 </div>
                 <div>
                     <h3>Sr. Wilbur William Matthee <span class="gold">· Founder</span></h3>
-                    <p style="color:#CBD5E1;">Specialist Registered Nurse (NQF Level 8) · CISA Member · 16+ years clinical governance</p>
+                    <p style="color:#CBD5E1; font-weight: 500; margin-bottom: 0.8rem;">Specialist Registered Nurse (NQF Level 8) · CISA Member · 16+ years clinical governance</p>
                     <p>My work fuses front‑line clinical experience with forensic diagnostic methodology. I map the structural geometry of institutions to expose the root causes of failure — before they become scandals.</p>
                     <div class="credentials">
                         <span>RN</span>
@@ -299,13 +414,13 @@
     </section>
 
     <!-- The Forensic Gap & Our Solution -->
-    <section style="background: rgba(255,255,255,0.02);">
+    <section style="background: rgba(255,255,255,0.01); border-top: 1px solid rgba(255,255,255,0.02); border-bottom: 1px solid rgba(255,255,255,0.02);">
         <div class="container">
             <h2>The Problem: <span class="gold">The Retrospective Gap</span></h2>
-            <p>Current oversight in South African healthcare is reactive. Investigations begin only after a collapse — when financial damage is done and clinical outcomes already compromised. This “retrospective gap” is precisely where Institutional Malice thrives. There is no national mechanism for real‑time, cross‑silo monitoring of institutional integrity.</p>
+            <p style="max-width: 900px; margin-bottom: 3rem;">Current oversight in South African healthcare is reactive. Investigations begin only after a collapse — when financial damage is done and clinical outcomes already compromised. This “retrospective gap” is precisely where Institutional Malice thrives. There is no national mechanism for real‑time, cross‑silo monitoring of institutional integrity.</p>
             
-            <h2 style="margin-top:3rem;">Our Answer: <span class="gold">Real‑Time Forensic Telemetry</span></h2>
-            <p>EthicHawks deploys the <strong>Wilbur Method™</strong> — a proprietary diagnostic framework that maps the structural geometry of an institution. It acts as a digital nervous system, detecting risks before they manifest as critical failures. All telemetry is cryptographically sealed with <strong>SHA‑256 hashing</strong>, creating an immutable forensic audit trail that is ready for parliamentary scrutiny at any moment.</p>
+            <h2>Our Answer: <span class="gold">Real‑Time Forensic Telemetry</span></h2>
+            <p style="max-width: 900px;">EthicHawks deploys the <strong>Wilbur Method™</strong> — a proprietary diagnostic framework that maps the structural geometry of an institution. It acts as a digital nervous system, detecting risks before they manifest as critical failures. All telemetry is cryptographically sealed with <strong>SHA‑256 hashing</strong>, creating an immutable forensic audit trail that is ready for parliamentary scrutiny at any moment.</p>
         </div>
     </section>
 
@@ -313,7 +428,7 @@
     <section id="services">
         <div class="container">
             <h2>Forensic Services</h2>
-            <p style="margin-bottom:3rem;">Each service is built to produce evidence that can withstand legal and parliamentary interrogation. No paper exercises — only immutable, actionable intelligence.</p>
+            <p style="margin-bottom:4rem; max-width: 800px; color: var(--text-muted);">Each service is built to produce evidence that can withstand legal and parliamentary interrogation. No paper exercises — only immutable, actionable intelligence.</p>
             
             <div class="grid-3">
                 <div class="card">
@@ -351,29 +466,29 @@
     </section>
 
     <!-- NHI Accreditation & Shadow Run Details -->
-    <section style="background: rgba(255,255,255,0.02);">
+    <section style="background: rgba(255,255,255,0.01); border-top: 1px solid rgba(255,255,255,0.02); border-bottom: 1px solid rgba(255,255,255,0.02);">
         <div class="container">
             <h2>NHI Phase Two: <span class="gold">The 60‑Day Shadow Run</span></h2>
-            <p>The transition to NHI Phase Two demands that facilities prove institutional integrity <strong>before</strong> an incident occurs. Our Shadow Run delivers exactly that — a low‑risk, evidence‑based pilot that leaves your existing systems untouched while demonstrating forensic readiness.</p>
+            <p style="max-width: 900px; margin-bottom: 3rem;">The transition to NHI Phase Two demands that facilities prove institutional integrity <strong>before</strong> an incident occurs. Our Shadow Run delivers exactly that — a low‑risk, evidence‑based pilot that leaves your existing systems untouched while demonstrating forensic readiness.</p>
             
-            <div class="grid-2" style="margin-top:2rem;">
+            <div class="grid-2">
                 <div class="nhi-highlight">
-                    <h3 style="color:#C9A84C;">Phases of Validation</h3>
+                    <h3 style="color:#C9A84C; margin-bottom: 1.5rem;">Phases of Validation</h3>
                     <ul>
                         <li><strong>Phase 1 (Sandbox):</strong> Ingestion of historical data to validate the Wilbur Method™ against known past incidents.</li>
                         <li><strong>Phase 2 (Live Shadow):</strong> Silent monitoring of live data streams — zero operational disruption.</li>
                         <li><strong>Phase 3 (Forensic Debrief):</strong> Generation of a mock “Parliamentary Evidence Bundle” proving that your facility meets the strictest oversight standards.</li>
                     </ul>
                 </div>
-                <div>
-                    <h3>What Oversight Sees</h3>
+                <div style="padding-top: 0.5rem;">
+                    <h3 style="margin-bottom: 1.2rem;">What Oversight Sees</h3>
                     <p>When a parliamentary committee or the SIU reviews your facility, they will find:</p>
-                    <ul>
+                    <ul style="margin-bottom: 2rem;">
                         <li><strong>Immutable SHA‑256 hashed logs</strong> — tamper‑evident records that can be verified independently.</li>
                         <li><strong>Real‑time risk heat maps</strong> showing exactly where systemic controls held or failed.</li>
                         <li><strong>Complete POPIA compliance</strong> with tokenized, anonymized data — privacy is never compromised.</li>
                     </ul>
-                    <a href="mailto:info@ethichawks.co.za?subject=Shadow%20Run%20Enquiry" class="btn btn-primary" style="margin-top:1.5rem;">Begin Your Shadow Run</a>
+                    <a href="mailto:info@ethichawks.co.za?subject=Shadow%20Run%20Enquiry" class="btn btn-primary">Begin Your Shadow Run</a>
                 </div>
             </div>
         </div>
@@ -383,24 +498,22 @@
     <section id="compliance">
         <div class="container">
             <h2>Why Immutable Forensic Records <span class="gold">Matter to Parliament</span></h2>
-            <p>Oversight committees cannot rely on hearsay or after‑the‑fact audits. They need evidence that has been <strong>cryptographically sealed from the moment of creation</strong>. That is what EthicHawks provides.</p>
+            <p style="max-width: 800px; color: var(--text-muted); margin-bottom: 3rem;">Oversight committees cannot rely on hearsay or after‑the‑fact audits. They need evidence that has been <strong>cryptographically sealed from the moment of creation</strong>. That is what EthicHawks provides.</p>
             
-            <div class="grid-2" style="margin-top:2rem;">
-                <div>
+            <div class="grid-2">
+                <div class="card">
                     <h3>SHA‑256 Hashing & Tamper‑Evidence</h3>
                     <p>All telemetry is hashed using SHA‑256 upon ingestion. Any subsequent alteration — even a single comma — produces a mismatch, making the record legally indefensible to challenge. This transforms operational logs into <strong>court‑ready evidence</strong>.</p>
                 </div>
-                <div>
+                <div class="card">
                     <h3>POPIA‑Compliant Anonymization</h3>
                     <p>Patient and staff identifiers are tokenized irreversibly at the API gateway. The mapping key remains with the data controller only. Within the EthicHawks environment, re‑identification is mathematically impossible — yet systemic patterns remain fully visible for forensic analysis.</p>
                 </div>
-            </div>
-            <div class="grid-2" style="margin-top:2rem;">
-                <div>
+                <div class="card">
                     <h3>Real‑Time Forensic Anchoring</h3>
                     <p>When a red flag triggers (e.g., a procurement “velocity bypass”), the system automatically compiles a <strong>PDF Forensic Evidence Bundle</strong> with hashed timestamps. This bundle is immutable and ready for immediate submission to oversight bodies — no manual report writing needed.</p>
                 </div>
-                <div>
+                <div class="card">
                     <h3>Data Governance & Siloing</h3>
                     <p>We operate as a POPIA Data Processor. Each facility’s telemetry sits in a discrete, encrypted environment. No cross‑contamination, no aggregation — ensuring that evidence from one institution cannot be tainted by another.</p>
                 </div>
@@ -409,27 +522,27 @@
     </section>
 
     <!-- Direct appeal to Parliament/Oversight -->
-    <section style="background: rgba(201,168,76,0.03);">
-        <div class="container">
-            <h2>A Message to <span class="gold">Oversight Committees</span></h2>
-            <p>When you visit this site, you are looking at the future of institutional accountability in South African healthcare. The EthicHawks framework directly supports the SIU’s mandate for “Forensic Data Analytics” and “Predictive Modelling”. It shifts oversight from <strong>retrospective autopsy to predictive governance</strong>. Every facility contracted under NHI Phase Two can be required to produce an immutable forensic record — and we make that possible today.</p>
-            <p style="margin-top:1.5rem;"><a href="mailto:info@ethichawks.co.za?subject=Parliamentary%20Oversight%20Briefing" class="btn btn-outline">Request a Parliamentary Briefing</a></p>
+    <section style="background: rgba(201,168,76,0.02); border-top: 1px solid var(--gold-border); border-bottom: 1px solid var(--gold-border);">
+        <div class="container" style="text-align: center; max-width: 900px;">
+            <h2 style="justify-content: center; margin-bottom: 2rem;">A Message to <span class="gold">Oversight Committees</span></h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2.5rem;">When you visit this site, you are looking at the future of institutional accountability in South African healthcare. The EthicHawks framework directly supports the SIU’s mandate for “Forensic Data Analytics” and “Predictive Modelling”. It shifts oversight from <strong>retrospective autopsy to predictive governance</strong>. Every facility contracted under NHI Phase Two can be required to produce an immutable forensic record — and we make that possible today.</p>
+            <a href="mailto:info@ethichawks.co.za?subject=Parliamentary%20Oversight%20Briefing" class="btn btn-outline" style="margin-left: 0;">Request a Parliamentary Briefing</a>
         </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" style="background: #060B1C;">
+    <section id="contact" style="background: var(--bg-darker);">
         <div class="container">
-            <h2 style="border-bottom:1px solid rgba(201,168,76,0.3); padding-bottom:1rem;">Contact</h2>
-            <div class="grid-2" style="margin-top:2rem;">
-                <div>
-                    <p><strong>EthicHawks Forensic Governance & Compliance Consultancy</strong></p>
-                    <p>Cape Town, South Africa</p>
-                    <p>Phone: +276 963 1435</p>
-                    <p>Email: <a href="mailto:info@ethichawks.co.za" class="gold">info@ethichawks.co.za</a></p>
+            <h2 style="border-bottom:1px solid var(--gold-border); padding-bottom:1.5rem; margin-bottom: 3rem;">Contact</h2>
+            <div class="grid-2">
+                <div style="background: rgba(255,255,255,0.01); padding: 2.5rem; border-radius: 4px; border: 1px solid rgba(255,255,255,0.03);">
+                    <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 1.5rem;" class="gold">EthicHawks Forensic Governance & Compliance Consultancy</p>
+                    <p style="margin-bottom: 0.5rem;">📍 Cape Town, South Africa</p>
+                    <p style="margin-bottom: 0.5rem;">📞 Phone: +276 963 1435</p>
+                    <p>✉️ Email: <a href="mailto:info@ethichawks.co.za" class="gold" style="text-decoration: none; font-weight: 500;">info@ethichawks.co.za</a></p>
                 </div>
-                <div>
-                    <p>For NHI accreditation preparation, Shadow Run pilots, or to arrange a forensic governance review, contact us directly.</p>
+                <div style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding-left: 1rem;">
+                    <p style="font-size: 1.1rem; margin-bottom: 2rem; color: var(--text-muted);">For NHI accreditation preparation, Shadow Run pilots, or to arrange a forensic governance review, contact us directly.</p>
                     <a href="mailto:info@ethichawks.co.za?subject=NHI%20Accreditation%20Consultation" class="btn btn-primary">Request a Consultation</a>
                 </div>
             </div>
@@ -441,10 +554,10 @@
         <div class="container">
             <p>© 2026 EthicHawks Forensic Governance & Compliance. All rights reserved.</p>
             <div>
-                <a href="#" onclick="alert('Terms of Service – available upon request.')" style="color:#94A3B8; text-decoration:none;">Terms</a> &nbsp;|&nbsp;
-                <a href="#" onclick="alert('Privacy Policy – available upon request.')" style="color:#94A3B8; text-decoration:none;">Privacy</a> &nbsp;|&nbsp;
-                <a href="#" onclick="alert('Cookie preferences can be managed via browser settings.')" style="color:#94A3B8; text-decoration:none;">Cookies</a> &nbsp;|&nbsp;
-                <a href="#" onclick="alert('Professional Disclaimer – available upon request.')" style="color:#94A3B8; text-decoration:none;">Disclaimer</a>
+                <a href="#" onclick="alert('Terms of Service – available upon request.')" style="color: var(--text-muted); text-decoration:none; transition: color 0.2s;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='#94A3B8'">Terms</a> &nbsp;|&nbsp;
+                <a href="#" onclick="alert('Privacy Policy – available upon request.')" style="color: var(--text-muted); text-decoration:none; transition: color 0.2s;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='#94A3B8'">Privacy</a> &nbsp;|&nbsp;
+                <a href="#" onclick="alert('Cookie preferences can be managed via browser settings.')" style="color: var(--text-muted); text-decoration:none; transition: color 0.2s;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='#94A3B8'">Cookies</a> &nbsp;|&nbsp;
+                <a href="#" onclick="alert('Professional Disclaimer – available upon request.')" style="color: var(--text-muted); text-decoration:none; transition: color 0.2s;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='#94A3B8'">Disclaimer</a>
             </div>
         </div>
     </footer>
