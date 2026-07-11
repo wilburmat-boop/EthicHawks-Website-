@@ -3,491 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EthicHawks | Forensic Governance & NHI Compliance</title>
+    <title>EthicHawks | Forensic Governance</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-deep: #0A1128;
-            --bg-darker: #060B1C;
-            --bg-card: rgba(255, 255, 255, 0.02);
+            --bg-deep: #050a19;
+            --bg-gradient: linear-gradient(180deg, #0A1128 0%, #050a19 100%);
             --gold: #C9A84C;
-            --gold-glow: rgba(201, 168, 76, 0.15);
-            --gold-border: rgba(201, 168, 76, 0.2);
+            --gold-bright: #e6c56b;
+            --gold-border: rgba(201, 168, 76, 0.4);
             --text-primary: #F0E6D3;
             --text-secondary: #CBD5E1;
-            --text-muted: #94A3B8;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg-deep);
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--bg-deep); 
             color: var(--text-secondary);
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 0 2rem;
+        .container { max-width: 1100px; margin: auto; padding: 0 2rem; }
+
+        /* The Gold Stripe System */
+        .gold-stripe-left {
+            border-left: 3px solid var(--gold);
+            padding-left: 2rem;
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Cormorant Garamond', serif;
-            color: var(--text-primary);
-        }
-
-        h1 {
-            font-size: 3.2rem;
-            font-weight: 700;
-            line-height: 1.2;
-            letter-spacing: -0.5px;
-        }
-
-        h2 {
-            font-size: 2.4rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-        }
-
-        h2::after {
-            content: '';
-            flex-grow: 1;
-            height: 1px;
-            background: linear-gradient(to right, var(--gold), transparent);
-            margin-left: 1.5rem;
-        }
-
-        h3 {
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-            letter-spacing: 0.5px;
-        }
-
-        p {
-            margin-bottom: 1.2rem;
-            color: var(--text-secondary);
-        }
-
-        .gold {
-            color: var(--gold);
-        }
+        h1, h2, h3 { font-family: 'Cormorant Garamond', serif; color: var(--text-primary); }
+        h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 2rem; }
+        h2 { font-size: 2.5rem; margin-bottom: 3rem; color: var(--gold); border-bottom: 1px solid var(--gold-border); padding-bottom: 1rem; }
 
         .btn {
             display: inline-block;
-            padding: 1rem 2.4rem;
+            padding: 1rem 2.5rem;
             font-weight: 600;
-            text-decoration: none;
-            border-radius: 3px;
-            letter-spacing: 1px;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            font-size: 0.85rem;
             text-transform: uppercase;
-        }
-
-        .btn-primary {
-            background: var(--gold);
-            color: var(--bg-deep);
-            border: 1px solid var(--gold);
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn-primary:hover {
-            background: transparent;
-            color: var(--gold);
-            box-shadow: 0 4px 20px var(--gold-glow);
-            transform: translateY(-1px);
-        }
-
-        .btn-outline {
-            border: 1px solid var(--gold);
-            color: var(--gold);
-            background: transparent;
-            margin-left: 1rem;
-        }
-
-        .btn-outline:hover {
-            background: var(--gold-glow);
-            box-shadow: 0 4px 20px var(--gold-glow);
-            transform: translateY(-1px);
-        }
-
-        header {
-            background: rgba(10, 17, 40, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--gold-border);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            padding: 1rem 0;
-        }
-
-        .header-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .logo img {
-            height: 46px;
-            width: auto;
-        }
-
-        .logo-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 700;
-            font-size: 1.6rem;
-            color: var(--text-primary);
             letter-spacing: 2px;
-        }
-
-        nav a {
-            color: var(--text-secondary);
             text-decoration: none;
-            margin-left: 2.5rem;
-            font-weight: 500;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-            transition: color 0.2s ease;
+            border: 1px solid var(--gold);
+            transition: all 0.3s ease;
         }
+        .btn-primary { background: var(--gold); color: #0A1128; }
+        .btn-primary:hover { background: transparent; color: var(--gold); }
 
-        nav a:hover {
-            color: var(--gold);
-        }
+        header { padding: 1.5rem 0; border-bottom: 1px solid var(--gold-border); }
+        .logo-area { display: flex; align-items: center; gap: 1.5rem; }
+        .logo-area img { height: 60px; }
+        .logo-text { font-family: 'Cormorant Garamond', serif; font-size: 2rem; letter-spacing: 3px; color: var(--gold); }
 
-        .hero {
-            padding: 9rem 0 8rem;
+        .hero { 
+            padding: 8rem 0; 
+            background: var(--bg-gradient); 
             text-align: center;
-            background: radial-gradient(circle at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 60%);
+        }
+
+        .section-padding { padding: 6rem 0; }
+        
+        .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+        .card { 
+            background: rgba(255,255,255,0.03); 
+            padding: 2.5rem; 
+            border: 1px solid var(--gold-border);
             position: relative;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 10%;
-            width: 80%;
-            height: 1px;
-            background: linear-gradient(to right, transparent, var(--gold), transparent);
-        }
-
-        .hero h1 {
-            margin-bottom: 2rem;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            max-width: 760px;
-            margin: 0 auto 3rem;
-            color: var(--text-muted);
-            font-weight: 300;
-        }
-
-        section {
-            padding: 6rem 0;
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 3rem;
-        }
-
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            background: var(--bg-card);
-            border: 1px solid var(--gold-border);
-            padding: 2.5rem 2rem;
-            border-radius: 4px;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .card:hover {
-            border-color: var(--gold);
-            background: rgba(255, 255, 255, 0.04);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .card-icon {
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .author-profile {
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-            background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
-            border: 1px solid var(--gold-border);
-            padding: 3rem;
-            border-radius: 4px;
-        }
-
-        .author-image img {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--gold);
-        }
-
-        .credentials {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .credentials span {
-            display: inline-block;
-            background: rgba(201, 168, 76, 0.08);
-            color: var(--gold);
-            padding: 0.3rem 0.9rem;
-            border-radius: 3px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            border: 1px solid rgba(201, 168, 76, 0.25);
-        }
-
-        .nhi-highlight {
-            background: linear-gradient(90deg, rgba(201,168,76,0.06) 0%, transparent 100%);
-            border-left: 3px solid var(--gold);
-            padding: 2rem;
-            border-radius: 0 4px 4px 0;
-        }
-
-        ul {
-            margin-left: 1.5rem;
-            color: var(--text-secondary);
-        }
-
-        ul li {
-            margin-bottom: 0.6rem;
-        }
-
-        footer {
-            background: var(--bg-darker);
-            color: var(--text-muted);
-            padding: 2.5rem 0;
-            font-size: 0.85rem;
-            border-top: 1px solid var(--gold-border);
-        }
-
-        footer .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-        }
-
-        @media (max-width: 992px) {
-            .author-profile {
-                flex-direction: column;
-                text-align: center;
-                gap: 2rem;
-            }
-            .grid-2 {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2.4rem; }
-            h2 { font-size: 1.8rem; }
-            .hero { padding: 6rem 0 5rem; }
-            nav { display: none; }
-            .btn-outline, .btn-primary { display: block; width: 100%; margin-left: 0; margin-top: 1rem; text-align: center; }
-        }
+        footer { background: #000; padding: 3rem 0; text-align: center; color: var(--gold); }
     </style>
 </head>
 <body>
+
     <header>
-        <div class="container header-inner">
-            <div class="logo">
-                <img src="https://zohopagesense.nimbuspop.com/customerassets/927847750/images/1000306297.jpg" alt="EthicHawks Logo">
-                <span class="logo-text">ETHICHAWKS</span>
-            </div>
-            <nav>
-                <a href="#about">About</a>
-                <a href="#services">Services</a>
-                <a href="#compliance">Compliance</a>
-                <a href="#contact">Contact</a>
-            </nav>
+        <div class="container logo-area">
+            <img src="https://zohopagesense.nimbuspop.com/customerassets/927847750/images/1000306297.jpg" alt="EthicHawks Warhawk Logo">
+            <span class="logo-text">ETHICHAWKS</span>
         </div>
     </header>
 
-    <!-- Hero -->
     <section class="hero">
         <div class="container">
-            <h1>Forensic Governance Architecture<br>for <span class="gold">NHI Accreditation</span></h1>
-            <p>
-                Providing parliamentary oversight structures and healthcare institutions with verified data frameworks to monitor organizational integrity and track regulatory alignment in real time.
+            <h1>Forensic Governance <br><span style="color:var(--gold)">for Institutional Integrity</span></h1>
+            <p style="font-size: 1.3rem; max-width: 700px; margin: 0 auto 3rem;">
+                Mapping the structural geometry of healthcare institutions with forensic telemetry. 
+                Immutable, transparent, and built for oversight.
             </p>
-            <a href="#services" class="btn btn-primary">Our Services</a>
-            <a href="#contact" class="btn btn-outline">NHI Readiness Review</a>
+            <a href="#services" class="btn btn-primary">Enter Portfolio</a>
         </div>
     </section>
 
-    <!-- About -->
-    <section id="about">
-        <div class="container">
-            <h2>The Practice</h2>
-            <div class="author-profile">
-                <div class="author-image">
-                    <img src="assets/author.png" alt="Sr. Wilbur William Matthee">
-                </div>
-                <div>
-                    <h3>Sr. Wilbur William Matthee <span class="gold">· Founder</span></h3>
-                    <p style="color:#CBD5E1; font-weight: 500; margin-bottom: 0.8rem;">Specialist Registered Nurse · Health Services Manager · CISA Member</p>
-                    <p>Integrating extensive clinical operations experience with formal forensic audit methodologies to trace structural risk, verify compliance architecture, and support institutional transparency.</p>
-                    <div class="credentials">
-                        <span>RN</span>
-                        <span>Health Services Management</span>
-                        <span>NQF Level 8</span>
-                        <span>Clinical Governance</span>
-                        <span>CISA Member</span>
-                    </div>
-                </div>
+    <section class="section-padding container">
+        <div class="gold-stripe-left">
+            <h2>The Forensic Approach</h2>
+            <p style="font-size: 1.2rem; max-width: 800px;">
+                We bypass reactive reporting. By applying proprietary forensic methodologies, we transform operational data into an immutable evidence vault. 
+                If the systems fail, the audit trail remains intact, transparent, and ready for parliamentary review.
+            </p>
+        </div>
+    </section>
+
+    <section class="container section-padding">
+        <div class="card-grid">
+            <div class="card">
+                <h3>NHI Shadow Run</h3>
+                <p>Establishing compliance benchmarks through 60-day forensic shadowing, ensuring your facility is audit-ready before the pressure of accreditation begins.</p>
+            </div>
+            <div class="card">
+                <h3>Governance Audits</h3>
+                <p>Deploying the Wilbur Method™ to identify institutional bypasses and failure points, supported by cryptographically sealed evidence bundles.</p>
             </div>
         </div>
     </section>
 
-    <!-- Framework & Solution -->
-    <section style="background: rgba(255,255,255,0.01); border-top: 1px solid rgba(255,255,255,0.02); border-bottom: 1px solid rgba(255,255,255,0.02);">
-        <div class="container">
-            <h2>The Core Objective</h2>
-            <p style="max-width: 900px; margin-bottom: 3rem;">Traditional healthcare compliance reviews operate retrospectively, evaluating systems long after data discrepancies or process gaps occur. This delayed timeline limits effective intervention and clear oversight across operational channels.</p>
-            
-            <h2>The Framework</h2>
-            <p style="max-width: 900px;">EthicHawks utilizes structured data logging frameworks to verify system integrity dynamically. By applying cryptographic validations, operational telemetry is secured into clear, verifiable data trails structured to meet parliamentary oversight standards.</p>
-        </div>
-    </section>
-
-    <!-- Services -->
-    <section id="services">
-        <div class="container">
-            <h2>Professional Services</h2>
-            <p style="margin-bottom:4rem; max-width: 800px; color: var(--text-muted);">Objective frameworks built to produce structured evidence profiles for formal institutional, regulatory, and legal review.</p>
-            
-            <div class="grid-3">
-                <div class="card">
-                    <div class="card-icon">🔍</div>
-                    <h3>Forensic Governance Audits</h3>
-                    <p>Comprehensive evaluations of institutional reporting streams, generating tamper-evident evidence structures optimized for independent regulatory submission.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">✓</div>
-                    <h3>NHI Accreditation Preparation</h3>
-                    <p>Structuring operational workflows and validation logs ahead of Phase Two requirements, establishing clear documentation for audit readiness.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">⚙️</div>
-                    <h3>Compliance Architecture Design</h3>
-                    <p>Developing structural controls that align clinical, financial, and administrative operations into centralized risk indicator systems.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🛡️</div>
-                    <h3>Protected Disclosures Advisory</h3>
-                    <p>Providing formal framework guidance under governance guidelines, ensuring process steps are documented securely and objectively.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🤖</div>
-                    <h3>Clinical Data Governance</h3>
-                    <p>Structuring auditable logs and transparent operational frameworks for digital records and administrative validation systems.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">⚖️</div>
-                    <h3>Fiduciary Risk Review</h3>
-                    <p>Analyzing corporate alignment against statutory oversight requirements, verifying that administrative processes meet formal fiduciary standards.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Validation and Compliance Details -->
-    <section style="background: rgba(255,255,255,0.01); border-top: 1px solid rgba(255,255,255,0.02); border-bottom: 1px solid rgba(255,255,255,0.02);">
-        <div class="container">
-            <h2>Data Architecture & Verification</h2>
-            <p style="max-width: 900px; margin-bottom: 3rem;">Achieving regulatory alignment requires clear operational validation before reporting cycles close. Our review processes provide objective, structured data validation within active environments.</p>
-            
-            <div class="grid-2">
-                <div class="nhi-highlight">
-                    <h3 style="color:#C9A84C; margin-bottom: 1.5rem;">Validation Phases</h3>
-                    <ul>
-                        <li><strong>Historical Baseline:</strong> Evaluating existing administrative records to identify recurrent process gaps.</li>
-                        <li><strong>Active Observation:</strong> Structured monitoring of administrative workflows with zero operational disruption.</li>
-                        <li><strong>Oversight Compilation:</strong> Preparing consolidated compliance profiles matching strict regulatory and reporting guidelines.</li>
-                    </ul>
-                </div>
-                <div style="padding-top: 0.5rem;">
-                    <h3 style="margin-bottom: 1.2rem;">Oversight Criteria</h3>
-                    <p>Reviews evaluate key core criteria required by standard reporting committees:</p>
-                    <ul style="margin-bottom: 2rem;">
-                        <li><strong>Cryptographic Log Validation</strong> — Verifiable records ensuring data consistency across frameworks.</li>
-                        <li><strong>Risk Mapping Systems</strong> — Clear dashboards identifying baseline control status.</li>
-                        <li><strong>POPIA Regulatory Compliance</strong> — Complete protection profiles utilizing anonymized data flows.</li>
-                    </ul>
-                    <a href="mailto:info@ethichawks.co.za?subject=Validation%20Framework%20Enquiry" class="btn btn-primary">Enquire About Validation</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" style="background: var(--bg-darker);">
-        <div class="container">
-            <h2 style="border-bottom:1px solid var(--gold-border); padding-bottom:1.5rem; margin-bottom: 3rem;">Contact</h2>
-            <div class="grid-2">
-                <div style="background: rgba(255,255,255,0.01); padding: 2.5rem; border-radius: 4px; border: 1px solid rgba(255,255,255,0.03);">
-                    <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 1.5rem;" class="gold">EthicHawks Forensic Governance & Compliance Consultancy</p>
-                    <p style="margin-bottom: 0.5rem;">📍 Cape Town, South Africa</p>
-                    <p style="margin-bottom: 0.5rem;">📞 Phone: +276 963 1435</p>
-                    <p>✉️ Email: <a href="mailto:info@ethichawks.co.za" class="gold" style="text-decoration: none; font-weight: 500;">info@ethichawks.co.za</a></p>
-                </div>
-                <div style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding-left: 1rem;">
-                    <p style="font-size: 1.1rem; margin-bottom: 2rem; color: var(--text-muted);">For alignment reviews, NHI accreditation mapping, or institutional risk assessments, reach out directly to coordinate a professional consultation.</p>
-                    <a href="mailto:info@ethichawks.co.za?subject=Governance%20Consultation%20Request" class="btn btn-primary">Request Consultation</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer>
-        <div class="container">
-            <p>© 2026 EthicHawks Forensic Governance & Compliance. All rights reserved.</p>
-            <div>
-                <a href="#" onclick="alert('Terms of Service – available upon request.')" style="color: var(--text-muted); text-decoration:none;">Terms</a> &nbsp;|&nbsp;
-                <a href="#" onclick="alert('Privacy Policy – available upon request.')" style="color: var(--text-muted); text-decoration:none;">Privacy</a> &nbsp;|&nbsp;
-                <a href="#" onclick="alert('Disclaimer – available upon request.')" style="color: var(--text-muted); text-decoration:none;">Disclaimer</a>
-            </div>
-        </div>
+        <p>© 2026 ETHICHAWKS FORENSIC GOVERNANCE</p>
     </footer>
+
 </body>
 </html>
