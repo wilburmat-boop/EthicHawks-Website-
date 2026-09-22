@@ -3,115 +3,311 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="EthicHawks — multidisciplinary governance, risk and systems architecture.">
+  <meta name="description" content="EthicHawks is a governance, risk, and systems architecture practice helping organisations see the failure pattern before it becomes institutional harm.">
   <title>EthicHawks | Governance, Risk & Systems Architecture</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
   <style>
-    :root { --ink:#08111f; --ink-2:#101d31; --panel:rgba(19,34,55,.78); --gold:#d7b35a; --gold-2:#f0d58b; --cyan:#65d9f2; --white:#f7f8f4; --muted:#aab9c9; --line:rgba(215,179,90,.23); }
+    :root {
+      --bg:#07111d;
+      --bg-2:#0d1d2d;
+      --panel:#0e1f31;
+      --panel-2:#122b42;
+      --text:#ebf2ff;
+      --muted:#9eb2c8;
+      --line:rgba(157,178,214,.18);
+      --brand:#7dd3fc;
+      --brand-2:#a78bfa;
+      --gold:#f7d98f;
+      --success:#7ae7b7;
+      --shadow:0 24px 80px rgba(0,0,0,.35);
+    }
     * { box-sizing:border-box; }
     html { scroll-behavior:smooth; }
-    body { margin:0; color:var(--white); background:radial-gradient(circle at 80% 0%,#183451 0,transparent 35%),var(--ink); font:16px/1.7 'DM Sans',system-ui,sans-serif; }
-    a { color:inherit; }
-    .wrap { width:min(1160px,calc(100% - 2.5rem)); margin:auto; }
-    .eyebrow { color:var(--gold-2); font-size:.75rem; font-weight:700; letter-spacing:.17em; text-transform:uppercase; }
-    h1,h2,h3 { margin:0; line-height:1.15; }
-    h1,h2 { font-family:'Playfair Display',Georgia,serif; }
-    h1 { font-size:clamp(2.8rem,7vw,5.8rem); letter-spacing:-.04em; }
-    h2 { font-size:clamp(2rem,4vw,3.25rem); }
-    h3 { font-size:1.25rem; }
-    p { color:var(--muted); }
-    .topline { border-bottom:1px solid rgba(255,255,255,.08); color:var(--muted); font-size:.76rem; letter-spacing:.08em; text-transform:uppercase; }
-    .topline .wrap { display:flex; justify-content:space-between; gap:1rem; padding:.65rem 0; }
-    header { position:sticky; top:0; z-index:10; border-bottom:1px solid var(--line); background:rgba(8,17,31,.86); backdrop-filter:blur(16px); }
-    .nav { display:flex; align-items:center; justify-content:space-between; min-height:78px; gap:1.5rem; }
-    .brand { display:flex; align-items:center; gap:.75rem; color:var(--white); text-decoration:none; }
-    .brand-mark { display:grid; place-items:center; width:38px; height:38px; border:1px solid var(--gold); border-radius:50%; color:var(--gold-2); font:700 1.2rem Georgia,serif; }
-    .brand strong { display:block; letter-spacing:.16em; font-size:.9rem; }
-    .brand small { display:block; color:var(--gold); font-size:.62rem; letter-spacing:.1em; text-transform:uppercase; }
-    nav { display:flex; align-items:center; gap:1.25rem; }
-    nav a { color:var(--muted); font-size:.86rem; text-decoration:none; }
-    nav a:hover { color:var(--gold-2); }
-    .hero { position:relative; overflow:hidden; padding:clamp(5rem,12vw,10rem) 0 7rem; }
-    .hero:after { content:''; position:absolute; width:420px; height:420px; right:-180px; top:80px; border:1px solid rgba(101,217,242,.18); border-radius:50%; box-shadow:0 0 0 45px rgba(101,217,242,.025),0 0 0 90px rgba(101,217,242,.02); }
-    .hero-grid { display:grid; grid-template-columns:1.1fr .9fr; gap:4rem; align-items:center; }
-    .hero h1 { max-width:760px; margin-top:1rem; }
-    .hero h1 span { color:var(--gold-2); }
-    .lead { max-width:670px; margin:1.7rem 0 2.2rem; font-size:1.15rem; }
-    .actions { display:flex; flex-wrap:wrap; gap:.9rem; }
-    .btn { display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:.75rem 1.25rem; border:1px solid var(--gold); border-radius:4px; color:var(--ink); background:var(--gold); font-weight:700; text-decoration:none; transition:.2s ease; }
-    .btn:hover { transform:translateY(-2px); background:var(--gold-2); }
-    .btn.ghost { color:var(--gold-2); background:transparent; }
-    .hero-card { padding:1.5rem; border:1px solid var(--line); border-radius:12px; background:linear-gradient(150deg,rgba(215,179,90,.14),rgba(19,34,55,.5)); box-shadow:0 24px 70px rgba(0,0,0,.3); }
-    .signal { display:flex; align-items:center; gap:.55rem; color:var(--cyan); font-size:.75rem; letter-spacing:.12em; text-transform:uppercase; }
-    .signal i { width:8px; height:8px; border-radius:50%; background:#62e39a; box-shadow:0 0 14px #62e39a; }
-    .quote { margin:2.4rem 0 0; color:var(--white); font:1.45rem/1.35 'Playfair Display',Georgia,serif; }
-    .quote em { color:var(--gold-2); font-style:normal; }
-    section { padding:6rem 0; border-top:1px solid rgba(255,255,255,.07); }
-    .section-head { display:flex; justify-content:space-between; align-items:end; gap:2rem; margin-bottom:2.5rem; }
-    .section-head p { max-width:580px; margin:0; }
-    .pillars,.cards,.split { display:grid; gap:1.25rem; }
-    .pillars { grid-template-columns:repeat(3,1fr); }
-    .cards { grid-template-columns:repeat(3,1fr); }
-    .split { grid-template-columns:1fr 1fr; }
-    .panel { height:100%; padding:1.7rem; border:1px solid rgba(255,255,255,.1); border-radius:9px; background:var(--panel); }
-    .panel:hover { border-color:var(--gold); transform:translateY(-3px); transition:.2s ease; }
-    .number { color:var(--gold); font:700 2rem Georgia,serif; }
-    .panel h3 { margin:.8rem 0 .6rem; }
-    .panel p { margin:0; }
-    .service .tag { display:inline-block; margin-bottom:1.4rem; color:var(--cyan); font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
-    .service h3 { color:var(--white); }
-    .service p { font-size:.95rem; }
-    .note { margin-top:2rem; padding:1rem 1.2rem; border-left:3px solid var(--gold); background:rgba(215,179,90,.08); color:var(--muted); font-size:.9rem; }
-    .profile { display:grid; grid-template-columns:180px 1fr; gap:2rem; align-items:center; padding:2rem; border:1px solid var(--line); border-radius:12px; background:linear-gradient(120deg,rgba(215,179,90,.1),rgba(19,34,55,.7)); }
-    .profile-art { display:grid; place-items:center; width:150px; height:150px; border:1px solid var(--gold); border-radius:50%; color:var(--gold-2); background:radial-gradient(circle,rgba(215,179,90,.22),transparent 65%); font:600 3.5rem Georgia,serif; }
-    .profile h3 { font-size:1.6rem; }
-    .profile p { margin-bottom:.8rem; }
-    .badges { display:flex; flex-wrap:wrap; gap:.55rem; }
-    .badge { padding:.35rem .65rem; border:1px solid var(--line); border-radius:999px; color:var(--gold-2); font-size:.76rem; }
-    footer { padding:3.5rem 0 2rem; background:#050b14; border-top:1px solid var(--line); }
-    .footer-grid { display:flex; justify-content:space-between; gap:2rem; }
-    .legal { display:flex; flex-wrap:wrap; gap:1rem; margin-top:2rem; padding-top:1.2rem; border-top:1px solid rgba(255,255,255,.1); font-size:.82rem; }
+    body {
+      margin:0; font-family:'Inter',sans-serif; color:var(--text); background:
+        radial-gradient(circle at top left, rgba(125,211,252,.12), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(167,139,250,.18), transparent 24%),
+        linear-gradient(180deg,#07111d 0%,#0a1626 100%);
+    }
+    a { color:inherit; text-decoration:none; }
+    img { max-width:100%; display:block; }
+    .wrap { width:min(1180px,calc(100% - 2rem)); margin:auto; }
+    .eyebrow { font-size:.74rem; letter-spacing:.14em; text-transform:uppercase; color:var(--brand); font-weight:700; }
+    h1,h2,h3 { margin:0; font-family:'Manrope',sans-serif; }
+    p { margin:0; color:var(--muted); }
+    section { padding:5.5rem 0; }
+    .btn {
+      display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:.9rem 1.4rem; border-radius:10px; border:1px solid transparent; font-weight:700; transition:.2s ease;
+    }
+    .btn:hover { transform:translateY(-2px); }
+    .btn.primary { background:linear-gradient(135deg,var(--brand),#85d9ff); color:#07111d; box-shadow:0 18px 35px rgba(125,211,252,.25); }
+    .btn.secondary { background:transparent; border-color:var(--line); color:var(--text); }
+
+    .topbar { border-bottom:1px solid var(--line); background:rgba(7,17,29,.72); backdrop-filter:blur(14px); }
+    .nav { display:flex; align-items:center; justify-content:space-between; min-height:74px; }
+    .brand { display:flex; align-items:center; gap:.8rem; font-weight:800; }
+    .brand-mark { display:grid; place-items:center; width:38px; height:38px; border-radius:12px; background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#07111d; font-weight:800; }
+    .brand span:last-child { display:flex; flex-direction:column; letter-spacing:.08em; }
+    .brand small { font-size:.62rem; letter-spacing:.14em; color:var(--brand); }
+    nav { display:flex; align-items:center; gap:1.6rem; }
+    nav a { color:var(--muted); font-size:.85rem; }
+    nav a:hover { color:var(--text); }
+    .nav-cta { margin-left:1rem; }
+
+    .hero { padding:5.8rem 0 4rem; }
+    .hero-grid { display:grid; grid-template-columns:1.05fr .95fr; gap:3rem; align-items:center; }
+    .hero-copy h1 { font-size:clamp(3rem,7vw,6rem); line-height:.96; letter-spacing:-.06em; margin-top:1rem; }
+    .hero-copy h1 .highlight { color:var(--brand); }
+    .lead { margin-top:1.5rem; max-width:620px; font-size:1.16rem; line-height:1.7; }
+    .cta-row { display:flex; flex-wrap:wrap; gap:.8rem; margin-top:2rem; }
+    .hero-card {
+      position:relative; padding:1.75rem; border:1px solid var(--line); border-radius:20px; background:linear-gradient(180deg,rgba(18,43,66,.92),rgba(7,17,29,.92)); box-shadow:var(--shadow);
+    }
+    .status { display:inline-flex; align-items:center; gap:.6rem; padding:.6rem .8rem; border-radius:999px; background:rgba(122,231,183,.08); border:1px solid rgba(122,231,183,.25); color:var(--success); font-size:.72rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+    .status::before { content:""; width:8px; height:8px; border-radius:50%; background:var(--success); box-shadow:0 0 12px var(--success); }
+    .hero-panel {
+      margin-top:1.4rem; padding:1.5rem; border:1px solid rgba(125,211,252,.15); border-radius:16px; background:linear-gradient(135deg,rgba(125,211,252,.08),rgba(167,139,250,.04));
+    }
+    .hero-panel small { display:block; font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--brand); }
+    .hero-panel strong { display:block; margin-top:.8rem; font-size:1.8rem; line-height:1.2; }
+    .hero-panel p { margin-top:.8rem; }
+    .stats { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:1.5rem; }
+    .stat { padding:1rem; border:1px solid var(--line); border-radius:14px; background:rgba(255,255,255,.01); }
+    .stat strong { display:block; font-size:1.4rem; font-weight:800; }
+    .stat span { color:var(--muted); font-size:.75rem; letter-spacing:.08em; text-transform:uppercase; }
+
+    .section-head { display:flex; justify-content:space-between; gap:2rem; align-items:end; margin-bottom:2rem; }
+    .section-head h2 { font-size:clamp(2.2rem,4vw,3.4rem); letter-spacing:-.05em; }
+    .section-head p { max-width:620px; }
+
+    .three-grid, .cards { display:grid; gap:1.2rem; }
+    .three-grid { grid-template-columns:repeat(3,1fr); }
+    .card {
+      height:100%; padding:1.5rem; border-radius:18px; border:1px solid var(--line); background:rgba(14,31,49,.72); box-shadow:0 12px 26px rgba(0,0,0,.15);
+    }
+    .card:hover { border-color:rgba(125,211,252,.38); transform:translateY(-3px); transition:.2s ease; }
+    .index { font-size:2rem; line-height:1; font-weight:800; color:var(--brand); }
+    .card h3 { margin-top:1rem; margin-bottom:.8rem; font-size:1.28rem; }
+    .cards { grid-template-columns:repeat(3,1fr); margin-top:1.5rem; }
+    .chip { display:inline-block; padding:.45rem .7rem; border-radius:999px; border:1px solid rgba(125,211,252,.25); background:rgba(125,211,252,.08); color:var(--brand); font-size:.7rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; }
+    .service h3 { margin-top:1rem; }
+    .note { margin-top:2rem; padding:1rem 1.2rem; border-left:3px solid var(--gold); background:rgba(247,217,143,.08); border-radius:0 12px 12px 0; color:var(--muted); }
+
+    .profile-box { display:grid; grid-template-columns:170px 1fr; gap:2rem; align-items:center; padding:2rem; border:1px solid var(--line); border-radius:24px; background:linear-gradient(120deg,rgba(125,211,252,.08),rgba(14,31,49,.85) 42%); }
+    .avatar { width:150px; height:150px; border-radius:50%; display:grid; place-items:center; font-size:3.4rem; font-weight:800; color:#07111d; background:linear-gradient(135deg,var(--brand),var(--gold)); }
+    .profile-box h3 { font-size:1.7rem; }
+    .badges { display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1rem; }
+    .badge { padding:.42rem .7rem; border-radius:999px; border:1px solid rgba(247,217,143,.36); background:rgba(247,217,143,.06); color:var(--gold); font-size:.72rem; }
+
+    .contact-wrap { display:grid; grid-template-columns:1.1fr .9fr; gap:2rem; }
+    .contact-panel { padding:1.5rem; border:1px solid var(--line); border-radius:18px; background:rgba(14,31,49,.72); }
+    .contact-panel h3 { margin-bottom:.9rem; font-size:1.4rem; }
+    .contact-panel a { color:var(--brand); }
+
+    footer { padding:3rem 0 2.2rem; background:rgba(7,17,29,.9); border-top:1px solid var(--line); }
+    .footer-grid { display:flex; justify-content:space-between; align-items:end; gap:1rem; }
+    .legal { display:flex; flex-wrap:wrap; gap:1rem 1.4rem; margin-top:1.5rem; padding-top:1.2rem; border-top:1px solid var(--line); }
     .legal a { color:var(--muted); }
-    .legal-note { width:100%; color:#8495a8; font-size:.78rem; }
-    @media (max-width:800px) { .topline .wrap,.footer-grid { display:block; } .topline .wrap span:last-child { display:none; } nav { display:none; } .hero-grid,.split { grid-template-columns:1fr; } .pillars,.cards { grid-template-columns:1fr; } .section-head { display:block; } .section-head p { margin-top:1rem; } .profile { grid-template-columns:1fr; text-align:center; } .profile-art { margin:auto; } .badges { justify-content:center; } }
+    .legal a:hover { color:var(--text); }
+    .sm { font-size:.75rem; color:#90a4bd; }
+
+    @media (max-width: 860px) {
+      nav { display:none; }
+      .hero-grid, .section-head, .contact-wrap, .profile-box { grid-template-columns:1fr; display:grid; }
+      .three-grid, .cards { grid-template-columns:1fr; }
+      .stats { grid-template-columns:1fr; }
+      .footer-grid { display:block; }
+      .brand small { display:none; }
+    }
   </style>
 </head>
 <body>
-  <div class="topline"><div class="wrap"><span>EthicHawks · Governance &amp; systems architecture</span><span>South Africa · By appointment</span></div></div>
-  <header><div class="wrap nav">
-    <a class="brand" href="#top" aria-label="EthicHawks home"><span class="brand-mark">E</span><span><strong>ETHICHAWKS</strong><small>Forensic governance</small></span></a>
-    <nav aria-label="Primary navigation"><a href="#practice">Practice</a><a href="#services">Capabilities</a><a href="#approach">Approach</a><a href="#contact">Contact</a></nav>
-    <a class="btn ghost" href="mailto:info@ethichawks.co.za?subject=EthicHawks%20Enquiry">Start a conversation</a>
-  </div></header>
+  <div class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="EthicHawks home">
+        <span class="brand-mark">E</span>
+        <span><span>ETHICHAWKS</span><small>governance</small></span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#practice">Practice</a>
+        <a href="#services">Capabilities</a>
+        <a href="#approach">Approach</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn secondary nav-cta" href="mailto:info@ethichawks.co.za?subject=EthicHawks%20Enquiry">Start a conversation</a>
+    </div>
+  </div>
 
   <main id="top">
-    <section class="hero"><div class="wrap hero-grid">
-      <div><div class="eyebrow">Closed Loop of Truth · The Wilbur Method™</div><h1>See the system.<br><span>Find the failure.</span><br>Fix what matters.</h1><p class="lead">EthicHawks connects healthcare experience, governance thinking and practical technology to help organisations understand risk before it becomes institutional harm.</p><div class="actions"><a class="btn" href="#practice">Explore the practice</a><a class="btn ghost" href="#contact">Discuss an engagement</a></div></div>
-      <aside class="hero-card"><div class="signal"><i></i> Capability platform active</div><p class="quote">“Clarity begins when isolated problems are read as <em>one connected system.</em>”</p><p>Independent, evidence-led thinking for complex clinical, organisational and technology environments.</p></aside>
-    </div></section>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Closed Loop of Truth · The Wilbur Method™</div>
+          <h1>Make the <span class="highlight">signal</span> visible.<br>Before the risk grows.</h1>
+          <p class="lead">EthicHawks connects governance, healthcare realities and practical technology to help organisations understand what is failing, why it is happening, and what should happen next.</p>
+          <div class="cta-row">
+            <a class="btn primary" href="#practice">Explore the practice</a>
+            <a class="btn secondary" href="#contact">Discuss an engagement</a>
+          </div>
+        </div>
 
-    <section id="practice"><div class="wrap"><div class="section-head"><div><div class="eyebrow">The practice</div><h2>Three disciplines.<br>One integrated view.</h2></div><p>EthicHawks is a professional capability platform. Descriptions below outline intended areas of work and do not promise a legal, clinical, regulatory or commercial outcome.</p></div><div class="pillars">
-      <article class="panel"><div class="number">01</div><h3>Clinical &amp; governance insight</h3><p>Healthcare operations, risk signals and organisational realities interpreted with practical empathy and disciplined documentation.</p></article>
-      <article class="panel"><div class="number">02</div><h3>Technical execution</h3><p>Small, useful tools and workflows that support traceability, responsible automation and better operational decisions.</p></article>
-      <article class="panel"><div class="number">03</div><h3>Creative human synthesis</h3><p>Complex information translated into clear narratives that help people see the issue, the impact and the next responsible step.</p></article>
-    </div></div></section>
+        <div class="hero-card">
+          <div class="status">Platform active</div>
+          <div class="hero-panel">
+            <small>Capability overview</small>
+            <strong>Three lenses.<br>One system view.</strong>
+            <p>Clinical reality, governance discipline and situation-aware technology built to reduce ambiguity before it becomes institutional harm.</p>
+          </div>
+          <div class="stats">
+            <div class="stat"><strong>3</strong><span>core disciplines</span></div>
+            <div class="stat"><strong>∞</strong><span>system connections</span></div>
+            <div class="stat"><strong>1</strong><span>clear action path</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <section id="services"><div class="wrap"><div class="section-head"><div><div class="eyebrow">Capabilities</div><h2>Where insight becomes action.</h2></div><p>Engagements are scoped to the client’s needs, available evidence and the practitioner’s confirmed remit.</p></div><div class="cards">
-      <article class="panel service"><span class="tag">Risk &amp; evidence</span><h3>Root-cause and governance reviews</h3><p>Map contributing factors, control gaps and decision pathways to support a clearer improvement plan.</p></article>
-      <article class="panel service"><span class="tag">People &amp; process</span><h3>Workplace and disclosure support</h3><p>Structure concerns, timelines and documentation for appropriate escalation. This is not a substitute for legal representation.</p></article>
-      <article class="panel service"><span class="tag">Technology</span><h3>Responsible automation</h3><p>Explore audit-friendly workflows, privacy-aware handling and explainable technology choices before deployment.</p></article>
-      <article class="panel service"><span class="tag">Readiness</span><h3>Healthcare improvement pilots</h3><p>Test practical governance routines and reporting habits without representing the result as accreditation or certification.</p></article>
-      <article class="panel service"><span class="tag">AI governance</span><h3>Algorithmic risk conversations</h3><p>Identify questions around transparency, accountability, human oversight and traceability in AI-enabled work.</p></article>
-      <article class="panel service"><span class="tag">Framework</span><h3>The Wilbur Method™</h3><p>A proprietary way of connecting signals across people, process, technology and institutional context.</p></article>
-    </div><div class="note">Privacy, statutory and professional claims must be assessed against the actual service, implementation and applicable law. Please verify credentials and memberships with the relevant authority.</div></div></section>
+    <section id="practice">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">The practice</div>
+            <h2>Three lenses. One integrated view.</h2>
+          </div>
+          <p>EthicHawks is a multidisciplinary capability platform. The descriptions below outline intended areas of work and do not promise a legal, clinical, regulatory or commercial outcome.</p>
+        </div>
 
-    <section id="approach"><div class="wrap"><div class="section-head"><div><div class="eyebrow">The practitioner</div><h2>Measured, multidisciplinary, human.</h2></div></div><div class="profile"><div class="profile-art" aria-hidden="true">W</div><div><h3>Sr. Wilbur William Matthee</h3><p>Founder &amp; Principal Consultant · Healthcare leadership experience · Governance and systems practitioner</p><p>Professional credentials, memberships and experience are presented as supplied by the practitioner and should be independently verified before reliance.</p><div class="badges"><span class="badge">Clinical governance</span><span class="badge">Risk mapping</span><span class="badge">Systems thinking</span><span class="badge">Responsible technology</span></div></div></div></div></section>
+        <div class="three-grid">
+          <article class="card">
+            <div class="index">01</div>
+            <h3>Clinical and governance insight</h3>
+            <p>Healthcare operations, risk signals and organisational realities interpreted with practical empathy and disciplined documentation.</p>
+          </article>
+          <article class="card">
+            <div class="index">02</div>
+            <h3>Technical execution</h3>
+            <p>Responsible workflows, diagnostic thinking and practical technology choices designed to support clarity and traceability.</p>
+          </article>
+          <article class="card">
+            <div class="index">03</div>
+            <h3>Creative human synthesis</h3>
+            <p>Complex information translated into clear narratives so stakeholders can understand the issue, its impact and the next step.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    <section id="contact"><div class="wrap split"><div><div class="eyebrow">Engagement</div><h2>Bring the difficult question.</h2><p>For a confidential introductory conversation, email the practice with a short description of the context and the outcome you are seeking.</p><a class="btn" href="mailto:info@ethichawks.co.za?subject=EthicHawks%20Engagement%20Enquiry">Email EthicHawks</a></div><div class="panel"><h3>EthicHawks Forensic Governance &amp; Compliance Consultancy</h3><p>Cape Town, Western Cape, South Africa</p><p><a href="mailto:info@ethichawks.co.za">info@ethichawks.co.za</a><br>+27 69 635 1435</p><p class="eyebrow">Formal terms apply to every engagement.</p></div></div></section>
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Capabilities</div>
+            <h2>Where insight becomes action.</h2>
+          </div>
+          <p>Engagements are scoped to the client’s needs, available evidence and the practitioner’s confirmed remit.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card service">
+            <span class="chip">Risk &amp; evidence</span>
+            <h3>Root-cause review</h3>
+            <p>Identify contributing factors, control gaps and decision patterns to support a clearer improvement plan.</p>
+          </article>
+          <article class="card service">
+            <span class="chip">People &amp; process</span>
+            <h3>Workplace support</h3>
+            <p>Structure concerns, timelines and documentation for appropriate escalation without replacing legal representation.</p>
+          </article>
+          <article class="card service">
+            <span class="chip">Technology</span>
+            <h3>Responsible automation</h3>
+            <p>Explore audit-friendly workflows, privacy-aware handling and explainable technology choices before deployment.</p>
+          </article>
+          <article class="card service">
+            <span class="chip">Readiness</span>
+            <h3>Governance pilots</h3>
+            <p>Test practical monitoring, reporting and process routines without misrepresenting outcomes as certification.</p>
+          </article>
+          <article class="card service">
+            <span class="chip">AI</span>
+            <h3>Algorithmic conversations</h3>
+            <p>Discuss transparency, accountability, human oversight and traceability in AI-enabled work.</p>
+          </article>
+          <article class="card service">
+            <span class="chip">Framework</span>
+            <h3>The Wilbur Method™</h3>
+            <p>A proprietary way of connecting signals across people, process, technology and institutional context.</p>
+          </article>
+        </div>
+
+        <div class="note">Privacy, statutory and professional claims should be checked against the actual service, implementation and applicable law. Please verify credentials and memberships with the relevant authority before reliance.</div>
+      </div>
+    </section>
+
+    <section id="approach">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">The practitioner</div>
+            <h2>Measured, multidisciplinary and human.</h2>
+          </div>
+        </div>
+
+        <div class="profile-box">
+          <div class="avatar" aria-hidden="true">W</div>
+          <div>
+            <h3>Sr. Wilbur William Matthee</h3>
+            <p>Founder &amp; Principal Consultant · Healthcare leadership experience · Governance and systems practitioner</p>
+            <p style="margin-top:.8rem;">Professional credentials, memberships and experience are presented as supplied by the practitioner and should be independently verified before reliance.</p>
+            <div class="badges">
+              <span class="badge">Clinical governance</span>
+              <span class="badge">Risk mapping</span>
+              <span class="badge">Systems thinking</span>
+              <span class="badge">Responsible technology</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap contact-wrap">
+        <div>
+          <div class="eyebrow">Engagement</div>
+          <h2 style="margin-top:.8rem; font-size:clamp(2.2rem,5vw,3.6rem); letter-spacing:-.05em;">Bring the difficult question.</h2>
+          <p style="margin-top:1rem; max-width:560px;">For a confidential introductory conversation, email the practice with a short description of the context and the outcome you are seeking.</p>
+          <a class="btn primary" href="mailto:info@ethichawks.co.za?subject=EthicHawks%20Engagement%20Enquiry" style="margin-top:1.5rem;">Email EthicHawks</a>
+        </div>
+
+        <div class="contact-panel">
+          <h3>EthicHawks Forensic Governance &amp; Compliance Consultancy</h3>
+          <p>Cape Town, Western Cape, South Africa</p>
+          <p style="margin-top:.9rem;"><a href="mailto:info@ethichawks.co.za">info@ethichawks.co.za</a><br>+27 69 635 1435</p>
+          <p style="margin-top:.9rem; color:var(--brand); letter-spacing:.1em; text-transform:uppercase; font-size:.78rem; font-weight:700;">Formal terms apply to every engagement.</p>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer><div class="wrap"><div class="footer-grid"><div><div class="eyebrow">EthicHawks</div><p>Governance, risk and systems architecture with a human centre.</p></div><div class="eyebrow">Cape Town · South Africa</div></div><div class="legal"><a href="terms.html">Terms of Service</a><a href="privacy-policy.html">Privacy Policy</a><a href="disclaimer.html">Legal Disclaimer</a><span class="legal-note">Legal and privacy pages are informational drafts and should be reviewed by a qualified South African legal/privacy professional before being relied upon as formal policies.</span></div></div></footer>
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <div class="eyebrow">EthicHawks</div>
+          <p>Governance, risk and systems architecture with a human centre.</p>
+        </div>
+        <div class="sm">Cape Town · South Africa</div>
+      </div>
+
+      <div class="legal">
+        <a href="terms.html">Terms of Service</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="disclaimer.html">Legal Disclaimer</a>
+        <span class="sm">Informational pages only — please have them reviewed by a qualified South African legal/privacy professional before treating them as formal policies.</span>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
