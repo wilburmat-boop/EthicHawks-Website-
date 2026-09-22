@@ -3,123 +3,157 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="EthicHawks is a governance, risk, and systems architecture practice helping organisations see the failure pattern before it becomes institutional harm.">
-  <title>EthicHawks | Governance, Risk & Systems Architecture</title>
+  <meta name="description" content="EthicHawks is a governance, risk, and systems architecture practice helping organisations understand the failure pattern before it becomes institutional harm.">
+  <title>EthicHawks | Future Governance & Systems Architecture</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg:#07111d;
-      --bg-2:#0d1d2d;
-      --panel:#0e1f31;
-      --panel-2:#122b42;
-      --text:#ebf2ff;
-      --muted:#9eb2c8;
-      --line:rgba(157,178,214,.18);
-      --brand:#7dd3fc;
-      --brand-2:#a78bfa;
-      --gold:#f7d98f;
-      --success:#7ae7b7;
-      --shadow:0 24px 80px rgba(0,0,0,.35);
+      --bg:#040b14;
+      --bg-2:#0b1727;
+      --panel:rgba(10,23,35,.72);
+      --panel-strong:rgba(16,31,46,.92);
+      --text:#ecf9ff;
+      --muted:#a9c0d0;
+      --line:rgba(123,203,255,.24);
+      --brand:#7ce7ff;
+      --brand-2:#7f7cff;
+      --gold:#f6d889;
+      --cyan:#76f0d3;
+      --violet:#8f7bff;
+      --shadow:0 24px 70px rgba(14, 196, 255, .18);
     }
     * { box-sizing:border-box; }
     html { scroll-behavior:smooth; }
     body {
-      margin:0; font-family:'Inter',sans-serif; color:var(--text); background:
-        radial-gradient(circle at top left, rgba(125,211,252,.12), transparent 28%),
-        radial-gradient(circle at bottom right, rgba(167,139,250,.18), transparent 24%),
-        linear-gradient(180deg,#07111d 0%,#0a1626 100%);
+      margin:0; color:var(--text);
+      font-family:'Inter',sans-serif;
+      background:
+        radial-gradient(circle at 15% 15%, rgba(124,231,255,.14), transparent 18%),
+        radial-gradient(circle at 75% 20%, rgba(143,123,255,.14), transparent 16%),
+        radial-gradient(circle at 65% 80%, rgba(118,240,211,.12), transparent 20%),
+        linear-gradient(180deg,#040b14 0%,#081924 100%);
     }
     a { color:inherit; text-decoration:none; }
-    img { max-width:100%; display:block; }
-    .wrap { width:min(1180px,calc(100% - 2rem)); margin:auto; }
-    .eyebrow { font-size:.74rem; letter-spacing:.14em; text-transform:uppercase; color:var(--brand); font-weight:700; }
-    h1,h2,h3 { margin:0; font-family:'Manrope',sans-serif; }
     p { margin:0; color:var(--muted); }
-    section { padding:5.5rem 0; }
+    .wrap { width:min(1180px,calc(100% - 2rem)); margin:0 auto; }
+    .eyebrow {
+      display:inline-block; font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; color:var(--brand);
+      font-weight:700;
+    }
+    h1,h2,h3 { margin:0; }
+    h1,h2 { font-family:'Orbitron',sans-serif; letter-spacing:-.06em; }
+    h1 { font-size:clamp(3.1rem,7vw,6.1rem); line-height:.94; }
+    h2 { font-size:clamp(2.2rem,4vw,3.6rem); }
     .btn {
-      display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:.9rem 1.4rem; border-radius:10px; border:1px solid transparent; font-weight:700; transition:.2s ease;
+      display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:.9rem 1.35rem; border-radius:12px; font-weight:700; border:1px solid transparent; transition:.2s ease;
     }
     .btn:hover { transform:translateY(-2px); }
-    .btn.primary { background:linear-gradient(135deg,var(--brand),#85d9ff); color:#07111d; box-shadow:0 18px 35px rgba(125,211,252,.25); }
-    .btn.secondary { background:transparent; border-color:var(--line); color:var(--text); }
+    .btn.primary {
+      background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#050d16; box-shadow:0 18px 40px rgba(124,231,255,.22);
+    }
+    .btn.secondary {
+      background:rgba(255,255,255,.02); border-color:var(--line); color:var(--text);
+    }
 
-    .topbar { border-bottom:1px solid var(--line); background:rgba(7,17,29,.72); backdrop-filter:blur(14px); }
-    .nav { display:flex; align-items:center; justify-content:space-between; min-height:74px; }
-    .brand { display:flex; align-items:center; gap:.8rem; font-weight:800; }
-    .brand-mark { display:grid; place-items:center; width:38px; height:38px; border-radius:12px; background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#07111d; font-weight:800; }
-    .brand span:last-child { display:flex; flex-direction:column; letter-spacing:.08em; }
-    .brand small { font-size:.62rem; letter-spacing:.14em; color:var(--brand); }
-    nav { display:flex; align-items:center; gap:1.6rem; }
-    nav a { color:var(--muted); font-size:.85rem; }
+    .topbar {
+      position:sticky; top:0; z-index:20; backdrop-filter:blur(20px); background:rgba(4,11,20,.55); border-bottom:1px solid rgba(123,203,255,.12);
+    }
+    .nav { display:flex; align-items:center; justify-content:space-between; min-height:78px; }
+    .brand { display:flex; align-items:center; gap:.9rem; }
+    .brand-mark {
+      width:40px; height:40px; border-radius:12px; display:grid; place-items:center; background:linear-gradient(135deg,var(--brand),var(--violet)); color:#030c17; font-weight:800; font-family:'Orbitron',sans-serif;
+    }
+    .brand-text { display:flex; flex-direction:column; }
+    .brand-text strong { letter-spacing:.12em; font-size:.86rem; }
+    .brand-text small { font-size:.58rem; letter-spacing:.14em; color:var(--brand); text-transform:uppercase; }
+    nav { display:flex; gap:1.5rem; }
+    nav a { font-size:.82rem; color:var(--muted); }
     nav a:hover { color:var(--text); }
-    .nav-cta { margin-left:1rem; }
 
-    .hero { padding:5.8rem 0 4rem; }
-    .hero-grid { display:grid; grid-template-columns:1.05fr .95fr; gap:3rem; align-items:center; }
-    .hero-copy h1 { font-size:clamp(3rem,7vw,6rem); line-height:.96; letter-spacing:-.06em; margin-top:1rem; }
+    .hero { padding:5.4rem 0 4rem; }
+    .hero-grid { display:grid; grid-template-columns:1.06fr .94fr; gap:3rem; align-items:center; }
+    .hero-copy .eyebrow { margin-bottom:1rem; }
     .hero-copy h1 .highlight { color:var(--brand); }
-    .lead { margin-top:1.5rem; max-width:620px; font-size:1.16rem; line-height:1.7; }
+    .lead { margin-top:1.5rem; max-width:640px; font-size:1.15rem; line-height:1.8; }
     .cta-row { display:flex; flex-wrap:wrap; gap:.8rem; margin-top:2rem; }
-    .hero-card {
-      position:relative; padding:1.75rem; border:1px solid var(--line); border-radius:20px; background:linear-gradient(180deg,rgba(18,43,66,.92),rgba(7,17,29,.92)); box-shadow:var(--shadow);
-    }
-    .status { display:inline-flex; align-items:center; gap:.6rem; padding:.6rem .8rem; border-radius:999px; background:rgba(122,231,183,.08); border:1px solid rgba(122,231,183,.25); color:var(--success); font-size:.72rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
-    .status::before { content:""; width:8px; height:8px; border-radius:50%; background:var(--success); box-shadow:0 0 12px var(--success); }
-    .hero-panel {
-      margin-top:1.4rem; padding:1.5rem; border:1px solid rgba(125,211,252,.15); border-radius:16px; background:linear-gradient(135deg,rgba(125,211,252,.08),rgba(167,139,250,.04));
-    }
-    .hero-panel small { display:block; font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--brand); }
-    .hero-panel strong { display:block; margin-top:.8rem; font-size:1.8rem; line-height:1.2; }
-    .hero-panel p { margin-top:.8rem; }
-    .stats { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:1.5rem; }
-    .stat { padding:1rem; border:1px solid var(--line); border-radius:14px; background:rgba(255,255,255,.01); }
-    .stat strong { display:block; font-size:1.4rem; font-weight:800; }
-    .stat span { color:var(--muted); font-size:.75rem; letter-spacing:.08em; text-transform:uppercase; }
 
-    .section-head { display:flex; justify-content:space-between; gap:2rem; align-items:end; margin-bottom:2rem; }
-    .section-head h2 { font-size:clamp(2.2rem,4vw,3.4rem); letter-spacing:-.05em; }
+    .orbital {
+      position:relative; min-height:510px; display:grid; place-items:center;
+    }
+    .orbital::before {
+      content:""; position:absolute; inset:8% 10%; border-radius:50%; border:1px solid rgba(124,231,255,.2);
+      box-shadow:0 0 0 20px rgba(124,231,255,.04), 0 0 0 50px rgba(143,123,255,.03); animation: pulse 7s infinite ease-in-out;
+    }
+    @keyframes pulse { 0%,100% { transform:scale(1); opacity:.8;} 50% { transform:scale(1.04); opacity:1;} }
+    .panel-core {
+      position:relative; width:min(100%,420px); padding:1.7rem; border-radius:22px; border:1px solid var(--line); background:linear-gradient(180deg,rgba(10,23,35,.92),rgba(8,17,28,.75)); box-shadow:var(--shadow);
+    }
+    .status {
+      display:inline-flex; align-items:center; gap:.6rem; padding:.5rem .8rem; border-radius:999px; background:rgba(118,240,211,.08); color:var(--cyan); border:1px solid rgba(118,240,211,.22); letter-spacing:.12em; text-transform:uppercase; font-size:.68rem; font-weight:700;
+    }
+    .status::before { content:""; width:8px; height:8px; border-radius:50%; background:var(--cyan); box-shadow:0 0 12px var(--cyan); }
+    .panel-core strong {
+      display:block; margin-top:1rem; font-size:2rem; line-height:1.2; letter-spacing:-.04em;
+    }
+    .mini-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.9rem; margin-top:1.4rem; }
+    .mini { padding:1rem .8rem; border:1px solid var(--line); border-radius:14px; background:rgba(255,255,255,.015); }
+    .mini strong { display:block; font-size:1.35rem; }
+    .mini span { display:block; margin-top:.2rem; font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
+
+    section { padding:5.4rem 0; }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:2rem; margin-bottom:2.2rem; }
     .section-head p { max-width:620px; }
 
     .three-grid, .cards { display:grid; gap:1.2rem; }
     .three-grid { grid-template-columns:repeat(3,1fr); }
     .card {
-      height:100%; padding:1.5rem; border-radius:18px; border:1px solid var(--line); background:rgba(14,31,49,.72); box-shadow:0 12px 26px rgba(0,0,0,.15);
+      position:relative; overflow:hidden; padding:1.5rem; border-radius:18px; background:rgba(13,25,37,.72); border:1px solid var(--line); box-shadow:0 14px 30px rgba(0,0,0,.18);
     }
-    .card:hover { border-color:rgba(125,211,252,.38); transform:translateY(-3px); transition:.2s ease; }
-    .index { font-size:2rem; line-height:1; font-weight:800; color:var(--brand); }
-    .card h3 { margin-top:1rem; margin-bottom:.8rem; font-size:1.28rem; }
-    .cards { grid-template-columns:repeat(3,1fr); margin-top:1.5rem; }
-    .chip { display:inline-block; padding:.45rem .7rem; border-radius:999px; border:1px solid rgba(125,211,252,.25); background:rgba(125,211,252,.08); color:var(--brand); font-size:.7rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; }
-    .service h3 { margin-top:1rem; }
-    .note { margin-top:2rem; padding:1rem 1.2rem; border-left:3px solid var(--gold); background:rgba(247,217,143,.08); border-radius:0 12px 12px 0; color:var(--muted); }
+    .card::after {
+      content:""; position:absolute; inset:auto 0 0 0; height:1px; background:linear-gradient(90deg,transparent,var(--brand),transparent);
+    }
+    .index { font-size:2rem; font-weight:800; color:var(--brand); line-height:1; }
+    .card h3 { margin-top:1rem; margin-bottom:.8rem; }
 
-    .profile-box { display:grid; grid-template-columns:170px 1fr; gap:2rem; align-items:center; padding:2rem; border:1px solid var(--line); border-radius:24px; background:linear-gradient(120deg,rgba(125,211,252,.08),rgba(14,31,49,.85) 42%); }
-    .avatar { width:150px; height:150px; border-radius:50%; display:grid; place-items:center; font-size:3.4rem; font-weight:800; color:#07111d; background:linear-gradient(135deg,var(--brand),var(--gold)); }
+    .cards { grid-template-columns:repeat(3,1fr); }
+    .chip { display:inline-block; padding:.45rem .7rem; border-radius:999px; border:1px solid rgba(124,231,255,.3); background:rgba(124,231,255,.08); color:var(--brand); font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; font-weight:700; }
+    .service h3 { margin-top:1rem; }
+    .note {
+      margin-top:2rem; padding:1rem 1.2rem; border-radius:0 12px 12px 0; border-left:3px solid var(--gold); background:rgba(246,216,137,.08); color:var(--muted);
+    }
+
+    .profile-box {
+      display:grid; grid-template-columns:170px 1fr; gap:2rem; align-items:center; padding:1.8rem; border-radius:24px; border:1px solid var(--line); background:linear-gradient(120deg,rgba(124,231,255,.08),rgba(13,25,37,.85));
+    }
+    .avatar {
+      width:150px; height:150px; border-radius:50%; display:grid; place-items:center; background:linear-gradient(135deg,var(--brand),var(--violet)); color:#0a1320; font-weight:800; font-size:3.2rem; box-shadow:0 18px 30px rgba(124,231,255,.18);
+    }
     .profile-box h3 { font-size:1.7rem; }
     .badges { display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1rem; }
-    .badge { padding:.42rem .7rem; border-radius:999px; border:1px solid rgba(247,217,143,.36); background:rgba(247,217,143,.06); color:var(--gold); font-size:.72rem; }
+    .badge { padding:.42rem .7rem; border-radius:999px; background:rgba(246,216,137,.06); border:1px solid rgba(246,216,137,.28); color:var(--gold); font-size:.72rem; }
 
     .contact-wrap { display:grid; grid-template-columns:1.1fr .9fr; gap:2rem; }
-    .contact-panel { padding:1.5rem; border:1px solid var(--line); border-radius:18px; background:rgba(14,31,49,.72); }
-    .contact-panel h3 { margin-bottom:.9rem; font-size:1.4rem; }
+    .contact-panel {
+      padding:1.6rem; border-radius:18px; background:rgba(13,25,37,.72); border:1px solid var(--line);
+    }
+    .contact-panel h3 { margin-bottom:.9rem; }
     .contact-panel a { color:var(--brand); }
 
-    footer { padding:3rem 0 2.2rem; background:rgba(7,17,29,.9); border-top:1px solid var(--line); }
+    footer { padding:3rem 0 2.2rem; border-top:1px solid rgba(123,203,255,.12); background:rgba(4,11,20,.8); }
     .footer-grid { display:flex; justify-content:space-between; align-items:end; gap:1rem; }
-    .legal { display:flex; flex-wrap:wrap; gap:1rem 1.4rem; margin-top:1.5rem; padding-top:1.2rem; border-top:1px solid var(--line); }
+    .legal { display:flex; flex-wrap:wrap; gap:1rem 1.5rem; margin-top:1.5rem; padding-top:1.2rem; border-top:1px solid rgba(123,203,255,.12); }
     .legal a { color:var(--muted); }
     .legal a:hover { color:var(--text); }
-    .sm { font-size:.75rem; color:#90a4bd; }
+    .tiny { font-size:.75rem; color:#94a9bb; }
 
-    @media (max-width: 860px) {
+    @media (max-width:840px) {
       nav { display:none; }
-      .hero-grid, .section-head, .contact-wrap, .profile-box { grid-template-columns:1fr; display:grid; }
+      .hero-grid, .section-head, .contact-wrap, .profile-box { display:grid; grid-template-columns:1fr; }
       .three-grid, .cards { grid-template-columns:1fr; }
-      .stats { grid-template-columns:1fr; }
+      .mini-grid { grid-template-columns:1fr; }
       .footer-grid { display:block; }
-      .brand small { display:none; }
     }
   </style>
 </head>
@@ -128,7 +162,7 @@
     <div class="wrap nav">
       <a class="brand" href="#top" aria-label="EthicHawks home">
         <span class="brand-mark">E</span>
-        <span><span>ETHICHAWKS</span><small>governance</small></span>
+        <span class="brand-text"><strong>ETHICHAWKS</strong><small>governance</small></span>
       </a>
       <nav aria-label="Primary navigation">
         <a href="#practice">Practice</a>
@@ -136,7 +170,7 @@
         <a href="#approach">Approach</a>
         <a href="#contact">Contact</a>
       </nav>
-      <a class="btn secondary nav-cta" href="mailto:info@ethichawks.co.za?subject=EthicHawks%20Enquiry">Start a conversation</a>
+      <a class="btn secondary" href="mailto:info@ethichawks.co.za?subject=EthicHawks%20Enquiry">Start a conversation</a>
     </div>
   </div>
 
@@ -145,25 +179,24 @@
       <div class="wrap hero-grid">
         <div class="hero-copy">
           <div class="eyebrow">Closed Loop of Truth · The Wilbur Method™</div>
-          <h1>Make the <span class="highlight">signal</span> visible.<br>Before the risk grows.</h1>
-          <p class="lead">EthicHawks connects governance, healthcare realities and practical technology to help organisations understand what is failing, why it is happening, and what should happen next.</p>
+          <h1>See the <span class="highlight">system</span>.<br>Before it becomes harm.</h1>
+          <p class="lead">EthicHawks connects governance, healthcare realities and practical technology to help organisations understand what is failing, why it is happening and what should happen next.</p>
           <div class="cta-row">
             <a class="btn primary" href="#practice">Explore the practice</a>
             <a class="btn secondary" href="#contact">Discuss an engagement</a>
           </div>
         </div>
 
-        <div class="hero-card">
-          <div class="status">Platform active</div>
-          <div class="hero-panel">
-            <small>Capability overview</small>
-            <strong>Three lenses.<br>One system view.</strong>
-            <p>Clinical reality, governance discipline and situation-aware technology built to reduce ambiguity before it becomes institutional harm.</p>
-          </div>
-          <div class="stats">
-            <div class="stat"><strong>3</strong><span>core disciplines</span></div>
-            <div class="stat"><strong>∞</strong><span>system connections</span></div>
-            <div class="stat"><strong>1</strong><span>clear action path</span></div>
+        <div class="orbital">
+          <div class="panel-core">
+            <div class="status">Platform active</div>
+            <strong>Three lenses. One system view.</strong>
+            <p style="margin-top:1rem;">Clinical reality, governance discipline and technology-aware decision-making built to reduce ambiguity before it becomes institutional harm.</p>
+            <div class="mini-grid">
+              <div class="mini"><strong>3</strong><span>disciplines</span></div>
+              <div class="mini"><strong>∞</strong><span>signals</span></div>
+              <div class="mini"><strong>1</strong><span>path</span></div>
+            </div>
           </div>
         </div>
       </div>
@@ -276,7 +309,7 @@
       <div class="wrap contact-wrap">
         <div>
           <div class="eyebrow">Engagement</div>
-          <h2 style="margin-top:.8rem; font-size:clamp(2.2rem,5vw,3.6rem); letter-spacing:-.05em;">Bring the difficult question.</h2>
+          <h2 style="margin-top:.8rem; letter-spacing:-.06em;">Bring the difficult question.</h2>
           <p style="margin-top:1rem; max-width:560px;">For a confidential introductory conversation, email the practice with a short description of the context and the outcome you are seeking.</p>
           <a class="btn primary" href="mailto:info@ethichawks.co.za?subject=EthicHawks%20Engagement%20Enquiry" style="margin-top:1.5rem;">Email EthicHawks</a>
         </div>
@@ -298,14 +331,14 @@
           <div class="eyebrow">EthicHawks</div>
           <p>Governance, risk and systems architecture with a human centre.</p>
         </div>
-        <div class="sm">Cape Town · South Africa</div>
+        <div class="tiny">Cape Town · South Africa</div>
       </div>
 
       <div class="legal">
         <a href="terms.html">Terms of Service</a>
         <a href="privacy-policy.html">Privacy Policy</a>
         <a href="disclaimer.html">Legal Disclaimer</a>
-        <span class="sm">Informational pages only — please have them reviewed by a qualified South African legal/privacy professional before treating them as formal policies.</span>
+        <span class="tiny">Informational pages only — please have them reviewed by a qualified South African legal/privacy professional before treating them as formal policies.</span>
       </div>
     </div>
   </footer>
