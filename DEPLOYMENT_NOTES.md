@@ -1,14 +1,14 @@
 # Deployment notes
 
-The GitHub Pages workflow deploys the repository root (`folder: .`) to the `gh-pages` branch. `dev/index.html` is therefore published at `/dev/index.html`, but it does not replace `/index.html`.
+The root `index.html` is the default main site and is deployed at the site root.
 
-The CloudCannon configuration explicitly exposes `dev` as an editable collection. It is currently only a basic preview/test page and can remain publicly reachable at `/dev/index.html`; remove or rename it if that page is not intended for public access.
+The healthcare-specific version remains a secondary page at `/healthcare.html`. It is linked from the main navigation and homepage, but it does not replace the main homepage.
 
-Available presentation variants:
+The homepage now uses the repository-local assets:
 
-- `/index.html` — full futuristic AI governance homepage.
-- `/landing.html` — shorter, faster landing page.
-- `/executive.html` — premium executive/investor-facing briefing.
-- `/healthcare.html` — healthcare and governance-focused landing page.
+- `assets/logo.png`
+- `assets/author.png`
+
+The GitHub Pages workflow deploys the repository root (`folder: .`) to the `gh-pages` branch. `dev/index.html` is therefore available at `/dev/index.html`, but it does not replace `/index.html`. Remove or rename it if the public test page is not intended.
 
 The legal pages are informational drafts and should be reviewed by a qualified South African legal/privacy professional before formal reliance.
