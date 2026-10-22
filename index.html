@@ -1,21 +1,489 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="EthicHawks connects governance, risk, healthcare context and responsible technology.">
-<title>EthicHawks | Governance, Risk & Systems Architecture</title>
-<style>
-:root{--bg:#050d18;--panel:#0d1d2d;--cyan:#7ce7ff;--violet:#9b8cff;--gold:#f4d486;--text:#eefaff;--muted:#a9bdcc;--line:rgba(124,231,255,.22)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 15% 0,rgba(124,231,255,.14),transparent 28%),radial-gradient(circle at 85% 15%,rgba(155,140,255,.14),transparent 24%),linear-gradient(180deg,var(--bg),#091b2a);color:var(--text);font:16px/1.7 system-ui,-apple-system,Segoe UI,sans-serif}a{color:inherit;text-decoration:none}.wrap{width:min(1120px,calc(100% - 2rem));margin:auto}.eyebrow{color:var(--cyan);font-size:.72rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}h1,h2,h3{margin:0;line-height:1.08}h1,h2{letter-spacing:-.06em}h1{font-size:clamp(3rem,7vw,6rem);margin:1rem 0}h1 span,h2 span{color:var(--cyan)}h2{font-size:clamp(2.2rem,4vw,3.5rem)}p{margin:0;color:var(--muted)}.topbar{position:sticky;top:0;z-index:10;background:rgba(5,13,24,.84);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:78px}.brand{display:flex;align-items:center;gap:.8rem;font-weight:800;letter-spacing:.12em}.brand img{width:42px;height:42px;object-fit:contain;border-radius:10px}.brand small{display:block;color:var(--cyan);font-size:.58rem;letter-spacing:.14em}.links{display:flex;gap:1.4rem;color:var(--muted);font-size:.84rem}.links a:hover{color:var(--text)}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:.8rem 1.2rem;border:1px solid var(--line);border-radius:10px;font-weight:800}.primary{border:0;background:linear-gradient(135deg,var(--cyan),var(--violet));color:#06101a;box-shadow:0 16px 32px rgba(124,231,255,.2)}.hero{padding:6rem 0 4.5rem}.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:3rem;align-items:center}.lead{max-width:680px;font-size:1.15rem}.actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}.hero-card{padding:1.6rem;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,rgba(13,39,57,.94),rgba(9,24,39,.86));box-shadow:0 25px 70px rgba(0,0,0,.25)}.logo-large{width:100%;height:150px;object-fit:contain;object-position:left center;margin-bottom:1rem}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-top:1.4rem}.metric{padding:.8rem;border:1px solid var(--line);border-radius:12px}.metric b{display:block;font-size:1.35rem}.metric span{font-size:.68rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}section{padding:5rem 0}.head{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:2rem}.head p{max-width:620px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}.card{padding:1.45rem;border:1px solid var(--line);border-radius:16px;background:rgba(13,29,45,.72)}.card:hover{border-color:var(--cyan);transform:translateY(-3px);transition:.2s}.number{font-size:1.8rem;font-weight:800;color:var(--cyan)}.card h3{margin:.7rem 0;color:var(--text)}.profile{display:grid;grid-template-columns:170px 1fr;gap:2rem;align-items:center;padding:1.8rem;border:1px solid var(--line);border-radius:20px;background:linear-gradient(120deg,rgba(124,231,255,.08),rgba(13,29,45,.86))}.author{width:150px;height:150px;object-fit:cover;border-radius:50%;border:2px solid var(--gold);box-shadow:0 0 28px rgba(244,212,134,.2)}.badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}.badge{padding:.35rem .6rem;border:1px solid rgba(244,212,134,.32);border-radius:999px;color:var(--gold);font-size:.7rem}.callout{margin-top:1.8rem;padding:1rem 1.2rem;border-left:3px solid var(--gold);background:rgba(244,212,134,.08);color:var(--muted)}.contact{display:grid;grid-template-columns:1fr 1fr;gap:2rem}.contact-card{padding:1.5rem;border:1px solid var(--line);border-radius:16px;background:rgba(13,29,45,.72)}.contact-card a{color:var(--cyan)}footer{padding:2.7rem 0;border-top:1px solid var(--line);background:rgba(5,13,24,.8)}.footer-row{display:flex;justify-content:space-between;gap:1rem}.legal{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.3rem;padding-top:1rem;border-top:1px solid var(--line);font-size:.78rem;color:var(--muted)}.legal a{color:var(--cyan)}@media(max-width:820px){.links{display:none}.hero-grid,.head,.profile,.contact{display:grid;grid-template-columns:1fr}.grid{grid-template-columns:1fr}.footer-row{display:block}.author{margin:auto}.logo-large{height:110px}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EthicHawks | Forensic Governance, Risk & Systems Architecture</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --navy-deep: #0a1118;
+            --navy-card: #121c26;
+            --navy-border: #1e2d3d;
+            --gold-accent: #d4af37;
+            --gold-hover: #f1c40f;
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--navy-deep);
+            color: var(--text-main);
+            font-family: 'Josefin Sans', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .brand-font {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        a {
+            color: var(--gold-accent);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--gold-hover);
+        }
+
+        /* Header & Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            border-bottom: 1px solid var(--navy-border);
+            position: sticky;
+            top: 0;
+            background-color: rgba(10, 17, 24, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--white);
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--gold-accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-main);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        nav a:hover {
+            color: var(--gold-accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 5% 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-subtitle {
+            color: var(--gold-accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            color: var(--white);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .hero p {
+            max-width: 780px;
+            margin: 0 auto 2.5rem auto;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 2px;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--gold-accent);
+            color: var(--navy-deep);
+            border: 1px solid var(--gold-accent);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--gold-accent);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 1px solid var(--navy-border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--gold-accent);
+            color: var(--gold-accent);
+        }
+
+        /* Frame Work / Methodology Feature */
+        .methodology-banner {
+            background: linear-gradient(180deg, var(--navy-deep) 0%, var(--navy-card) 100%);
+            border-top: 1px solid var(--navy-border);
+            border-bottom: 1px solid var(--navy-border);
+            padding: 3rem 5%;
+            margin-top: 2rem;
+        }
+
+        .banner-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .banner-text h2 {
+            font-size: 2rem;
+            color: var(--white);
+        }
+
+        .banner-text p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .badge {
+            border: 1px solid var(--gold-accent);
+            color: var(--gold-accent);
+            padding: 0.4rem 1rem;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Pillars Section */
+        .section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--white);
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--navy-card);
+            border: 1px solid var(--navy-border);
+            padding: 2.5rem 2rem;
+            border-radius: 4px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold-accent);
+        }
+
+        .card-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--gold-accent);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Practice Focus List */
+        .practice-list {
+            list-style: none;
+            margin-top: 1.5rem;
+            border-top: 1px solid var(--navy-border);
+            padding-top: 1rem;
+        }
+
+        .practice-list li {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-main);
+        }
+
+        .practice-list li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: var(--gold-accent);
+        }
+
+        /* Practitioner Profile Section */
+        .practitioner {
+            background-color: var(--navy-card);
+            border: 1px solid var(--navy-border);
+            border-radius: 4px;
+            padding: 3.5rem 3rem;
+            margin: 4rem auto;
+            max-width: 1000px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .profile-title h3 {
+            font-size: 2.2rem;
+            color: var(--white);
+            line-height: 1.1;
+        }
+
+        .profile-title .role {
+            color: var(--gold-accent);
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-top: 0.5rem;
+            display: block;
+        }
+
+        .profile-bio p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--navy-border);
+            padding: 3rem 5%;
+            text-align: center;
+            background-color: var(--navy-deep);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .practitioner {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 2rem;
+            }
+            .banner-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
 </head>
 <body>
-<header class="topbar"><div class="wrap nav"><a class="brand" href="#top"><img src="assets/logo.png" alt="EthicHawks logo"><span>ETHICHAWKS<small>GOVERNANCE &amp; SYSTEMS</small></span></a><nav class="links" aria-label="Primary navigation"><a href="#practice">Practice</a><a href="#capabilities">Capabilities</a><a href="#practitioner">Practitioner</a><a href="healthcare.html">Healthcare</a><a href="#contact">Contact</a></nav><a class="btn" href="mailto:info@ethichawks.co.za?subject=EthicHawks%20Enquiry">Start a conversation</a></div></header>
-<main id="top">
-<section class="hero"><div class="wrap hero-grid"><div><div class="eyebrow">Closed Loop of Truth · The Wilbur Method™</div><h1>See the <span>system</span>.<br>Before risk grows.</h1><p class="lead">EthicHawks connects governance, healthcare realities and practical technology to help organisations understand what is failing, why it is happening and what should happen next.</p><div class="actions"><a class="btn primary" href="#practice">Explore the practice</a><a class="btn" href="healthcare.html">Healthcare governance</a></div></div><aside class="hero-card"><img class="logo-large" src="assets/logo.png" alt="EthicHawks emblem"><div class="eyebrow">A multidisciplinary capability platform</div><h3 style="margin:.8rem 0">Three lenses. One system view.</h3><p>Governance discipline, clinical context and responsible technology for complex environments.</p><div class="metrics"><div class="metric"><b>3</b><span>disciplines</span></div><div class="metric"><b>∞</b><span>signals</span></div><div class="metric"><b>1</b><span>clear path</span></div></div></aside></div></section>
-<section id="practice"><div class="wrap"><div class="head"><div><div class="eyebrow">The practice</div><h2>Clarity for <span>complex systems.</span></h2></div><p>EthicHawks is a multidisciplinary capability platform. Descriptions outline intended areas of work and do not promise a legal, clinical, regulatory or commercial outcome.</p></div><div class="grid"><article class="card"><div class="number">01</div><h3>Governance insight</h3><p>Map decisions, controls and institutional context so leaders can see where policy, process and practice diverge.</p></article><article class="card"><div class="number">02</div><h3>Technical execution</h3><p>Use practical workflows and responsible technology choices to support traceability and better decisions.</p></article><article class="card"><div class="number">03</div><h3>Human synthesis</h3><p>Translate complex information into clear narratives and responsible next steps.</p></article></div></div></section>
-<section id="capabilities"><div class="wrap"><div class="head"><div><div class="eyebrow">Capabilities</div><h2>Where insight becomes action.</h2></div><p>Engagements are scoped to client needs, available evidence and the practitioner’s confirmed remit.</p></div><div class="grid"><article class="card"><h3>Root-cause review</h3><p>Identify contributing factors, control gaps and decision patterns.</p></article><article class="card"><h3>Responsible automation</h3><p>Explore privacy-aware, explainable and audit-friendly workflows.</p></article><article class="card"><h3>AI governance</h3><p>Discuss human oversight, accountability and traceability in AI-enabled work.</p></article></div><div class="callout">For healthcare-specific messaging, visit the <a href="healthcare.html" style="color:var(--cyan);font-weight:700">Healthcare Governance page</a>.</div></div></section>
-<section id="practitioner"><div class="wrap"><div class="eyebrow">The practitioner</div><h2 style="margin:.7rem 0 2rem">Measured, multidisciplinary and human.</h2><div class="profile"><img class="author" src="assets/author.png" alt="Portrait of Sr. Wilbur William Matthee"><div><h3>Sr. Wilbur William Matthee</h3><p>Founder &amp; Principal Consultant · Healthcare leadership experience · Governance and systems practitioner</p><p style="margin-top:.7rem">Professional credentials, memberships and experience are presented as supplied and should be independently verified before reliance.</p><div class="badges"><span class="badge">Clinical governance</span><span class="badge">Risk mapping</span><span class="badge">Systems thinking</span><span class="badge">Responsible technology</span></div></div></div></div></section>
-<section id="contact"><div class="wrap contact"><div><div class="eyebrow">Engagement</div><h2 style="margin:.7rem 0 1rem">Bring the difficult question.</h2><p>Share a short description of the context and outcome you are seeking. Please do not send confidential records by ordinary email.</p><a class="btn primary" style="margin-top:1.4rem" href="mailto:info@ethichawks.co.za?subject=EthicHawks%20Engagement%20Enquiry">Email EthicHawks</a></div><div class="contact-card"><h3>EthicHawks Forensic Governance &amp; Compliance Consultancy</h3><p>Cape Town, Western Cape, South Africa</p><p style="margin-top:.8rem"><a href="mailto:info@ethichawks.co.za">info@ethichawks.co.za</a><br>+27 69 635 1435</p></div></div></section>
-</main><footer><div class="wrap"><div class="footer-row"><div><div class="eyebrow">EthicHawks</div><p>Governance, risk and systems architecture with a human centre.</p></div><span style="color:var(--muted);font-size:.8rem">Cape Town · South Africa</span></div><div class="legal"><a href="terms.html">Terms of Service</a><a href="privacy-policy.html">Privacy Policy</a><a href="disclaimer.html">Legal Disclaimer</a><a href="healthcare.html">Healthcare Governance</a><span>Informational drafts — obtain qualified South African legal/privacy review before formal reliance.</span></div></div></footer>
-</body></html>
+
+    <!-- Header / Navigation -->
+    <header>
+        <div class="logo">Ethic<span>Hawks</span></div>
+        <nav>
+            <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#capabilities">Capabilities</a></li>
+                <li><a href="healthcare.html">Healthcare Governance</a></li>
+                <li><a href="#practitioner">Practitioner</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="overview">
+        <div class="hero-subtitle">Forensic Governance &amp; Systems Architecture</div>
+        <h1>Making Operational Risk &amp; System Discrepancies Visible</h1>
+        <p>
+            EthicHawks bridges complex clinical realities, governance frameworks, and data systems architecture. 
+            We provide forensic clarity for institutions navigating clinical risk, statutory oversight, operational breakdowns, and emerging AI technologies.
+        </p>
+        <div class="btn-group">
+            <a href="#capabilities" class="btn btn-primary">Explore Capabilities</a>
+            <a href="healthcare.html" class="btn btn-secondary">Healthcare Sector</a>
+        </div>
+    </section>
+
+    <!-- Proprietary Methodology Banner -->
+    <div class="methodology-banner">
+        <div class="banner-content">
+            <div class="banner-text">
+                <div class="badge">Proprietary Framework</div>
+                <h2>The Wilbur Method™ &amp; Closed Loop of Truth</h2>
+                <p>An evidence-led root-cause investigation methodology mapping procedural failures, data gaps, and decision chains back to core institutional controls.</p>
+            </div>
+            <a href="#contact" class="btn btn-secondary">Request Consultation</a>
+        </div>
+    </div>
+
+    <!-- Core Pillars / Capabilities -->
+    <section class="section" id="capabilities">
+        <div class="section-header">
+            <h2>Three Lenses. One Integrated System View.</h2>
+            <p style="color: var(--text-muted); margin-top: 0.5rem;">Independent analysis for leadership navigating high-stakes environments.</p>
+        </div>
+
+        <div class="grid-3">
+            <!-- Pillar 1 -->
+            <div class="card">
+                <div class="card-num">01</div>
+                <h3>Governance &amp; Forensic Insight</h3>
+                <p>Mapping institutional decisions, clinical governance protocols, and procedural breakdowns where policy and frontline execution diverge.</p>
+                <ul class="practice-list">
+                    <li>Root-cause defect analysis</li>
+                    <li>Clinical &amp; operational risk mapping</li>
+                    <li>Regulatory &amp; statutory audit readiness</li>
+                    <li>Whistleblower &amp; compliance reviews</li>
+                </ul>
+            </div>
+
+            <!-- Pillar 2 -->
+            <div class="card">
+                <div class="card-num">02</div>
+                <h3>Systems &amp; Technical Execution</h3>
+                <p>Analyzing integration gaps between technical platforms, claims data models, and workflow logs to isolate system failure points.</p>
+                <ul class="practice-list">
+                    <li>Data pipeline auditability</li>
+                    <li>System gap &amp; reconciliation analysis</li>
+                    <li>Responsible automation evaluation</li>
+                    <li>Audit trail &amp; evidence indexing</li>
+                </ul>
+            </div>
+
+            <!-- Pillar 3 -->
+            <div class="card">
+                <div class="card-num">03</div>
+                <h3>AI Governance &amp; Synthesis</h3>
+                <p>Evaluating automated workflows and AI models for algorithmic accountability, explainability, POPIA compliance, and human oversight.</p>
+                <ul class="practice-list">
+                    <li>Responsible AI implementation</li>
+                    <li>Traceability &amp; human oversight models</li>
+                    <li>Data privacy impact assessments</li>
+                    <li>Complex evidence bundle indexing</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practitioner Profile Section -->
+    <section class="section" id="practitioner">
+        <div class="practitioner">
+            <div class="profile-title">
+                <h3>Sr. Wilbur William Matthee</h3>
+                <span class="role">Founder &amp; Principal Consultant</span>
+            </div>
+            <div class="profile-bio">
+                <p>
+                    A registered Specialist Nurse and Health Systems Management practitioner holding a Postgraduate Diploma in Health Services Management (NQF Level 8) from Cape Peninsula University of Technology.
+                </p>
+                <p>
+                    Combining 16 years of clinical governance, Environmental Health and Safety (EHS) leadership, and automated evidence processing pipelines, Sr. Matthee leads EthicHawks in resolving multi-layered institutional, regulatory, and systemic challenges.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="logo">Ethic<span>Hawks</span></div>
+            <div class="footer-text">
+                EthicHawks Forensic Governance &amp; Compliance Consultancy | Cape Town, South Africa
+            </div>
+            <div class="footer-text">
+                &copy; 2026 EthicHawks. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
