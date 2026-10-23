@@ -1,0 +1,22 @@
+{
+  "last_updated": "2026-10-23T00:00:00Z",
+  "status": "In progress",
+  "current_phase": "Evidence review",
+  "headline": "Operational risk and governance review underway",
+  "summary": "Evidence synthesis remains active while the governance and litigation pathway are being reconciled with operational risk findings.",
+  "next_action": "Prepare briefing note for legal and governance stakeholders",
+  "confidence": "High",
+  "case_objective": "Establish a defensible forensic record of institutional governance failures, operational risk exposure, and the evidentiary pathway required for strategic response and legal coordination.",
+  "trajectory": [
+    { "date": "2026-10-01", "label": "Mandate intake", "detail": "Scope, risk framing, and preliminary governance review initiated." },
+    { "date": "2026-10-08", "label": "Evidence gathering", "detail": "Documentation, chronology, and operational facts aligned to review question." },
+    { "date": "2026-10-16", "label": "Root-cause synthesis", "detail": "Procedural deviation, system gap and control analysis mapped to the evidence base." },
+    { "date": "2026-10-23", "label": "Current stage", "detail": "Forensic synthesis and strategic response planning in progress." }
+  ],
+  "litigation_trajectory": [
+    { "date": "2026-10-01", "stage": "Intake", "note": "Initial review scope and risk framing established." },
+    { "date": "2026-10-08", "stage": "Evidence capture", "note": "Chronology, records, and operational context gathered for assessment." },
+    { "date": "2026-10-16", "stage": "Strategic review", "note": "Case posture and legal risk framing aligned with governance findings." },
+    { "date": "2026-10-23", "stage": "Current posture", "note": "Matters remain active and under forensic review with response planning underway." }
+  ]
+}
